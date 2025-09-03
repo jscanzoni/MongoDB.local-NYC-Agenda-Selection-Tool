@@ -1,0 +1,158 @@
+/* Theme */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: rgb(2, 52, 48);
+  color: #fff;
+}
+
+/* Container */
+.sessions-root {
+  max-width: 1024px;
+  margin: 24px auto 48px auto;
+  padding: 0 16px;
+}
+
+/* Time-block layout */
+.time-block {
+  margin: 28px 0 36px;
+  padding-top: 4px;
+  border-top: 1px solid rgba(159, 240, 197, 0.25);
+}
+.block-title {
+  font-size: 1.05rem;
+  color: #9ff0c5;
+  margin: 8px 0 12px;
+  letter-spacing: 0.2px;
+}
+.block-grid {
+  display: grid;
+  gap: 16px;
+}
+.block-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+
+/* Session cards */
+.session-card {
+  background: rgb(0, 104, 74);
+  color: rgb(233, 255, 153);
+  border-radius: 20px;
+  padding: 16px 18px;
+  margin: 0;
+  box-shadow: none;
+  cursor: pointer;
+  transition: transform 120ms ease, background-color 120ms ease;
+  user-select: none;
+  outline: none;
+}
+.session-card:hover { transform: translateY(-2px); }
+.session-card:focus-visible { box-shadow: 0 0 0 3px rgba(233,255,153,0.5); }
+.session-title {
+  font-size: 1.1rem;
+  color: rgb(233, 255, 153);
+  margin: 0 0 6px 0;
+}
+.session-meta {
+  color: #9ff0c5;
+  font-size: 0.95rem;
+  margin: 2px 0;
+}
+.level-pill {
+  display: inline-block;
+  background: rgb(233, 255, 153);
+  color: rgb(2, 52, 48);
+  border-radius: 24px;
+  padding: 4px 12px;
+  font-size: 0.85rem;
+  margin: 6px 0;
+}
+.session-desc {
+  color: #e6ffe6;
+  margin: 10px 0 12px 0;
+  white-space: normal;
+}
+
+/* Speakers */
+.speakers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px 16px;
+  align-items: start;
+}
+.speaker {
+  color: #ffffff;
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 10px;
+  align-items: center;
+}
+.speaker-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #0a6e52;
+  color: rgb(233, 255, 153);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  border: 2px solid #9ff0c5;
+  box-sizing: border-box;
+  text-transform: uppercase;
+}
+.speaker-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.speaker-info { display: flex; flex-direction: column; }
+.speaker .name { font-weight: 600; color: #ffffff; }
+.speaker .title, .speaker .company { color: #e6ffe6; font-size: 0.95rem; }
+
+/* Modal */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 16px;
+}
+.modal-backdrop.open { display: flex; }
+.Dialog__dragContainer___tcUgB {
+  width: min(920px, 100%);
+  background-color: rgb(2, 52, 48);
+  border-radius: 35px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  max-height: 90vh;
+  overflow: auto;
+}
+.DialogHeader__dragHandle___66ff,
+.DialogHeader__dialogHeader___66ff {
+  background-color: rgb(0, 104, 74);
+}
+.SessionDetailDialog__title___47b2 {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.SessionDetailDialog__closeDialog___47b2 { cursor: pointer; }
+.Dialog__content___IGTri { padding: 0; }
+.SessionDetailDialog__dialogDefaultFocus___47b2 { padding: 15px 1.25rem 1.875rem; }
+.AgendaV2Styles__sessionModalDateTimeAndShareLinkContainer___72ac,
+.AgendaV2Styles__sessionModalCategoryContainer___72ac,
+.AgendaV2Styles__sessionModalLocationAndCodeContainer___72ac,
+.AgendaV2Styles__sessionModalDescription___72ac { margin-bottom: 10px; }
+.AgendaV2Styles__sessionModalName___72ac { color: #fff; }
+.AgendaV2Styles__sessionModalDateTimeContainer___72ac,
+.AgendaV2Styles__sessionModalLocationAndCodeContainer___72ac { color: rgb(233, 255, 153); }
