@@ -140,7 +140,11 @@ document.addEventListener('DOMContentLoaded', () =>
         const totalRows=nextRow-1;
         const wrap=el('div', 'schedule-wrap');
         const timeRail=el('div', 'time-rail'); const head=el('div', 'time-rail-head sched-head'); timeRail.appendChild(head); const railInner=el('div', 'time-rail-inner'); timeRail.appendChild(railInner);
-        const scroller=el('div', 'schedule-scroll'); const grid=el('div', 'schedule-grid');
+        const scroller=el('div', 'schedule-scroll');
+        // Cover element sits above sessions (prevents peeking during upward scroll) but below sticky location headers
+        const cover=el('div', 'schedule-cover');
+        scroller.appendChild(cover);
+        const grid=el('div', 'schedule-grid');
         grid.style.gridTemplateColumns=locMeta.map(m => `repeat(${m.laneCount}, minmax(280px,1fr))`).join(' ');
         let col=1; const locStart=new Map(); locMeta.forEach(m => { locStart.set(m.loc, col); grid.appendChild(place(el('div', 'sched-head loc-head', m.loc), col, 1, m.laneCount)); col+=m.laneCount; });
         // Build time rail rows aligned with grid (gap rows render as empty shrink rows)
@@ -179,7 +183,7 @@ document.addEventListener('DOMContentLoaded', () =>
             if (slotCount===1) card.classList.add('span-one');
             grid.appendChild(place(card, base+laneIdx, startRow, 1, rowSpan));
         });
-        scroller.appendChild(grid); wrap.appendChild(timeRail); wrap.appendChild(scroller); root.appendChild(wrap); syncRail(scroller, railInner); adjustHead(head, grid);
+        scroller.appendChild(grid); wrap.appendChild(timeRail); wrap.appendChild(scroller); root.appendChild(wrap); syncRail(scroller, railInner); adjustHead(head, grid, scroller);
         // Enable mouse wheel scrolling when pointer is over the (non-scrollable) time rail
         timeRail.addEventListener('wheel', e =>
         {
@@ -195,23 +199,43 @@ document.addEventListener('DOMContentLoaded', () =>
     }
     const place=(node, col, row, colSpan=1, rowSpan=1) => { node.style.gridColumn=`${col} / ${col+colSpan}`; node.style.gridRow=`${row} / ${row+rowSpan}`; return node; };
     function syncRail(scroller, rail) { const f=() => rail.style.transform=`translateY(-${scroller.scrollTop}px)`; scroller.addEventListener('scroll', f, { passive: true }); f(); }
-    function adjustHead(head, grid) { requestAnimationFrame(() => { const h=grid.querySelector('.loc-head')?.getBoundingClientRect().height||40; head.style.height=`${h}px`; }); }
+    function adjustHead(head, grid, scroller) { requestAnimationFrame(() => { const h=grid.querySelector('.loc-head')?.getBoundingClientRect().height||40; head.style.height=`${h}px`; if (scroller) scroller.style.setProperty('--loc-head-h', h+'px'); }); }
 
     // ---------- Filters ----------
     function buildFilters() { if (!categoriesData||!filtersContainer) return; filtersContainer.innerHTML=''; const title=el('h3', 'filters-title', 'Filters'); filtersContainer.appendChild(title); const wrap=el('div', 'filters-content'); filtersContainer.appendChild(wrap); const known=new Set(); Object.values(categoriesData).forEach(arr => arr.forEach(t => known.add(t))); const used=new Set(); allSessions.forEach(s => (s.tags||[]).forEach(t => used.add(t))); const misc=[ ...used ].filter(t => !known.has(t)); const cats=[ ...Object.entries(categoriesData).map(([ n, t ]) => ({ name: n, tags: t })), ...(misc.length? [ { name: 'Misc', tags: misc } ]:[]) ]; cats.forEach(cat => { const sec=el('section', 'filter-category'); sec.appendChild(el('h4', 'filter-cat-title', cat.name)); const list=el('div', 'filter-tags'); cat.tags.forEach(tag => { const row=el('label', 'filter-tag'); const cb=document.createElement('input'); cb.type='checkbox'; cb.value=tag; cb.checked=selectedTags.has(tag); cb.addEventListener('change', () => { if (cb.checked) selectedTags.add(tag); else selectedTags.delete(tag); applyFilters(); }); row.appendChild(cb); row.appendChild(el('span', 'tag-label', tag)); list.appendChild(row); }); sec.appendChild(list); wrap.appendChild(sec); }); updateFiltersTitle(); }
     function updateFiltersTitle() { const t=filtersContainer?.querySelector('.filters-title'); if (t) { const c=selectedTags.size; t.textContent=c? `Filters (${c})`:'Filters'; track('filters_change', { selected_count: c, filters: [ ...selectedTags ].join('|') }); } }
-    function applyFilters() { const q=(searchInput?.value||'').toLowerCase().trim(); let list=allSessions; if (selectedTags.size) list=list.filter(s => (s.tags||[]).some(t => selectedTags.has(t))); if (q) { list=list.filter(s => (s.title||'').toLowerCase().includes(q)||(s.description||'').toLowerCase().includes(q)||(s.location||'').toLowerCase().includes(q)||(s.speakers||[]).some(sp => (sp.name||'').toLowerCase().includes(q))); } render(list); updateFiltersTitle(); }
+    function applyFilters(preserveScroll=false)
+    {
+        const q=(searchInput?.value||'').toLowerCase().trim();
+        let list=allSessions;
+        if (selectedTags.size) list=list.filter(s => (s.tags||[]).some(t => selectedTags.has(t)));
+        if (q) {
+            list=list.filter(s => (s.title||'').toLowerCase().includes(q)||(s.description||'').toLowerCase().includes(q)||(s.location||'').toLowerCase().includes(q)||(s.speakers||[]).some(sp => (sp.name||'').toLowerCase().includes(q)));
+        }
+        let sx=0, sy=0;
+        if (preserveScroll) {
+            const sc=document.querySelector('.schedule-scroll');
+            if (sc) { sx=sc.scrollLeft; sy=sc.scrollTop; }
+        }
+        render(list);
+        if (preserveScroll) {
+            requestAnimationFrame(() =>
+            {
+                const sc2=document.querySelector('.schedule-scroll');
+                if (sc2) { sc2.scrollLeft=sx; sc2.scrollTop=sy; }
+            });
+        }
+        updateFiltersTitle();
+    }
 
     // ---------- Personal schedule ----------
     function loadSchedule() { try { myScheduleIds=new Set(JSON.parse(localStorage.getItem('myScheduleIds')||'[]')); } catch { } renderMySchedule(); }
     function saveSchedule() { localStorage.setItem('myScheduleIds', JSON.stringify([ ...myScheduleIds ])); }
-    function toggleSchedule(id) { const adding=!myScheduleIds.has(id); if (adding) myScheduleIds.add(id); else myScheduleIds.delete(id); track(adding? 'schedule_add':'schedule_remove', { session_id: id }); saveSchedule(); renderMySchedule(); applyFilters(); }
+    function toggleSchedule(id) { const adding=!myScheduleIds.has(id); if (adding) myScheduleIds.add(id); else myScheduleIds.delete(id); track(adding? 'schedule_add':'schedule_remove', { session_id: id }); saveSchedule(); renderMySchedule(); applyFilters(true); }
     // Faster in-place toggle avoiding full scroll jump; still re-renders list quietly
     function fastToggleSchedule(id, card, btn)
     {
-        const scroller=document.querySelector('.schedule-scroll');
-        const scrollLeft=scroller? scroller.scrollLeft:0;
-        const scrollTop=scroller? scroller.scrollTop:0;
+        // Preserve scroll via applyFilters(true) instead of manually restoring old node
         const adding=!myScheduleIds.has(id);
         if (adding) myScheduleIds.add(id); else myScheduleIds.delete(id);
         saveSchedule();
@@ -228,14 +252,57 @@ document.addEventListener('DOMContentLoaded', () =>
         }
         btn.setAttribute('aria-label', (selected? 'Remove from':'Add to')+` My Schedule: ${(card.querySelector('.session-title')||{}).textContent||''}`);
         renderMySchedule(); track(adding? 'schedule_add':'schedule_remove', { session_id: id });
-        // Re-filter without rebuilding scroll container (skip full render)
-        applyFilters();
-        // Restore scroll
-        if (scroller) { scroller.scrollLeft=scrollLeft; scroller.scrollTop=scrollTop; }
+        applyFilters(true);
     }
     function renderMySchedule() { const list=document.getElementById('schedule-list'); if (!list) return; list.innerHTML=''; const items=[ ...myScheduleIds ].map(id => allSessions.find(s => s.id===id)).filter(Boolean).sort((a, b) => a.start-b.start); let prev=null; items.forEach(s => { if (prev!=null&&s.start-prev>=30) { const gap=el('div', 'schedule-item free-slot'); gap.appendChild(el('span', 'label', 'Open time:')); gap.appendChild(document.createTextNode(` ${fmtRange(prev, s.start)}`)); list.appendChild(gap); } const row=el('div', 'schedule-item'); const remove=el('button', 'remove', '×'); remove.addEventListener('click', () => { myScheduleIds.delete(s.id); saveSchedule(); renderMySchedule(); applyFilters(); }); row.appendChild(remove); row.appendChild(el('div', 'title', s.title||'')); row.appendChild(el('div', 'time', fmtRange(s.start, s.end))); row.appendChild(el('div', 'loc', normLoc(s.location))); if (s.takeaway) { const tw=el('div', 'takeaway', s.takeaway); row.appendChild(tw); } list.appendChild(row); prev=s.end; }); }
 
-    document.addEventListener('click', async e => { const t=e.target; if (!(t instanceof HTMLElement)) return; if (t.id==='btn-copy-clipboard') { try { const items=[ ...myScheduleIds ].map(id => allSessions.find(s => s.id===id)).filter(Boolean).sort((a, b) => a.start-b.start); const text=items.map(s => { const lines=[ `${fmtRange(s.start, s.end)} | ${normLoc(s.location)}`, s.title ]; if (s.takeaway) lines.push(`Takeaway: ${s.takeaway}`); return lines.join('\n'); }).join('\n\n'); await navigator.clipboard.writeText(text); t.textContent='Copied!'; track('schedule_copy', { count: items.length }); setTimeout(() => t.textContent='Copy to Clipboard', 1200); } catch (err) { console.error('copy failed', err); } } if (t.id==='btn-clear-schedule') { if (!myScheduleIds.size) return; if (!confirm(`Clear your schedule (${myScheduleIds.size} items)?`)) return; const prevCount=myScheduleIds.size; myScheduleIds=new Set(); saveSchedule(); renderMySchedule(); applyFilters(); track('schedule_clear', { previous_count: prevCount }); } });
+    document.addEventListener('click', async e =>
+    {
+        const t=e.target; if (!(t instanceof HTMLElement)) return;
+        if (t.id==='btn-copy-clipboard') {
+            try {
+                const items=[ ...myScheduleIds ].map(id => allSessions.find(s => s.id===id)).filter(Boolean).sort((a, b) => a.start-b.start);
+                if (!items.length) return;
+                // Build structured rows with computed durations for alignment
+                const rows=items.map(s => ({
+                    start: s.start,
+                    end: s.end,
+                    range: fmtRange(s.start, s.end),
+                    dur: ((s.end-s.start))+'m',
+                    room: normLoc(s.location),
+                    title: (s.title||'').replace(/\s+/g, ' ').trim(),
+                    takeaway: s.takeaway||''
+                }));
+                const w={
+                    range: Math.max('Time'.length, ...rows.map(r => r.range.length)),
+                    dur: Math.max('Dur'.length, ...rows.map(r => r.dur.length)),
+                    room: Math.max('Room'.length, ...rows.map(r => r.room.length))
+                };
+                const pad=(str, len) => str+' '.repeat(Math.max(0, len-str.length));
+                const out=[];
+                out.push(`My MongoDB.local NYC Schedule — generated ${new Date().toLocaleString()}`);
+                out.push('');
+                out.push(pad('Time', w.range)+'  '+pad('Dur', w.dur)+'  '+pad('Room', w.room)+'  Title');
+                out.push('-'.repeat(w.range)+'  '+'-'.repeat(w.dur)+'  '+'-'.repeat(w.room)+'  '+'-----');
+                rows.forEach(r =>
+                {
+                    out.push(pad(r.range, w.range)+'  '+pad(r.dur, w.dur)+'  '+pad(r.room, w.room)+'  '+r.title);
+                    if (r.takeaway) out.push(' '.repeat(w.range+w.dur+w.room+6)+'Takeaway: '+r.takeaway);
+                });
+                const text=out.join('\n');
+                await navigator.clipboard.writeText(text);
+                const original=t.innerHTML;
+                t.innerHTML='<span class="copied-check">✓</span>';
+                track('schedule_copy', { count: items.length });
+                setTimeout(() => { t.innerHTML=original; }, 1100);
+            } catch (err) { console.error('copy failed', err); }
+        }
+        if (t.id==='btn-clear-schedule') {
+            if (!myScheduleIds.size) return;
+            if (!confirm(`Clear your schedule (${myScheduleIds.size} items)?`)) return;
+            const prevCount=myScheduleIds.size; myScheduleIds=new Set(); saveSchedule(); renderMySchedule(); applyFilters(); track('schedule_clear', { previous_count: prevCount });
+        }
+    });
 
     // Speaker image preload (lazy)
     function preloadImages() { try { const set=new Set(); allSessions.forEach(s => (s.speakers||[]).forEach(sp => sp?.photoUrl&&set.add(sp.photoUrl))); set.forEach(src => { const img=new Image(); img.decoding='async'; img.loading='eager'; img.src=src; }); } catch { } }

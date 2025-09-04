@@ -3,23 +3,32 @@
   --footer-h: 56px; /* fixed footer approx height */
   --slot-h: 30px; /* restore taller slot for readability */
 }
+/* Allow header + footer outside central fixed-height work area; hide page scroll */
 html, body { height:100%; }
 body { overflow:hidden; }
 
 /* Full-viewport app frame: header (sticky) + page-grid (flexed) + fixed footer */
-.page-grid {
-  height: calc(100vh - var(--header-h) - var(--footer-h));
-  overflow: hidden;
-}
-.content { display:flex; flex-direction:column; min-height:0; }
-.sessions-root { flex:1 1 auto; overflow:hidden; margin:16px 0 0 0; }
+/* Full-viewport app frame: constrain grid to viewport so inner panes scroll independently */
+/* Allow page to size naturally; individual scroll areas manage their own overflow */
+/* Grid occupies viewport minus header & footer; internal columns scroll */
+.page-grid { height:calc(100vh - var(--header-h) - var(--footer-h)); overflow:hidden; }
+.content { display:flex; flex-direction:column; min-height:0; height:100%; }
+.sessions-root { flex:1 1 auto; min-height:0; height:100%; margin:8px 0 0 0; display:flex; flex-direction:column; }
 
-/* Schedule wrap + scroller take full available height; independent vertical scroll */
-.schedule-wrap { height:100%; }
-.schedule-scroll { height:100%; max-height:none; }
+/* Schedule area uses intrinsic height; inner scroll retains previous behavior */
+/* (original auto height rules removed; replaced by flex full-height variant below) */
+/* Full-height schedule region with internal scrolling */
+/* Agenda schedule grid: fill available height; internal scroll */
+/* Ensure schedule grid fills vertical space and becomes the scroll container */
+.schedule-wrap { flex:1 1 auto; min-height:0; height:100%; display:grid; grid-template-columns:140px 1fr; align-items:start; }
+.schedule-scroll { height:100%; overflow:auto; padding:0 0 24px; scroll-padding-top:0; background:rgb(2,52,48); overscroll-behavior-y:contain; }
 .time-rail { height:100%; }
+/* Remove tiny top padding so sticky location headers fully cover top edge */
+/* (was: .schedule-grid { padding-top:4px; }) */
 
 /* Override earlier bottom margin for sessions-root when using locked layout */
+/* restore bottom margin for spacing above footer */
+/* Remove old bottom margin override; internal scroll handles spacing */
 .sessions-root { margin-bottom:0 !important; }
 /* Even more subtle author pulse (nearly imperceptible brightness + faint underline fade) */
 /* Author flicker shine: each letter briefly brightens in a cascading wave */
@@ -60,9 +69,13 @@ body {
   gap: 16px; /* spacers between filters | agenda | schedule */
   align-items: start;
 }
-.filters-static { position: sticky; top: var(--header-h); align-self: start; max-height: calc(100vh - var(--header-h)); overflow: auto; padding: 24px 12px; }
+/* Left filters column: own scroll; header inside stays sticky at its top */
+.filters-static { position:sticky; top:var(--header-h); align-self:start; height:calc(100vh - var(--header-h) - var(--footer-h)); overflow:auto; padding:0 12px 24px; box-sizing:border-box; display:flex; flex-direction:column; }
+.filters-static .filters-title { position:sticky; top:0; background:rgb(2,52,48); padding:14px 4px 12px; z-index:20; margin:0; font-weight:700; letter-spacing:.5px; box-shadow:0 2px 4px rgba(0,0,0,0.45); border-bottom:1px solid rgba(255,255,255,0.15); }
+.filters-static .filters-title::before { content:""; position:absolute; inset:0; left:-12px; right:-12px; background:rgb(2,52,48); z-index:-1; }
+.filters-static .filter-category:first-of-type { border-top:0; padding-top:0; }
 .content { min-width: 0; }
-.my-schedule { position: sticky; top: var(--header-h); align-self: start; max-height: calc(100vh - var(--header-h)); overflow: auto; padding: 24px 12px; }
+/* (Old my-schedule sticky block removed; new flex version defined later) */
 .mys-title { margin: 0 0 12px; color: #9ff0c5; font-size: 1.2rem; }
 .schedule-list { display: flex; flex-direction: column; gap: 10px; }
 .schedule-item { background: #074538; color: #e9ff99; border-radius: 14px; padding: 10px 12px; font-size: 0.95rem; }
@@ -72,6 +85,8 @@ body {
 
 /* Location-based schedule grid */
 .schedule-grid { display: grid; column-gap: 12px; row-gap: 0; --col-gap: 12px; grid-auto-rows: var(--slot-h); position: relative; }
+.schedule-top-mask { display:none; }
+.schedule-cover { position:sticky; top:0; left:0; right:0; height:var(--loc-head-h,56px); background:rgb(2,52,48); z-index:14; pointer-events:none; box-shadow:0 2px 4px rgba(0,0,0,0.4); }
 .schedule-scroll {
   /* Overridden by earlier full-height layout; keep overflow + padding if desired */
   overflow:auto;
@@ -117,15 +132,10 @@ body {
   gap: 12px;
   align-items: start;
 }
-.time-rail {
-  position: sticky;
-  top: var(--header-h);
-  align-self: start;
-  height: calc(100vh - var(--header-h) - 100px);
-  overflow: hidden; /* inner will be translated to mirror scroll */
-  background: rgb(2, 52, 48);
-  z-index: 5; /* above grid content */
-}
+.time-rail { position:sticky; top:var(--header-h); align-self:start; overflow:hidden; background:rgb(2,52,48); z-index:6; }
+.loc-head { z-index:15; position:sticky; top:0; background:rgb(2,52,48); padding:14px 6px 12px; box-shadow:0 2px 4px rgba(0,0,0,0.5); border-bottom:1px solid rgba(255,255,255,0.15); overflow:hidden; }
+.loc-head::before { content:""; position:absolute; left:-8px; right:-8px; top:-56px; height:calc(100% + 56px); background:rgb(2,52,48); z-index:-1; }
+.loc-head::before { content:""; position:absolute; inset:0; left:-6px; right:-6px; background:rgb(2,52,48); z-index:-1; border-top-left-radius:8px; border-top-right-radius:8px; }
 .time-rail-inner {
   display: grid;
   grid-template-columns: 1fr;
@@ -600,24 +610,17 @@ body {
 
 /* --- Persistent schedule actions bar --- */
 /* Restructure schedule panel so list scrolls independently and buttons stay visible */
-.my-schedule {
-  display:flex;
-  flex-direction:column;
-  overflow:hidden; /* hide inner scrollbar edges */
-  padding: 16px 12px 0; /* reduce top space; bottom handled by actions bar */
-}
-#schedule-capture { flex:1 1 auto; min-height:0; overflow:auto; padding-right:4px; }
-.schedule-actions {
-  flex-shrink:0;
-  position:sticky; /* within sticky aside */
-  bottom:0;
-  background:linear-gradient(to top, #000 0%, rgba(0,0,0,0.9) 50%, rgba(0,0,0,0));
-  padding:12px 4px 16px;
-  margin-top:4px;
-  display:flex;
-  gap:10px;
-  backdrop-filter:blur(2px);
-  z-index:5;
-}
-.schedule-actions .btn { flex:1 1 0; }
-.schedule-actions .btn.secondary { order:1; }
+/* Right schedule column: sticky + internal list scroll */
+.my-schedule { position:sticky; top:var(--header-h); align-self:start; display:flex; flex-direction:column; height:calc(100vh - var(--header-h) - var(--footer-h)); overflow:hidden; padding:12px 12px 0; box-sizing:border-box; }
+#schedule-capture { flex:1 1 auto; min-height:0; overflow:auto; padding-right:4px; display:flex; flex-direction:column; }
+/* Schedule header pinned inside scroll */
+.schedule-headline { position:sticky; top:0; background:rgb(2,52,48); padding:6px 0 10px; z-index:20; display:flex; align-items:center; justify-content:space-between; gap:12px; margin:0 0 12px; }
+.icon-btn .copied-check { font-size:18px; font-weight:700; }
+.schedule-actions-inline { display:flex; gap:10px; }
+.icon-btn { background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.25); color:#e9ff99; width:38px; height:38px; border-radius:12px; display:inline-flex; align-items:center; justify-content:center; cursor:pointer; padding:0; transition:background 140ms ease, border-color 140ms ease, transform 120ms ease; }
+.icon-btn:hover { background:rgba(255,255,255,0.22); }
+.icon-btn:active { transform:scale(.9); }
+.icon-btn.danger { color:#ffb5b5; border-color:rgba(255,100,100,0.6); background:rgba(255,60,60,0.15); }
+.icon-btn.danger:hover { background:rgba(255,60,60,0.25); }
+.icon-btn.danger:active { background:rgba(255,60,60,0.3); }
+.icon-btn svg { pointer-events:none; }
