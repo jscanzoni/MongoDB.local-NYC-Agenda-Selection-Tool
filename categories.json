@@ -1,0 +1,41 @@
+{
+  "Technology & Features": [
+    "AI",
+    "Atlas",
+    "Demos",
+    "Encryption/Security",
+    "Indexing",
+    "Product Features",
+    "Search",
+    "Time Series / Streaming",
+    "Vector Search"
+  ],
+  "Architecture & Patterns": [
+    "DevOps",
+    "Event-Driven",
+    "Microservices",
+    "Multi-Cloud / High Availability",
+    "Scalability",
+    "Serverless"
+  ],
+  "Industry / Use Case": [
+    "Financial Services",
+    "Healthcare",
+    "Oil & Gas / Energy",
+    "Retail / E-commerce"
+  ],
+  "Audience & Role": [
+    "Architect",
+    "DBA",
+    "Developer",
+    "Executive / Strategy",
+    "Hands-On / Workshop"
+  ],
+  "Community & Culture": [
+    "Community Event",
+    "Customer Spotlight",
+    "Demos",
+    "Inclusion / DEI",
+    "Networking"
+  ]
+}

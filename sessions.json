@@ -4,74 +4,115 @@
         "time": "9:00 AM-10:30 AM",
         "level": "All Levels",
         "location": "Central Park Stage",
-        "description": "What does the ideal database for the age of AI look like? Join MongoDB CEO Dev Ittycheria to find out. Explore the latest product updates, from AI-native features like vector search and embedded Voyage models to core performance gains that scale effortlessly across 120+ regions. With real-world use cases and technical deep dives from our product and engineering teams, see why MongoDB is the foundation for building leading applications today… and tomorrow.",
+        "description": "What does the ideal database for the age of AI look like? Join MongoDB CEO Dev Ittycheria to find out. Explore the latest product updates, from AI-native features like vector search and embedded Voyage models to core performance gains that scale effortlessly across 120+ regions. With real-world use cases and technical deep dives from our product and engineering teams, see why MongoDB is the foundation for building leading applications today\u2026 and tomorrow.",
         "speakers": [
             {
                 "name": "Dev Ittycheria",
                 "title": "Chief Executive Officer",
-                "company": "MongoDB"
+                "company": "MongoDB",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/60d30b7e53364ce28d59ecf12163b03c.jpg?f=webp"
             },
             {
                 "name": "Jon Fortt",
                 "title": "Anchor, CNBC",
-                "company": "Executive Producer & Host, Fortt Knox"
+                "company": "Executive Producer & Host, Fortt Knox",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/05ec04027ffe4e81a20bb2eae1a84f3a.jpg?f=webp"
             }
-        ]
+        ],
+        "tags": [
+            "AI",
+            "Developer",
+            "Executive / Strategy",
+            "Product Features",
+            "Search",
+            "Vector Search"
+        ],
+        "takeaway": "Learn what's new in MongoDB, how our customers are using it, and what's coming next in 'Keynote'."
     },
     {
         "title": "Integrating MongoDB Atlas Into Your Internal Developer Platform ending with a Customer Spotlight with Avalara",
         "time": "10:45 AM-11:30 AM",
         "level": "Intermediate",
         "location": "Washington Square Park Stage",
-        "description": "Operations and platform engineering teams are critical in enabling thousands or tens of thousands of developers to innovate and build with MongoDB Atlas at scale. This session will showcase how to create a frictionless, self-service developer experience using an Atlas landing zone integrated with modern CI/CD pipelines.We’ll dive into a guided demo of a GitOps-driven landing zone in action, highlighting integrations with infrastructure-as-code (IaC), automation, and robust security practices. You’ll see how these tools enhance developer productivity while maintaining operational control, ensuring compliance, and enabling rapid iteration. Attendees will gain actionable insights into leveraging GitOps workflows, CI/CD best practices, and platform engineering principles to operate MongoDB Atlas at scale, optimizing for security, automation, and efficiency. Customer Spotlight: Within this 45-minute session, Venkata Surapaneni,  Distinguished Architect/Senior Technical Director, Data Strategy, AI, and Cloud with Avalara will join Jon Lewis for a 15-minute fireside chat. Together, they’ll share real solutions, success stories, and the power of our partnership—highlighting how MongoDB provided the right solutions to drive impact.Please note: while this fireside chat is part of the session, the discussion may also reference additional MongoDB features, products, or solutions beyond the session’s primary topic.",
+        "description": "Operations and platform engineering teams are critical in enabling thousands or tens of thousands of developers to innovate and build with MongoDB Atlas at scale. This session will showcase how to create a frictionless, self-service developer experience using an Atlas landing zone integrated with modern CI/CD pipelines.We\u2019ll dive into a guided demo of a GitOps-driven landing zone in action, highlighting integrations with infrastructure-as-code (IaC), automation, and robust security practices. You\u2019ll see how these tools enhance developer productivity while maintaining operational control, ensuring compliance, and enabling rapid iteration. Attendees will gain actionable insights into leveraging GitOps workflows, CI/CD best practices, and platform engineering principles to operate MongoDB Atlas at scale, optimizing for security, automation, and efficiency. Customer Spotlight: Within this 45-minute session, Venkata Surapaneni, Distinguished Architect/Senior Technical Director, Data Strategy, AI, and Cloud with Avalara will join Jon Lewis for a 15-minute fireside chat. Together, they\u2019ll share real solutions, success stories, and the power of our partnership\u2014highlighting how MongoDB provided the right solutions to drive impact.Please note: while this fireside chat is part of the session, the discussion may also reference additional MongoDB features, products, or solutions beyond the session\u2019s primary topic.",
         "speakers": [
             {
                 "name": "Jon Lewis",
                 "title": "Staff Product Marketing Manager",
-                "company": "MongoDB"
+                "company": "MongoDB",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/28eeb692d6dc4e7b84c237a948a28721.jpg?f=webp"
             },
             {
                 "name": "Venkat Surapaneni",
                 "title": "Distinguished Architect/Senior Technical Director - Data Strategy, AI, and Cloud",
-                "company": "Avalara"
+                "company": "Avalara",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/08cd21e88c1746df96ddf2734b4179fe.jpeg?f=webp"
             }
-        ]
+        ],
+        "tags": [
+            "Architect",
+            "Atlas",
+            "Customer Spotlight",
+            "DevOps",
+            "Encryption/Security",
+            "Executive / Strategy",
+            "Product Features"
+        ],
+        "takeaway": "Hear real-world patterns and success stories in 'Integrating MongoDB Atlas Into Your Internal Developer Platform ending with a Customer Spotlight with Avalara'."
     },
     {
         "title": "From Local to Cloud: An Integrated Developer Tool Suite for Every Stage of Development",
         "time": "10:45 AM-11:30 AM",
         "level": "Beginner",
         "location": "Bryant Park Stage",
-        "description": "Unlock developer productivity with MongoDB, the unified tool suite for managing workflows across local environments and scaled production systems. From Atlas CLI setup to AI-assisted data exploration with the MongoDB MCP Server and Vector Search, MongoDB simplifies local prototyping, testing and CI/CD integrations—enabling seamless scaling for modern applications. Join this session to discover how to build an AI-powered application within minutes using MongoDB’s intelligent developer tools. Learn actionable strategies to streamline development with MongoDB.",
+        "description": "Unlock developer productivity with MongoDB, the unified tool suite for managing workflows across local environments and scaled production systems. From Atlas CLI setup to AI-assisted data exploration with the MongoDB MCP Server and Vector Search, MongoDB simplifies local prototyping, testing and CI/CD integrations\u2014enabling seamless scaling for modern applications. Join this session to discover how to build an AI-powered application within minutes using MongoDB\u2019s intelligent developer tools. Learn actionable strategies to streamline development with MongoDB.",
         "speakers": [
             {
                 "name": "Betsy Button",
                 "title": "Product Manager",
-                "company": "MongoDB"
+                "company": "MongoDB",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/ae2cef77ebd24e4fb94e4d930e508b26.jpg?f=webp"
             }
-        ]
+        ],
+        "tags": [
+            "Atlas",
+            "DevOps",
+            "Developer",
+            "Executive / Strategy",
+            "Search",
+            "Time Series / Streaming",
+            "Vector Search"
+        ],
+        "takeaway": "Apply AI patterns and tools you can use right away from 'From Local to Cloud: An Integrated Developer Tool Suite for Every Stage of Development'."
     },
     {
-        "title": "💻 Data Modeling for MongoDB: From Relational to Document Model",
+        "title": "\ud83d\udcbb Data Modeling for MongoDB: From Relational to Document Model",
         "time": "10:45 AM-12:30 PM",
         "level": "Intermediate",
         "location": "Workshop Room A - 405",
-        "description": "Skill Badge Opportunity: Relational to Document Model.  💻   You'll need your laptop to fully participate in this hands-on session.   Join us for a hands-on workshop on data modeling to learn how MongoDB’s flexible document model compares to traditional relational models. Together, we’ll walk through the MongoDB data modeling methodology:Identify entitiesQuantify application workloadsModel relationships with embedding or referencingWe’ll apply this methodology through practical exercises to build the schema for a sample application—a library management system. Additionally, you will learn how to use MongoDB’s schema validation to ensure data integrity and consistency.",
+        "description": "Skill Badge Opportunity: Relational to Document Model. \ud83d\udcbb You'll need your laptop to fully participate in this hands-on session. Join us for a hands-on workshop on data modeling to learn how MongoDB\u2019s flexible document model compares to traditional relational models. Together, we\u2019ll walk through the MongoDB data modeling methodology:Identify entitiesQuantify application workloadsModel relationships with embedding or referencingWe\u2019ll apply this methodology through practical exercises to build the schema for a sample application\u2014a library management system. Additionally, you will learn how to use MongoDB\u2019s schema validation to ensure data integrity and consistency.",
         "speakers": [
             {
                 "name": "Skill Badge",
                 "title": "Earn a badge to add to",
-                "company": "your LinkedIn profile"
+                "company": "your LinkedIn profile",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/1439a236864040ed953ae4b095a7d904.png?f=webp"
             },
             {
                 "name": "Nestor Daza",
                 "title": "Developer Advocate",
-                "company": "MongoDB"
+                "company": "MongoDB",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/30fd06712d0b467dbab1fa71200ecbe3.png?f=webp"
             }
-        ]
+        ],
+        "tags": [
+            "Architect",
+            "Hands-On / Workshop"
+        ],
+        "takeaway": "Hands-on intermediate workshop: walk away with practical skills from '\ud83d\udcbb Data Modeling for MongoDB: From Relational to Document Model'."
     },
     {
-        "title": "💻 Building Agentic AI Apps with MongoDB Atlas and Amazon Bedrock",
+        "title": "\ud83d\udcbb Building Agentic AI Apps with MongoDB Atlas and Amazon Bedrock",
         "time": "10:45 AM-12:30 PM",
         "level": "Intermediate",
         "location": "Workshop Room B - 406",
@@ -82,26 +123,45 @@
                 "title": "Sr TAM",
                 "company": "Amazon Web Services (AWS)"
             }
-        ]
+        ],
+        "tags": [
+            "AI",
+            "Architect",
+            "Atlas",
+            "Executive / Strategy",
+            "Hands-On / Workshop",
+            "Search"
+        ],
+        "takeaway": "Hands-on intermediate workshop: walk away with practical skills from '\ud83d\udcbb Building Agentic AI Apps with MongoDB Atlas and Amazon Bedrock'."
     },
     {
         "title": "Avoid the AI Monolith: Deploy Multi-Agent Systems with Confluent and MongoDB",
         "time": "10:45 AM-11:05 AM",
         "level": "Beginner",
         "location": "Lightning Zone #B",
-        "description": "The future of AI is agentic—composed of specialized, collaborative agents that solve problems more efficiently than any single model can. But without the right architectural foundation, these systems can quickly become the next-generation monolith: brittle, bloated, and hard to scale. In this session, explore how Confluent’s data streaming platform and MongoDB combine to provide the AI-native infrastructure needed to orchestrate multi-agent systems across an event-driven architecture. Learn how to design a composable system that enables each agent to operate independently and intelligently—all while reducing the cost of data streaming by 60%.",
+        "description": "The future of AI is agentic\u2014composed of specialized, collaborative agents that solve problems more efficiently than any single model can. But without the right architectural foundation, these systems can quickly become the next-generation monolith: brittle, bloated, and hard to scale. In this session, explore how Confluent\u2019s data streaming platform and MongoDB combine to provide the AI-native infrastructure needed to orchestrate multi-agent systems across an event-driven architecture. Learn how to design a composable system that enables each agent to operate independently and intelligently\u2014all while reducing the cost of data streaming by 60%.",
         "speakers": [
             {
                 "name": "Braeden Quirante",
                 "title": "Strategic Solutions Engineer",
-                "company": "Confluent"
+                "company": "Confluent",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/b819a2fcd2f2451cbb53825a2a2c31bd_630e1ad21b.jpeg?f=webp"
             },
             {
                 "name": "Scott Sappenfield",
                 "title": "Solution Engineer",
-                "company": "Confluent"
+                "company": "Confluent",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/68a2c7284e384552951c6f6f81e750ed_0b080429f9.jpeg?f=webp"
             }
-        ]
+        ],
+        "tags": [
+            "AI",
+            "Developer",
+            "Event-Driven",
+            "Microservices",
+            "Time Series / Streaming"
+        ],
+        "takeaway": "Apply AI patterns and tools you can use right away from 'Avoid the AI Monolith: Deploy Multi-Agent Systems with Confluent and MongoDB'."
     },
     {
         "title": "From Data to Intelligence: Accelerate AI Transformation Using MongoDB Atlas on Azure",
@@ -113,28 +173,53 @@
             {
                 "name": "Deven Wagle",
                 "title": "Principal Cloud Solutions Architect",
-                "company": "Microsoft"
+                "company": "Microsoft",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/f75521d8b9d04ce49b32311b20419d71_0d85d33422.jpg?f=webp"
             },
             {
                 "name": "Paul Leury",
                 "title": "Senior Partner Solutions Architect",
-                "company": "MongoDB"
+                "company": "MongoDB",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/262cbe4129674e99af165334edd54035.jpg?f=webp"
             }
-        ]
+        ],
+        "tags": [
+            "AI",
+            "Architect",
+            "Atlas",
+            "Encryption/Security",
+            "Financial Services",
+            "Healthcare",
+            "Retail / E-commerce"
+        ],
+        "takeaway": "Apply AI patterns and tools you can use right away from 'From Data to Intelligence: Accelerate AI Transformation Using MongoDB Atlas on Azure'."
     },
     {
         "title": "MongoDB AI Arena",
         "time": "10:45 AM-11:05 AM",
         "level": "Intermediate",
         "location": "Product Booth",
-        "description": "Join the MongoDB AI Arena and put your coding skills to the test! This competition challenges developers to build innovative applications that address real-world social issues using MongoDB Atlas on AWS. Compete with peers, leverage cutting-edge technology, and showcase your creativity to win a secret prize! Simone Gaiera Solutions Architect MongoDB Three MongoDB Features You’re Probably Not Using (But Should Be) 10:45 AM-11:05 AM All Levels Lightning Zone #A Some of MongoDB’s most impactful capabilities stay under the radar, but once you discover them, you wonder how you ever worked without them. This talk will spotlight three features that can instantly level up your MongoDB game: VNet Peering, for secure, private connectivity that keeps your Atlas cluster off the public internet; Hidden Secondaries, to safely run heavy analytics without affecting production performance; and Multi-Region and Multi-Cloud Deployments, for the kind of high availability and global reach your users expect. As a bonus takeaway, we’ll also touch on Change Streams, which let your applications respond to data changes in real time without messy polling. Expect a practical, fast-paced session with simple examples and actionable insights you can put into practice right away.",
+        "description": "Join the MongoDB AI Arena and put your coding skills to the test! This competition challenges developers to build innovative applications that address real-world social issues using MongoDB Atlas on AWS. Compete with peers, leverage cutting-edge technology, and showcase your creativity to win a secret prize!",
         "speakers": [
             {
                 "name": "Ruthvik Reddy Anumasu",
                 "title": "Principal Software Engineer",
-                "company": "MongoDB Champion"
+                "company": "MongoDB Champion",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/04484690ce3c41f09f4b59ff7c0b4194.jpg?f=webp"
+            },
+            {
+                "name": "Simone Gaiera",
+                "title": "Solutions Architect",
+                "company": "MongoDB",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/f5a723fbe15f4efd99d89e3427cc3c86.jpeg?f=webp"
             }
-        ]
+        ],
+        "tags": [
+            "AI",
+            "Architect",
+            "Atlas"
+        ],
+        "takeaway": "Apply AI patterns and tools you can use right away from 'MongoDB AI Arena'."
     },
     {
         "title": "AI-driven Monolith to Microservices using Infosys Live Enterprise Application Development Platform and MongoDB",
@@ -146,9 +231,15 @@
             {
                 "name": "Rishikesh Bagati",
                 "title": "Associate Practice Engagement Manager",
-                "company": "Infosys Limited"
+                "company": "Infosys Limited",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/0f53bc4535204d8a8ab3c55e84f3b5da.jpg?f=webp"
             }
-        ]
+        ],
+        "tags": [
+            "Developer",
+            "Microservices"
+        ],
+        "takeaway": "Apply AI patterns and tools you can use right away from 'AI-driven Monolith to Microservices using Infosys Live Enterprise Application Development Platform and MongoDB'."
     },
     {
         "title": "Accelerating Predictive Maintenance in Oil & Gas with Gen AI: A Unified Solution Approach by Capgemini, AWS, and MongoDB",
@@ -160,36 +251,60 @@
             {
                 "name": "Mr. Vinay Makkaji",
                 "title": "Cloud COE & Offer Leader",
-                "company": "Capgemini"
+                "company": "Capgemini",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/3547cfe9f0a54d6691335b80907f1272_7aaaab92fa.jpg?f=webp"
             }
-        ]
+        ],
+        "tags": [
+            "AI",
+            "Architect",
+            "Oil & Gas / Energy"
+        ],
+        "takeaway": "Apply AI patterns and tools you can use right away from 'Accelerating Predictive Maintenance in Oil & Gas with Gen AI: A Unified Solution Approach by Capgemini, AWS, and MongoDB'."
     },
     {
         "title": "Slash Your Cloud Bill with DigitalOcean's MCP Server",
         "time": "11:20 AM-11:40 AM",
         "level": "Beginner",
         "location": "Product Booth",
-        "description": "Cloud billing is weird. One minute you’re deploying an app — the next, you’re being charged $273 a month for “unattached storage from 2021.” In this live demo, we’ll show you how the DigitalOcean MCP server helps you actually understand your cloud costs — no dashboards, no menu hunting, no guessing.You’ll see how to:Ask your AI things like: “How much did I spend last month?”Get breakdowns by project, region, or serviceSpot waste and cut costs instantlyAll with simple prompts. It’s fast, useful — and yes, even kind of fun. Come hang out, toss us a prompt, and see what your AI can do when it actually knows your infra.",
-        "speakers": []
+        "description": "Cloud billing is weird. One minute you\u2019re deploying an app \u2014 the next, you\u2019re being charged $273 a month for \u201cunattached storage from 2021.\u201d In this live demo, we\u2019ll show you how the DigitalOcean MCP server helps you actually understand your cloud costs \u2014 no dashboards, no menu hunting, no guessing.You\u2019ll see how to:Ask your AI things like: \u201cHow much did I spend last month?\u201dGet breakdowns by project, region, or serviceSpot waste and cut costs instantlyAll with simple prompts. It\u2019s fast, useful \u2014 and yes, even kind of fun. Come hang out, toss us a prompt, and see what your AI can do when it actually knows your infra.",
+        "speakers": [],
+        "tags": [
+            "AI",
+            "Developer"
+        ],
+        "takeaway": "Apply AI patterns and tools you can use right away from 'Slash Your Cloud Bill with DigitalOcean's MCP Server'."
     },
     {
         "title": "Fostering an Inclusive Pack: Everyday Allyship in Tech",
         "time": "11:35 AM-11:55 AM",
         "level": "All Levels",
         "location": "I.D.E.A. Lounge",
-        "description": "Allyship isn’t about big gestures; it’s about everyday actions that build inclusion. We’ll explore real-world scenarios and what it spotting and interrupting subtle moments of exclusion looks like. In this session, we'll share simple, practical and high-impact behaviors you can use right away to support your teammates and help create more inclusive, collaborative teams G G Gary Goldman Learning & Development Manager Datadog The Converged Datastore: Agentic for Insurance and Other Industries ending with a Customer Spotlight with Tokio Marine 11:45 AM-12:30 PM Intermediate Washington Square Park Stage Agentic AI is changing how we interact with business applications, how we architect for them, and altering technology portfolio investment strategies.  This session will break down the changing data architecture landscape with the goal of empowering the next generation of IT decision makers and architects, as they steer their own technology portfolios and agendas.  This session will include insurance examples, but is broadly applicable to other industries. Customer Spotlight: Within this 45-minute session, Aaron Lamp, CTO of Tokio Marine  will join Jeff Needham for a 15-minute fireside chat. Together, they’ll share real solutions, success stories, and the power of our partnership—highlighting how MongoDB provided the right solutions to drive impact. Please note, this fireside chat may also touch on additional MongoDB features, products, or solutions beyond the session’s primary topic.Please note: while this fireside chat is part of the session, the discussion may also reference additional MongoDB features, products, or solutions beyond the session’s primary topic.",
+        "description": "Allyship isn\u2019t about big gestures; it\u2019s about everyday actions that build inclusion. We\u2019ll explore real-world scenarios and what it spotting and interrupting subtle moments of exclusion looks like. In this session, we'll share simple, practical and high-impact behaviors you can use right away to support your teammates and help create more inclusive, collaborative teams",
         "speakers": [
             {
                 "name": "Jeff Needham",
                 "title": "Principal, Industry Solutions",
-                "company": "MongoDB"
+                "company": "MongoDB",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/fc595463e3e44565bd5c850e67bbccab.png?f=webp"
             },
             {
                 "name": "Arron Lamp",
                 "title": "Chief Information Officer",
-                "company": "Tokio Marine HCC - Public Risk Group"
+                "company": "Tokio Marine HCC - Public Risk Group",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/6b96828eab50463998b12771695c06d5.jpeg?f=webp"
+            },
+            {
+                "name": "Gary Goldman",
+                "title": "Learning & Development Manager",
+                "company": "Datadog"
             }
-        ]
+        ],
+        "tags": [
+            "Developer",
+            "Inclusion / DEI"
+        ],
+        "takeaway": "Gain clear, actionable takeaways from 'Fostering an Inclusive Pack: Everyday Allyship in Tech'."
     },
     {
         "title": "How to Architect an Agentic AI-Powered Predictive Maintenance Solution",
@@ -201,14 +316,23 @@
             {
                 "name": "Humza Akhtar",
                 "title": "Senior Principal Industry Solutions",
-                "company": "MongoDB"
+                "company": "MongoDB",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/f5626130980449c1a76e56c6b70e1968.jpg?f=webp"
             },
             {
                 "name": "Rajeev Kaul",
                 "title": "Software Engineering Lead for Americas",
-                "company": "Accenture"
+                "company": "Accenture",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/1cacef173f04429d85789a5abb6bca86.png?f=webp"
             }
-        ]
+        ],
+        "tags": [
+            "AI",
+            "Architect",
+            "Atlas",
+            "Product Features"
+        ],
+        "takeaway": "Apply AI patterns and tools you can use right away from 'How to Architect an Agentic AI-Powered Predictive Maintenance Solution'."
     },
     {
         "title": "Under the hood: Accelerating AI transformation with Atlas and Microsoft Azure",
@@ -220,47 +344,78 @@
             {
                 "name": "Azim Uddin",
                 "title": "Principal Cloud Solution Architect",
-                "company": "Microsoft Corporation"
+                "company": "Microsoft Corporation",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/8defb0edc22b4ec2963f001251cba7cb_be24109bd8.jpg?f=webp"
             },
             {
                 "name": "Paul Leury",
                 "title": "Senior Partner Solutions Architect",
-                "company": "MongoDB"
+                "company": "MongoDB",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/262cbe4129674e99af165334edd54035.jpg?f=webp"
             }
-        ]
+        ],
+        "tags": [
+            "AI",
+            "Atlas",
+            "DBA",
+            "Encryption/Security",
+            "Financial Services"
+        ],
+        "takeaway": "Apply AI patterns and tools you can use right away from 'Under the hood: Accelerating AI transformation with Atlas and Microsoft Azure'."
     },
     {
         "title": "Beyond Context Windows: Building Agent Memory Systems for Intelligent AI",
         "time": "11:45 AM-12:30 PM",
         "level": "Intermediate",
         "location": "Central Park Stage",
-        "description": "Most AI applications today are fundamentally stateless—processing each request in isolation without learning from past interactions. This talk explores how to transform reactive LLM applications into genuinely intelligent agents through sophisticated memory engineering.We'll establish the framework distinguishing LLM memory (parametric weights and context windows) from Agent Memory (persistent external systems), examining how data transforms into actionable memory through aggregation, encoding, storage, organization, and retrieval. The presentation details key memory types—episodic, semantic, procedural, and associative—and their roles in agent architectures.Through technical visualizations, we'll explore diverse memory implementations: short-term components (working memory, semantic cache) for immediate task optimization, and long-term structures for accumulated knowledge. The session covers practical patterns including workflow memory for reusable procedures, toolbox memory for dynamic tool discovery, conversational memory for relationship continuity, and persona memory for consistent behavior.We'll dive into the supporting search infrastructure—lexical, vector, and hybrid approaches—plus critical preprocessing like document chunking strategies. The talk includes an overview of how MongoDB serves as a unified memory provider for agentic systems, eliminating the need for multiple specialized databases while providing the multi-model retrieval, flexible storage, and optimization features essential for production deployments.Drawing from production deployments, we'll address often-overlooked challenges: memory conflicts, scaling to millions of units, compression strategies, and system economics. The talk introduces Memory Engineering as an emerging specialization and provides frameworks for evaluating architectures and making informed decisions.",
+        "description": "Most AI applications today are fundamentally stateless\u2014processing each request in isolation without learning from past interactions. This talk explores how to transform reactive LLM applications into genuinely intelligent agents through sophisticated memory engineering.We'll establish the framework distinguishing LLM memory (parametric weights and context windows) from Agent Memory (persistent external systems), examining how data transforms into actionable memory through aggregation, encoding, storage, organization, and retrieval. The presentation details key memory types\u2014episodic, semantic, procedural, and associative\u2014and their roles in agent architectures.Through technical visualizations, we'll explore diverse memory implementations: short-term components (working memory, semantic cache) for immediate task optimization, and long-term structures for accumulated knowledge. The session covers practical patterns including workflow memory for reusable procedures, toolbox memory for dynamic tool discovery, conversational memory for relationship continuity, and persona memory for consistent behavior.We'll dive into the supporting search infrastructure\u2014lexical, vector, and hybrid approaches\u2014plus critical preprocessing like document chunking strategies. The talk includes an overview of how MongoDB serves as a unified memory provider for agentic systems, eliminating the need for multiple specialized databases while providing the multi-model retrieval, flexible storage, and optimization features essential for production deployments.Drawing from production deployments, we'll address often-overlooked challenges: memory conflicts, scaling to millions of units, compression strategies, and system economics. The talk introduces Memory Engineering as an emerging specialization and provides frameworks for evaluating architectures and making informed decisions.",
         "speakers": [
             {
                 "name": "Richmond Alake",
                 "title": "Staff Developer Advocate, AI/ML",
-                "company": "MongoDB"
+                "company": "MongoDB",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/0fad95a1daa34471b930c5d9afba8348.jpg?f=webp"
             }
-        ]
+        ],
+        "tags": [
+            "AI",
+            "Architect",
+            "Executive / Strategy",
+            "Product Features",
+            "Search"
+        ],
+        "takeaway": "Apply AI patterns and tools you can use right away from 'Beyond Context Windows: Building Agent Memory Systems for Intelligent AI'."
     },
     {
         "title": "MongoDB Search & Vector Search for use with Enterprise Server ending with a Customer Spotlight with The Washington Post",
         "time": "11:45 AM-12:30 PM",
         "level": "Intermediate",
         "location": "Bryant Park Stage",
-        "description": "In this presentation you will learn that you can get all the benefits of MongoDB Search and Vector Search over Enterprise Server. You will be able to build Search powered applications on-prem with ease. With Search and Vector Search, data is automatically and dynamically synced from the database to Search and Vector Search indexes. Use a single, unified aggregation pipeline across database and search operations.Customer Spotlight: Within this 45-minute session, Mike Holland the VP, Content Platform at Arc XP  at The Washington Post will join Rodrigo Leal for a 15-minute fireside chat. Together, they’ll share real solutions, success stories, and the power of our partnership—highlighting how MongoDB provided the right solutions to drive impact. Please note, this fireside chat may also touch on additional MongoDB features, products, or solutions beyond the session’s primary topic.",
+        "description": "In this presentation you will learn that you can get all the benefits of MongoDB Search and Vector Search over Enterprise Server. You will be able to build Search powered applications on-prem with ease. With Search and Vector Search, data is automatically and dynamically synced from the database to Search and Vector Search indexes. Use a single, unified aggregation pipeline across database and search operations.Customer Spotlight: Within this 45-minute session, Mike Holland the VP, Content Platform at Arc XP at The Washington Post will join Rodrigo Leal for a 15-minute fireside chat. Together, they\u2019ll share real solutions, success stories, and the power of our partnership\u2014highlighting how MongoDB provided the right solutions to drive impact. Please note, this fireside chat may also touch on additional MongoDB features, products, or solutions beyond the session\u2019s primary topic.",
         "speakers": [
             {
                 "name": "Rodrigo Leal",
                 "title": "Principal Industry Solutions",
-                "company": "MongoDB"
+                "company": "MongoDB",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/52b977239fa846c68220af44a8cd6350.jpg?f=webp"
             },
             {
                 "name": "Michael Holland",
                 "title": "VP, Content Platform at Arc XP",
-                "company": "The Washington Post"
+                "company": "The Washington Post",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/4278d933b5d445b9a2af417153eb24bc.jpeg?f=webp"
             }
-        ]
+        ],
+        "tags": [
+            "Architect",
+            "Customer Spotlight",
+            "Executive / Strategy",
+            "Indexing",
+            "Product Features",
+            "Search",
+            "Vector Search"
+        ],
+        "takeaway": "Hear real-world patterns and success stories in 'MongoDB Search & Vector Search for use with Enterprise Server ending with a Customer Spotlight with The Washington Post'."
     },
     {
         "title": "Building Agentic Document Workflows with LlamaIndex",
@@ -272,9 +427,16 @@
             {
                 "name": "Jerry Liu",
                 "title": "CEO",
-                "company": "LlamaIndex"
+                "company": "LlamaIndex",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/1faee0f5f0fa4df58885331f32140f21_c08d6d573c.jpeg?f=webp"
             }
-        ]
+        ],
+        "tags": [
+            "AI",
+            "Architect",
+            "Indexing"
+        ],
+        "takeaway": "Apply AI patterns and tools you can use right away from 'Building Agentic Document Workflows with LlamaIndex'."
     },
     {
         "title": "MongoDB Atlas and Google Cloud for Modern Finserv",
@@ -286,8 +448,19 @@
             {
                 "name": "Alisha Stull",
                 "title": "Partner Engineer",
-                "company": "Google Cloud"
+                "company": "Google Cloud",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/70e7faa9bac34ba6b23d56b2d03ca3f9_d259ced69e.jpg?f=webp"
             }
+        ],
+        "tags": [
+            "AI",
+            "Atlas",
+            "Developer",
+            "Executive / Strategy",
+            "Financial Services",
+            "Product Features",
+            "Search",
+            "Vector Search"
         ]
     },
     {
@@ -300,85 +473,130 @@
             {
                 "name": "Peyman Parsi",
                 "title": "Senior Principal Industry Solutions",
-                "company": "MongoDB"
+                "company": "MongoDB",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/aa899fec427c4f8c916b89bfa405cb24.png?f=webp"
             }
-        ]
+        ],
+        "tags": [
+            "Architect",
+            "Executive / Strategy",
+            "Financial Services"
+        ],
+        "takeaway": "Apply AI patterns and tools you can use right away from 'How MongoDB Empowers a Future-Proof Enterprise Architecture for Banking Modernization'."
     },
     {
         "title": "Building Highly Available Data Infrastructure: Beyond Redundancy ending with a Customer Spotlight with EY",
         "time": "1:30 PM-2:15 PM",
         "level": "Intermediate",
         "location": "Washington Square Park Stage",
-        "description": "High availability is often assumed to be a given—but in reality, it requires careful planning and design. Beyond redundancy, several factors impact system availability. In this session, we’ll explore MongoDB’s approach to achieving up to \"six nines\" availability and compare it to common relational database concepts. Gain insights into best practices, potential pitfalls, and strategies to ensure your data infrastructure remains resilient and highly available.Customer Spotlight: Within this 45-minute session, Joe Hughes, Principal at EY-Assurance Deputy Technical Officer Client Technology will join Boris Bialek for a 15-minute fireside chat. Together, they’ll share real solutions, success stories, and the power of our partnership—highlighting how MongoDB provided the right solutions to drive impact.Please note: while this fireside chat is part of the session, the discussion may also reference additional MongoDB features, products, or solutions beyond the session’s primary topic.",
+        "description": "High availability is often assumed to be a given\u2014but in reality, it requires careful planning and design. Beyond redundancy, several factors impact system availability. In this session, we\u2019ll explore MongoDB\u2019s approach to achieving up to \"six nines\" availability and compare it to common relational database concepts. Gain insights into best practices, potential pitfalls, and strategies to ensure your data infrastructure remains resilient and highly available.Customer Spotlight: Within this 45-minute session, Joe Hughes, Principal at EY-Assurance Deputy Technical Officer Client Technology will join Boris Bialek for a 15-minute fireside chat. Together, they\u2019ll share real solutions, success stories, and the power of our partnership\u2014highlighting how MongoDB provided the right solutions to drive impact.Please note: while this fireside chat is part of the session, the discussion may also reference additional MongoDB features, products, or solutions beyond the session\u2019s primary topic.",
         "speakers": [
             {
                 "name": "Boris Bialek",
                 "title": "Field CTO, Industry Solutions",
-                "company": "MongoDB"
+                "company": "MongoDB",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/ac39152cd10f4d62af194c023f77693a.jpg?f=webp"
             },
             {
                 "name": "Joseph Hughes",
                 "title": "Principal at EY-Assurance Deputy Technical Officer Client Technology",
-                "company": "EY"
+                "company": "EY",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/995c9c73f5c84616ab67cf083df8885a.jpeg?f=webp"
             }
-        ]
+        ],
+        "tags": [
+            "Architect",
+            "Customer Spotlight",
+            "Executive / Strategy",
+            "Multi-Cloud / High Availability",
+            "Product Features"
+        ],
+        "takeaway": "Hear real-world patterns and success stories in 'Building Highly Available Data Infrastructure: Beyond Redundancy ending with a Customer Spotlight with EY'."
     },
     {
         "title": "Building Secure Applications: Practical Coding Examples with Queryable Encryption ending with a Customer Spotlight with Coinbase",
         "time": "1:30 PM-2:15 PM",
         "level": "Intermediate",
         "location": "Prospect Park Stage",
-        "description": "This session shows how to use MongoDB Queryable Encryption in practical examples. We'll show how to configure key management, how to perform encryption, and how to query encrypted data with equality and range searches. Attendees will learn practical considerations to use QE in real-world applications.Customer Spotlight: Within this 45-minute session, Kenneth Yang at Coinbase will join Joel Odom for a 15-minute fireside chat. Together, they’ll share real solutions, success stories, and the power of our partnership—highlighting how MongoDB provided the right solutions to drive impact.Please note: while this fireside chat is part of the session, the discussion may also reference additional MongoDB features, products, or solutions beyond the session’s primary topic.",
+        "description": "This session shows how to use MongoDB Queryable Encryption in practical examples. We'll show how to configure key management, how to perform encryption, and how to query encrypted data with equality and range searches. Attendees will learn practical considerations to use QE in real-world applications.Customer Spotlight: Within this 45-minute session, Kenneth Yang at Coinbase will join Joel Odom for a 15-minute fireside chat. Together, they\u2019ll share real solutions, success stories, and the power of our partnership\u2014highlighting how MongoDB provided the right solutions to drive impact.Please note: while this fireside chat is part of the session, the discussion may also reference additional MongoDB features, products, or solutions beyond the session\u2019s primary topic.",
         "speakers": [
             {
                 "name": "Joel Odom",
                 "title": "Staff Product Manager, Security",
-                "company": "MongoDB"
+                "company": "MongoDB",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/36fc11c9220240eebf5e02abf84df707.png?f=webp"
             },
             {
                 "name": "Kenneth Yang",
                 "title": "Staff Software Engineer",
                 "company": "Coinbase"
             }
-        ]
+        ],
+        "tags": [
+            "Architect",
+            "Customer Spotlight",
+            "Encryption/Security",
+            "Product Features",
+            "Search"
+        ],
+        "takeaway": "Hear real-world patterns and success stories in 'Building Secure Applications: Practical Coding Examples with Queryable Encryption ending with a Customer Spotlight with Coinbase'."
     },
     {
         "title": "Accelerate Enterprise Search: How Hybrid Vector and Text Search Unlocks Insights Across Enterprises ending with a Customer Spotlight with Anywhere Real Estate",
         "time": "1:30 PM-2:15 PM",
         "level": "Intermediate",
         "location": "Bryant Park Stage",
-        "description": "Enabling modern search capabilities across your enterprise doesn’t have to mean building a complex architecture. In this session, you will learn how hybrid search—combining traditional text-based search with AI-powered semantic search—can be implemented with a simplified platform approach. We’ll explore real-world examples, including use cases from the retail industry, to demonstrate how businesses are leveraging MongoDB to rapidly deploy next-generation search experiences. Whether you're looking to enhance customer interactions, streamline data discovery, or optimize search performance, this session will provide practical insights and best practices to accelerate your search transformation.Customer Spotlight: Within this 45-minute session, Brian Hanks,  Vice President - Engineering at Anywhere Real Estate will join Prashant Juttukonda for a 15-minute fireside chat. Together, they’ll share real solutions, success stories, and the power of our partnership—highlighting how MongoDB provided the right solutions to drive impact.Please note: while this fireside chat is part of the session, the discussion may also reference additional MongoDB features, products, or solutions beyond the session’s primary topic.",
+        "description": "Enabling modern search capabilities across your enterprise doesn\u2019t have to mean building a complex architecture. In this session, you will learn how hybrid search\u2014combining traditional text-based search with AI-powered semantic search\u2014can be implemented with a simplified platform approach. We\u2019ll explore real-world examples, including use cases from the retail industry, to demonstrate how businesses are leveraging MongoDB to rapidly deploy next-generation search experiences. Whether you're looking to enhance customer interactions, streamline data discovery, or optimize search performance, this session will provide practical insights and best practices to accelerate your search transformation.Customer Spotlight: Within this 45-minute session, Brian Hanks, Vice President - Engineering at Anywhere Real Estate will join Prashant Juttukonda for a 15-minute fireside chat. Together, they\u2019ll share real solutions, success stories, and the power of our partnership\u2014highlighting how MongoDB provided the right solutions to drive impact.Please note: while this fireside chat is part of the session, the discussion may also reference additional MongoDB features, products, or solutions beyond the session\u2019s primary topic.",
         "speakers": [
             {
                 "name": "Prashant Juttukonda",
                 "title": "Principal, Enterprise Modernization",
-                "company": "MongoDB"
+                "company": "MongoDB",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/800b5d4575ba423bbfa02e0c30552226.jpg?f=webp"
             },
             {
                 "name": "Brian Hanks",
                 "title": "Vice President - Engineering",
-                "company": "Anywhere Real Estate"
+                "company": "Anywhere Real Estate",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/c3006648ec594200a943bbc2d936afd1.jpeg?f=webp"
             }
-        ]
+        ],
+        "tags": [
+            "Architect",
+            "Customer Spotlight",
+            "Product Features",
+            "Retail / E-commerce",
+            "Search",
+            "Time Series / Streaming"
+        ],
+        "takeaway": "Hear real-world patterns and success stories in 'Accelerate Enterprise Search: How Hybrid Vector and Text Search Unlocks Insights Across Enterprises ending with a Customer Spotlight with Anywhere Real Estate'."
     },
     {
-        "title": "💻 The A to Z of Building AI Agents",
+        "title": "\ud83d\udcbb The A to Z of Building AI Agents",
         "time": "1:30 PM-3:15 PM",
         "level": "Intermediate",
         "location": "Workshop Room A - 405",
-        "description": "Skill Badge Opportunity: AI Agents with MongoDB   💻   You'll need your laptop to fully participate in this hands-on session.   2025 is the year of agents, and you don’t want to miss out! In this workshop, you will learn the core concepts of AI agents, including reasoning, tools, and memory. You will also learn about different agent architectures. Finally, you will build a MongoDB learning agent that uses MongoDB as the agent's memory and knowledge store, Azure Open AI as the agent’s “brain,” and LangGraph to orchestrate the end-to-end agentic workflow.",
+        "description": "Skill Badge Opportunity: AI Agents with MongoDB \ud83d\udcbb You'll need your laptop to fully participate in this hands-on session. 2025 is the year of agents, and you don\u2019t want to miss out! In this workshop, you will learn the core concepts of AI agents, including reasoning, tools, and memory. You will also learn about different agent architectures. Finally, you will build a MongoDB learning agent that uses MongoDB as the agent's memory and knowledge store, Azure Open AI as the agent\u2019s \u201cbrain,\u201d and LangGraph to orchestrate the end-to-end agentic workflow.",
         "speakers": [
             {
                 "name": "Skill Badge",
                 "title": "Earn a badge to add to",
-                "company": "your LinkedIn profile"
+                "company": "your LinkedIn profile",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/1439a236864040ed953ae4b095a7d904.png?f=webp"
             },
             {
                 "name": "Apoorva Joshi",
                 "title": "Senior AI Developer Advocate",
-                "company": "MongoDB"
+                "company": "MongoDB",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/4f057bdd783043428c57e0441018cf65.png?f=webp"
             }
-        ]
+        ],
+        "tags": [
+            "AI",
+            "Architect",
+            "Hands-On / Workshop"
+        ],
+        "takeaway": "Hands-on intermediate workshop: walk away with practical skills from '\ud83d\udcbb The A to Z of Building AI Agents'."
     },
     {
         "title": "Building a Future-Ready Telematics Platform with MongoDB & Accenture",
@@ -390,42 +608,60 @@
             {
                 "name": "Steve Meyer",
                 "title": "Associate Director",
-                "company": "Accenture"
+                "company": "Accenture",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/f038d5c358404d52ab33e2447bc5131b.jpeg?f=webp"
             },
             {
                 "name": "Arijit Biswas",
                 "title": "Accenture",
                 "company": "The New AI Reliability Playbook"
             }
-        ]
+        ],
+        "tags": [
+            "Developer",
+            "Time Series / Streaming"
+        ],
+        "takeaway": "Gain clear, actionable takeaways from 'Building a Future-Ready Telematics Platform with MongoDB & Accenture'."
     },
     {
         "title": "The New AI Reliability Playbook",
         "time": "1:30 PM-1:50 PM",
         "level": "Beginner",
         "location": "Lightning Zone #B",
-        "description": "In the Agentic era of GenAI, the old observability playbook breaks. As LLM agents move from experiments to production, traditional observability methods can’t fall short. In this new world where prompts, retrieval, tools, and memory collide — systems break in subtle, hard-to-predict ways. This talk introduces a modern observability framework built for agent-based systems. It’s a practical, metric-driven approach to catching and correcting failure modes early—by deeply instrumenting the agent loop across tool quality, error rates, latencies, and business KPIs. We walk through a real-world agent powering a stock-trading workflow, showing how brittle retrieval and flawed logic lead to drift—and how improved telemetry enables fast, targeted fixes. Attendees will leave with a new playbook for GenAI reliability: how to layer in observability with minimal lift, trace root causes, and drive continuous improvement with hard metrics.",
+        "description": "In the Agentic era of GenAI, the old observability playbook breaks. As LLM agents move from experiments to production, traditional observability methods can\u2019t fall short. In this new world where prompts, retrieval, tools, and memory collide \u2014 systems break in subtle, hard-to-predict ways. This talk introduces a modern observability framework built for agent-based systems. It\u2019s a practical, metric-driven approach to catching and correcting failure modes early\u2014by deeply instrumenting the agent loop across tool quality, error rates, latencies, and business KPIs. We walk through a real-world agent powering a stock-trading workflow, showing how brittle retrieval and flawed logic lead to drift\u2014and how improved telemetry enables fast, targeted fixes. Attendees will leave with a new playbook for GenAI reliability: how to layer in observability with minimal lift, trace root causes, and drive continuous improvement with hard metrics.",
         "speakers": [
             {
                 "name": "Atin Sanyal",
                 "title": "CTO and Co Founder",
-                "company": "Galileo"
+                "company": "Galileo",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/0272a6b5f2094a8981bace9ba62c31be_063b0338ef.jpeg?f=webp"
             }
-        ]
+        ],
+        "tags": [
+            "AI",
+            "Developer",
+            "Product Features"
+        ],
+        "takeaway": "Apply AI patterns and tools you can use right away from 'The New AI Reliability Playbook'."
     },
     {
         "title": "Triage Without Tears: Building an AI-Powered Support Inbox with MongoDB",
         "time": "2:00 PM-2:20 PM",
         "level": "Beginner",
         "location": "Lightning Zone #A",
-        "description": "Most support teams don’t need another dashboard — they need a filter.In this talk, we’ll walk through a real, working prototype of SupportIQ, an AI-powered customer support tool that triages incoming tickets, answers the easy ones, and sends the rest where they actually belong. It’s built using MongoDB to handle messy, unstructured support data, and DigitalOcean’s Inference API to classify, summarize, and tag each ticket in real time.We’ll also show how a lightweight Gradient Agent — trained on internal FAQs — can respond to common questions automatically. Everything runs on DigitalOcean App Platform, and we’ll use Spaces for storing any file attachments or ticket metadata along the way.The goal isn’t to replace your support team. It’s to buy them time.We’ll cover:Why MongoDB is perfect for unstructured, real-world ticket dataHow to use GenAI to add structure without slowing things downWhat a minimal but useful support agent looks like in productionAnd how to stitch it all together using App Platform, Gradient Inference/Agents, and SpacesThis isn’t a demo for demo’s sake. It’s a reusable pattern for any team dealing with a flood of inbound requests. No hype. No magic. Just a smarter way to handle the mess.",
+        "description": "Most support teams don\u2019t need another dashboard \u2014 they need a filter.In this talk, we\u2019ll walk through a real, working prototype of SupportIQ, an AI-powered customer support tool that triages incoming tickets, answers the easy ones, and sends the rest where they actually belong. It\u2019s built using MongoDB to handle messy, unstructured support data, and DigitalOcean\u2019s Inference API to classify, summarize, and tag each ticket in real time.We\u2019ll also show how a lightweight Gradient Agent \u2014 trained on internal FAQs \u2014 can respond to common questions automatically. Everything runs on DigitalOcean App Platform, and we\u2019ll use Spaces for storing any file attachments or ticket metadata along the way.The goal isn\u2019t to replace your support team. It\u2019s to buy them time.We\u2019ll cover:Why MongoDB is perfect for unstructured, real-world ticket dataHow to use GenAI to add structure without slowing things downWhat a minimal but useful support agent looks like in productionAnd how to stitch it all together using App Platform, Gradient Inference/Agents, and SpacesThis isn\u2019t a demo for demo\u2019s sake. It\u2019s a reusable pattern for any team dealing with a flood of inbound requests. No hype. No magic. Just a smarter way to handle the mess.",
         "speakers": [
             {
                 "name": "Amit Jotwani",
                 "title": "Senior Developer Advocate II",
-                "company": "DigitalOcean"
+                "company": "DigitalOcean",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/6f3b4d1902904c0fa53db8a963b6ccbb.jpg?f=webp"
             }
-        ]
+        ],
+        "tags": [
+            "Developer"
+        ],
+        "takeaway": "Apply AI patterns and tools you can use right away from 'Triage Without Tears: Building an AI-Powered Support Inbox with MongoDB'."
     },
     {
         "title": "From Zero to Kiro, vibe coding Data API alternative leveraging the AWS agentic IDE",
@@ -442,9 +678,20 @@
             {
                 "name": "Arachana Srinivasan",
                 "title": "Technical Account Manager",
-                "company": "AWS"
+                "company": "AWS",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/b1e6244bf157460cbdbafa51714912c4.jpeg?f=webp"
             }
-        ]
+        ],
+        "tags": [
+            "AI",
+            "Atlas",
+            "Developer",
+            "Hands-On / Workshop",
+            "Product Features",
+            "Serverless",
+            "Time Series / Streaming"
+        ],
+        "takeaway": "Hands-on beginner workshop: walk away with practical skills from 'From Zero to Kiro, vibe coding Data API alternative leveraging the AWS agentic IDE'."
     },
     {
         "title": "Methodology and Foundations of Data Modeling for MongoDB",
@@ -456,56 +703,84 @@
             {
                 "name": "Daniel Coupal",
                 "title": "Staff Developer Advocate - Strategic Accounts",
-                "company": "MongoDB"
+                "company": "MongoDB",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/1264c2ff425144fb8170b5834c7d3927.jpg?f=webp"
             }
-        ]
+        ],
+        "tags": [
+            "Architect"
+        ],
+        "takeaway": "Apply AI patterns and tools you can use right away from 'Methodology and Foundations of Data Modeling for MongoDB'."
     },
     {
         "title": "Voices of Impact Panel: Women Shaping Tech Today and Tomorrow",
         "time": "2:30 PM-3:15 PM",
         "level": "All Levels",
         "location": "Washington Square Park Stage",
-        "description": "From building innovative products to leading inclusive teams, women across the tech industry are making their mark in powerful ways. In this panel, hear from women who are not only thriving in their careers but also transforming the landscape for others. They’ll share lessons learned, strategies for growth, and the importance of building community and resilience in a rapidly evolving field. Walk away with inspiration and real-world advice for navigating your own journey in tech.",
+        "description": "From building innovative products to leading inclusive teams, women across the tech industry are making their mark in powerful ways. In this panel, hear from women who are not only thriving in their careers but also transforming the landscape for others. They\u2019ll share lessons learned, strategies for growth, and the importance of building community and resilience in a rapidly evolving field. Walk away with inspiration and real-world advice for navigating your own journey in tech.",
         "speakers": [
             {
                 "name": "Gabriela Preiss",
                 "title": "Director, Industry Solutions",
-                "company": "MongoDB"
+                "company": "MongoDB",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/815a79ce46154ae1919168a65ebfd677.jpg?f=webp"
             }
-        ]
+        ],
+        "tags": [
+            "Developer",
+            "Inclusion / DEI"
+        ],
+        "takeaway": "Gain clear, actionable takeaways from 'Voices of Impact Panel: Women Shaping Tech Today and Tomorrow'."
     },
     {
         "title": "Accelerate Your Development with the Latest MongoDB Innovations",
         "time": "2:30 PM-3:15 PM",
         "level": "Intermediate",
         "location": "Bryant Park Stage",
-        "description": "Join us for an engaging, hands-on session where you’ll discover how to simplify and accelerate your application development using the latest features and innovations in MongoDB. We’ll walk you through an end-to-end demo showcasing how to build a real-world application using some of MongoDB’s newest capabilities — from flexible schema design and robust querying to cutting-edge integrations and performance enhancements. Whether you're building from scratch or modernizing an existing stack, you'll gain practical insights into how MongoDB can streamline your development process.",
+        "description": "Join us for an engaging, hands-on session where you\u2019ll discover how to simplify and accelerate your application development using the latest features and innovations in MongoDB. We\u2019ll walk you through an end-to-end demo showcasing how to build a real-world application using some of MongoDB\u2019s newest capabilities \u2014 from flexible schema design and robust querying to cutting-edge integrations and performance enhancements. Whether you're building from scratch or modernizing an existing stack, you'll gain practical insights into how MongoDB can streamline your development process.",
         "speakers": [
             {
                 "name": "Nishith Atreya",
                 "title": "Associate, Product Manager",
-                "company": "MongoDB"
+                "company": "MongoDB",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/e6124038d4484dbba1a6fc8e19e3e993.jpg?f=webp"
             },
             {
                 "name": "Bruce Sandell",
                 "title": "Partner Solutions Consultant",
-                "company": "Google Cloud"
+                "company": "Google Cloud",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/b88379d6f47c46f39961bbeda03f306f_4bee48e460.jpeg?f=webp"
             }
-        ]
+        ],
+        "tags": [
+            "Architect",
+            "Hands-On / Workshop",
+            "Product Features",
+            "Time Series / Streaming"
+        ],
+        "takeaway": "Hands-on intermediate workshop: walk away with practical skills from 'Accelerate Your Development with the Latest MongoDB Innovations'."
     },
     {
         "title": "TinyFish + MongoDB: The Internet as Your Dataset",
         "time": "2:30 PM-2:50 PM",
         "level": "Beginner",
         "location": "Lightning Zone #B",
-        "description": "Imagine opening MongoDB and seeing every external dataset you need already collected, cleaned, and ready to query. What new insight could you uncover or task could you complete? TinyFish builds the agentic infrastructure that turns the entire internet into structured, query-ready MongoDB datasets. Our autonomous agents continuously pull and prepare high-quality data from any website, API, or platform and deposit it directly into MongoDB. Whether it’s real-time pricing data or competitive intelligence, we help free you from the tedious work of data collection and jump straight into analysis, decisions, and impact. In this session, TinyFish CTO Mark Peng will share how TinyFish keeps your collections populated with the live, relevant data your team needs to make better business decisions, faster.",
+        "description": "Imagine opening MongoDB and seeing every external dataset you need already collected, cleaned, and ready to query. What new insight could you uncover or task could you complete? TinyFish builds the agentic infrastructure that turns the entire internet into structured, query-ready MongoDB datasets. Our autonomous agents continuously pull and prepare high-quality data from any website, API, or platform and deposit it directly into MongoDB. Whether it\u2019s real-time pricing data or competitive intelligence, we help free you from the tedious work of data collection and jump straight into analysis, decisions, and impact. In this session, TinyFish CTO Mark Peng will share how TinyFish keeps your collections populated with the live, relevant data your team needs to make better business decisions, faster.",
         "speakers": [
             {
                 "name": "Mark Peng",
                 "title": "Chief Technology Officer",
-                "company": "TinyFish"
+                "company": "TinyFish",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/6f93486220c141bab1b3627ae186c7f7.jpeg?f=webp"
             }
-        ]
+        ],
+        "tags": [
+            "AI",
+            "Developer",
+            "Executive / Strategy",
+            "Product Features"
+        ],
+        "takeaway": "Apply AI patterns and tools you can use right away from 'TinyFish + MongoDB: The Internet as Your Dataset'."
     },
     {
         "title": "Building Agentic Generative AI Apps with MongoDB Atlas on AWS",
@@ -517,137 +792,225 @@
             {
                 "name": "Igor Alekseev",
                 "title": "Principal Data and Analytics Partner Solutions Architect",
-                "company": "Amazon Web Services (AWS)"
+                "company": "Amazon Web Services (AWS)",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/8ca047bda61d40dbae321f4a354399a9.jpg?f=webp"
             }
-        ]
+        ],
+        "tags": [
+            "AI",
+            "Architect",
+            "Atlas",
+            "Serverless"
+        ],
+        "takeaway": "Apply AI patterns and tools you can use right away from 'Building Agentic Generative AI Apps with MongoDB Atlas on AWS'."
     },
     {
         "title": "Unleash Enterprise-Ready Governed GenAI with Watsonx.ai and your Mongo Data",
         "time": "2:30 PM-3:15 PM",
         "level": "Intermediate",
         "location": "Bryant Park Stage",
-        "description": "In this presentation, you’ll discover how watsonx.ai delivers the core capabilities of the AI stack to build secure, explainable, and scalable GenAI applications. And you'll see how watsonx integrates with MongoDB's Atlas, including the MongoDB Vector capabilities, to create a trusted foundation for innovation with practical reference architectures, real-world use cases, and hands-on code samples to get you started fast. Understand the fundamental building blocks of AIDiscover how watsonx fast-tracks the creation of secure and governed GenAI applicationsLearn to effectively integrate and leverage MongoDB with GenAIExplore practical reference architectures and code samples",
+        "description": "In this presentation, you\u2019ll discover how watsonx.ai delivers the core capabilities of the AI stack to build secure, explainable, and scalable GenAI applications. And you'll see how watsonx integrates with MongoDB's Atlas, including the MongoDB Vector capabilities, to create a trusted foundation for innovation with practical reference architectures, real-world use cases, and hands-on code samples to get you started fast. Understand the fundamental building blocks of AIDiscover how watsonx fast-tracks the creation of secure and governed GenAI applicationsLearn to effectively integrate and leverage MongoDB with GenAIExplore practical reference architectures and code samples",
         "speakers": [
             {
                 "name": "Nisarg Patel",
                 "title": "Product Manager, IBM watsonx.ai",
-                "company": "IBM"
+                "company": "IBM",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/908afe53f2614bed86c553cd0fa7578c.jpg?f=webp"
             },
             {
                 "name": "Jeff Needham",
                 "title": "Principal, Industry Solutions",
-                "company": "MongoDB"
+                "company": "MongoDB",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/fc595463e3e44565bd5c850e67bbccab.png?f=webp"
             }
-        ]
+        ],
+        "tags": [
+            "AI",
+            "Architect",
+            "Atlas",
+            "Encryption/Security",
+            "Executive / Strategy",
+            "Hands-On / Workshop"
+        ],
+        "takeaway": "Hands-on intermediate workshop: walk away with practical skills from 'Unleash Enterprise-Ready Governed GenAI with Watsonx.ai and your Mongo Data'."
     },
     {
         "title": "MongoDB AI Arena",
         "time": "2:55 PM-3:15 PM",
         "level": "Beginner",
         "location": "Product Booth",
-        "description": "Join the MongoDB AI Arena and put your coding skills to the test! This competition challenges developers to build innovative applications that address real-world social issues using MongoDB Atlas on AWS. Compete with peers, leverage cutting-edge technology, and showcase your creativity to win a secret prize! Simone Gaiera Solutions Architect MongoDB Faster, Safer MongoDB Workflows That Scale 3:00 PM-3:20 PM All Levels 3T wants to transform the way you manage your MongoDB workflows. In this session, we’ll explore how enterprise teams can accelerate MongoDB-based and data operations by combining intelligent, visual tooling with context-aware agentic AI, and extensible ETLs. We’ll highlight the key challenges holding data teams back - from fragmented toolchains to painful aggregation workflows - and show how new Studio 3T solutions address them with a unified experience that’s fast, scalable, and server-based.Through a live demo, we’ll demonstrate how Studio 3T Web can help your team deliver faster and with fewer errors - from smarter query building and collaborative aggregations to reusable pipelines.",
+        "description": "Join the MongoDB AI Arena and put your coding skills to the test! This competition challenges developers to build innovative applications that address real-world social issues using MongoDB Atlas on AWS. Compete with peers, leverage cutting-edge technology, and showcase your creativity to win a secret prize!",
         "speakers": [
             {
                 "name": "Peter Caron",
                 "title": "CEO",
-                "company": "3T Software Labs"
+                "company": "3T Software Labs",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/93201c803ddb489e9217500ef7330936_760b36dc4d.png?f=webp"
+            },
+            {
+                "name": "Simone Gaiera",
+                "title": "Solutions Architect",
+                "company": "MongoDB",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/f5a723fbe15f4efd99d89e3427cc3c86.jpeg?f=webp"
             }
-        ]
+        ],
+        "tags": [
+            "AI",
+            "Atlas",
+            "Developer"
+        ],
+        "takeaway": "Apply AI patterns and tools you can use right away from 'MongoDB AI Arena'."
     },
     {
         "title": "Powering Event-Driven Applications with Kafka, MongoDB, and Atlas Stream Processing ending with a Customer Spotlight with Resmed",
         "time": "3:30 PM-4:15 PM",
         "level": "Intermediate",
         "location": "Central Park Stage",
-        "description": "In this session, you’ll gain hands-on expertise in building and managing event-driven applications with MongoDB Atlas. We’ll start by showing you just how easy it is to build stream processors natively inside Atlas, then dive into advanced techniques like data validation, windowed processing, stream joins, late data handling, dead letter queuing, and seamless integration with Apache Kafka.By the end of this session, you’ll not only understand the latest capabilities of Atlas Stream Processing—you’ll be ready to architect and implement real-time streaming solutions with confidence. You’ll walk away with the skills to continuously process data from Kafka and MongoDB, leveraging the powerful MongoDB aggregation language to build modern, scalable applications. Plus, you’ll discover how to integrate AI into your stream processing pipelines, enabling sentiment analysis, anomaly detection, and predictive analytics in new and exciting ways.Customer Spotlight: Within this 45-minute session, Les Barkhouse, Sr. Manager Global Data Platform with Resmed will join Kenny Gorman for a 15-minute fireside chat. Together, they’ll share real solutions, success stories, and the power of our partnership—highlighting how MongoDB provided the right solutions to drive impact.Please note: while this fireside chat is part of the session, the discussion may also reference additional MongoDB features, products, or solutions beyond the session’s primary topic.",
+        "description": "In this session, you\u2019ll gain hands-on expertise in building and managing event-driven applications with MongoDB Atlas. We\u2019ll start by showing you just how easy it is to build stream processors natively inside Atlas, then dive into advanced techniques like data validation, windowed processing, stream joins, late data handling, dead letter queuing, and seamless integration with Apache Kafka.By the end of this session, you\u2019ll not only understand the latest capabilities of Atlas Stream Processing\u2014you\u2019ll be ready to architect and implement real-time streaming solutions with confidence. You\u2019ll walk away with the skills to continuously process data from Kafka and MongoDB, leveraging the powerful MongoDB aggregation language to build modern, scalable applications. Plus, you\u2019ll discover how to integrate AI into your stream processing pipelines, enabling sentiment analysis, anomaly detection, and predictive analytics in new and exciting ways.Customer Spotlight: Within this 45-minute session, Les Barkhouse, Sr. Manager Global Data Platform with Resmed will join Kenny Gorman for a 15-minute fireside chat. Together, they\u2019ll share real solutions, success stories, and the power of our partnership\u2014highlighting how MongoDB provided the right solutions to drive impact.Please note: while this fireside chat is part of the session, the discussion may also reference additional MongoDB features, products, or solutions beyond the session\u2019s primary topic.",
         "speakers": [
             {
                 "name": "Kenny Gorman",
                 "title": "Head of Streaming Products",
-                "company": "MongoDB"
+                "company": "MongoDB",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/67f73bc9da7543418efd51c09c7bd733.jpg?f=webp"
             },
             {
                 "name": "Les Barkhouse",
                 "title": "Sr. Manager Global Data Platform",
-                "company": "Resmed"
+                "company": "Resmed",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/c943df1a361847f69e6fcb08b7424067.png?f=webp"
             }
-        ]
+        ],
+        "tags": [
+            "AI",
+            "Architect",
+            "Atlas",
+            "Customer Spotlight",
+            "Event-Driven",
+            "Hands-On / Workshop",
+            "Product Features",
+            "Time Series / Streaming"
+        ],
+        "takeaway": "Hands-on intermediate workshop: walk away with practical skills from 'Powering Event-Driven Applications with Kafka, MongoDB, and Atlas Stream Processing ending with a Customer Spotlight with Resmed'."
     },
     {
         "title": "Embedding the Future: How Modern Databases Are Eating Search with Microsoft",
         "time": "3:30 PM-4:15 PM",
         "level": "Intermediate",
         "location": "Washington Square Park Stage",
-        "description": "In this session, you’ll discover how to simplify and accelerate application development by leveraging the latest features and innovations in MongoDB. You’ll learn how to build a modern application using newly released MongoDB capabilities from data modeling and querying to AI integration and deployment. The demo will showcase a practical use case that brings it all together, helping you visualize how these tools can be applied to your own projects. We’re excited to have Microsoft join the session, who will co-present and walk through a powerful, end-to-end demo that highlights how MongoDB Atlas on Azure’s Vector Search and Microsoft’s Trustworthy AI principles, its platform and tools such as Azure AI Foundry work together to solve real-world challenges in AI. No laptops required—just sit back and enjoy the live walkthrough and insights from our experts!",
+        "description": "In this session, you\u2019ll discover how to simplify and accelerate application development by leveraging the latest features and innovations in MongoDB. You\u2019ll learn how to build a modern application using newly released MongoDB capabilities from data modeling and querying to AI integration and deployment. The demo will showcase a practical use case that brings it all together, helping you visualize how these tools can be applied to your own projects. We\u2019re excited to have Microsoft join the session, who will co-present and walk through a powerful, end-to-end demo that highlights how MongoDB Atlas on Azure\u2019s Vector Search and Microsoft\u2019s Trustworthy AI principles, its platform and tools such as Azure AI Foundry work together to solve real-world challenges in AI. No laptops required\u2014just sit back and enjoy the live walkthrough and insights from our experts!",
         "speakers": [
             {
                 "name": "Henry Weller",
                 "title": "Product Manager",
-                "company": "MongoDB"
+                "company": "MongoDB",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/209e779bafe84238a8b962f581a3df08.jpg?f=webp"
             },
             {
                 "name": "Azim Uddin",
                 "title": "Principal Cloud Solution Architect",
-                "company": "Microsoft Corporation"
+                "company": "Microsoft Corporation",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/8defb0edc22b4ec2963f001251cba7cb_be24109bd8.jpg?f=webp"
             }
-        ]
+        ],
+        "tags": [
+            "AI",
+            "Architect",
+            "Atlas",
+            "Executive / Strategy",
+            "Product Features",
+            "Search",
+            "Vector Search"
+        ],
+        "takeaway": "Apply AI patterns and tools you can use right away from 'Embedding the Future: How Modern Databases Are Eating Search with Microsoft'."
     },
     {
         "title": "Transforming Wealth Management with Agentic AI and MongoDB",
         "time": "3:30 PM-4:15 PM",
         "level": "Intermediate",
         "location": "Bryant Park Stage",
-        "description": "In this session, we will explore how Agentic AI, empowered by MongoDB’s data platform, is transforming wealth management by delivering innovative solutions for investment portfolio managers. You’ll learn how goal-driven AI agents analyze vast streams of structured and unstructured financial data from market trends and macroeconomic indicators to real-time news and sentiments to drive intelligent investment portfolio recommendations, personalized rebalancing, asset reallocation, and proactive market risk mitigation alternatives. We’ll walk through the reference architecture that powers this capability using MongoDB’s flexible data model and scalable data platform enabling real-time insights, vector search, embedding and seamless integration with Agentic AI frameworks. We will wrap up the session with a live demo in action.",
+        "description": "In this session, we will explore how Agentic AI, empowered by MongoDB\u2019s data platform, is transforming wealth management by delivering innovative solutions for investment portfolio managers. You\u2019ll learn how goal-driven AI agents analyze vast streams of structured and unstructured financial data from market trends and macroeconomic indicators to real-time news and sentiments to drive intelligent investment portfolio recommendations, personalized rebalancing, asset reallocation, and proactive market risk mitigation alternatives. We\u2019ll walk through the reference architecture that powers this capability using MongoDB\u2019s flexible data model and scalable data platform enabling real-time insights, vector search, embedding and seamless integration with Agentic AI frameworks. We will wrap up the session with a live demo in action.",
         "speakers": [
             {
                 "name": "Peyman Parsi",
                 "title": "Senior Principal Industry Solutions",
-                "company": "MongoDB"
+                "company": "MongoDB",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/aa899fec427c4f8c916b89bfa405cb24.png?f=webp"
             },
             {
                 "name": "Pinaki Bhagat",
                 "title": "Global head of AI, ML and Gen AI Solutions",
-                "company": "Capgemini"
+                "company": "Capgemini",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/93701668dd5e43169c0f24b4eb95bc5f.png?f=webp"
             }
-        ]
+        ],
+        "tags": [
+            "AI",
+            "Architect",
+            "Executive / Strategy",
+            "Product Features",
+            "Search",
+            "Time Series / Streaming",
+            "Vector Search"
+        ],
+        "takeaway": "Apply AI patterns and tools you can use right away from 'Transforming Wealth Management with Agentic AI and MongoDB'."
     },
     {
-        "title": "💻 Atlas Search Fundamentals: Learn How to Configure, Query, and Tune for Relevant Search Results",
+        "title": "\ud83d\udcbb Atlas Search Fundamentals: Learn How to Configure, Query, and Tune for Relevant Search Results",
         "time": "3:30 PM-5:15 PM",
         "level": "All Levels",
         "location": "Workshop Room A - 405",
-        "description": "Skill Badge Opportunity: Search Fundamentals.    💻   You'll need your laptop to fully participate in this hands-on session.       Join this session to learn the fundamentals of implementing powerful search capabilities in your own applications. Delve into the art and science of full-text search using Atlas Search: configure index mappings, tinker with textual analysis, build queries, tune relevance, and model data for search.",
+        "description": "Skill Badge Opportunity: Search Fundamentals. \ud83d\udcbb You'll need your laptop to fully participate in this hands-on session. Join this session to learn the fundamentals of implementing powerful search capabilities in your own applications. Delve into the art and science of full-text search using Atlas Search: configure index mappings, tinker with textual analysis, build queries, tune relevance, and model data for search.",
         "speakers": [
             {
                 "name": "Erik Hatcher",
                 "title": "Staff Developer Advocate, Search",
-                "company": "MongoDB"
+                "company": "MongoDB",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/d2b44ebeb78a40cca2030902abd573f8.jpg?f=webp"
             },
             {
                 "name": "Chuck Freedman",
                 "title": "Senior Director, Developer Relations",
-                "company": "MongoDB"
+                "company": "MongoDB",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/44717eb04c3b4ec8a7685e78a4e24fda.jpg?f=webp"
             }
-        ]
+        ],
+        "tags": [
+            "Atlas",
+            "Developer",
+            "Hands-On / Workshop",
+            "Indexing",
+            "Search"
+        ],
+        "takeaway": "Hands-on all levels workshop: walk away with practical skills from '\ud83d\udcbb Atlas Search Fundamentals: Learn How to Configure, Query, and Tune for Relevant Search Results'."
     },
     {
-        "title": "💻 MongoDB Security Basics",
+        "title": "\ud83d\udcbb MongoDB Security Basics",
         "time": "3:30 PM-5:15 PM",
         "level": "Intermediate",
         "location": "Workshop Room B - 406",
-        "description": "Skill Badge Opportunity: Secure MongoDB Atlas: AuthN and AuthZ.     💻   You'll need your laptop to fully participate in this hands-on session.      Are your MongoDB deployments secure? In this hands-on workshop, you’ll learn how to configure network security, implement authentication, manage user permissions with role-based access control (RBAC), and encrypt data with queryable encryption. You’ll leave ready to secure and operate your Atlas project with authentication, authorization, and encryption.",
+        "description": "Skill Badge Opportunity: Secure MongoDB Atlas: AuthN and AuthZ. \ud83d\udcbb You'll need your laptop to fully participate in this hands-on session. Are your MongoDB deployments secure? In this hands-on workshop, you\u2019ll learn how to configure network security, implement authentication, manage user permissions with role-based access control (RBAC), and encrypt data with queryable encryption. You\u2019ll leave ready to secure and operate your Atlas project with authentication, authorization, and encryption.",
         "speakers": [
             {
                 "name": "Skill Badge",
                 "title": "Earn a badge to add to",
-                "company": "your LinkedIn profile"
+                "company": "your LinkedIn profile",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/1439a236864040ed953ae4b095a7d904.png?f=webp"
             },
             {
                 "name": "Joel Lord",
                 "title": "Lead, Curriculum Eng/Technologist",
-                "company": "MongoDB"
+                "company": "MongoDB",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/67225842a95d4a7f8fd730b1346bf9c7.jpg?f=webp"
             }
-        ]
+        ],
+        "tags": [
+            "Architect",
+            "Atlas",
+            "Encryption/Security",
+            "Hands-On / Workshop"
+        ],
+        "takeaway": "Hands-on intermediate workshop: walk away with practical skills from '\ud83d\udcbb MongoDB Security Basics'."
     },
     {
         "title": "Building Next-Generation Applications with MongoDB Atlas and Google Cloud AI",
@@ -659,9 +1022,15 @@
             {
                 "name": "Lukas Geiger",
                 "title": "Customer Engineer, AI/ML",
-                "company": "Google Cloud"
+                "company": "Google Cloud",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/2cba1f844c6e43539b39691acab471c0_a85a7d9251.png?f=webp"
             }
-        ]
+        ],
+        "tags": [
+            "Atlas",
+            "Developer"
+        ],
+        "takeaway": "Apply AI patterns and tools you can use right away from 'Building Next-Generation Applications with MongoDB Atlas and Google Cloud AI'."
     },
     {
         "title": "Events at the Movies with Atlas Stream Processing",
@@ -673,22 +1042,33 @@
             {
                 "name": "Nuri Halperin",
                 "title": "Senior Architect",
-                "company": "Plus N Consulting, MongoDB Champion"
+                "company": "Plus N Consulting, MongoDB Champion",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/5bee64615f1e491b94267fa88c5ba4f3.png?f=webp"
             }
+        ],
+        "tags": [
+            "Atlas",
+            "Developer",
+            "Time Series / Streaming"
         ]
     },
     {
-        "title": "Scaling Context Intelligence: The Architecture Behind Factory’s Retrieval Engine",
+        "title": "Scaling Context Intelligence: The Architecture Behind Factory\u2019s Retrieval Engine",
         "time": "4:00 PM-4:20 PM",
         "level": "Intermediate",
         "location": "Lightning Zone #A",
-        "description": "Factory’s retrieval engine is designed to surface precise, high-value code context across massive enterprise codebases. At its core is a layered architecture that blends semantic search, structural code analysis, and a multi-tier embedding strategy powered by Voyage embeddings. This structure enables the system to handle everything from pinpoint lookups to complex, multi-file queries while keeping results both relevant and compact. In this talk, we’ll walk through how the retrieval pipeline works end-to-end, why embeddings choice matters, and the design patterns we use to keep retrieval resilient, performant, and accurate in production at enterprise scale.",
+        "description": "Factory\u2019s retrieval engine is designed to surface precise, high-value code context across massive enterprise codebases. At its core is a layered architecture that blends semantic search, structural code analysis, and a multi-tier embedding strategy powered by Voyage embeddings. This structure enables the system to handle everything from pinpoint lookups to complex, multi-file queries while keeping results both relevant and compact. In this talk, we\u2019ll walk through how the retrieval pipeline works end-to-end, why embeddings choice matters, and the design patterns we use to keep retrieval resilient, performant, and accurate in production at enterprise scale.",
         "speakers": [
             {
                 "name": "Varin Nair",
                 "title": "Factory",
                 "company": "Building for Scale: How MongoDB Atlas Grows with You"
             }
+        ],
+        "tags": [
+            "Architect",
+            "Executive / Strategy",
+            "Search"
         ]
     },
     {
@@ -703,6 +1083,12 @@
                 "title": "Senior Product Manager",
                 "company": "MongoDB"
             }
+        ],
+        "tags": [
+            "Architect",
+            "Atlas",
+            "DevOps",
+            "Multi-Cloud / High Availability"
         ]
     },
     {
@@ -720,8 +1106,13 @@
             {
                 "name": "Rishikesh Bagati",
                 "title": "Associate Practice Engagement Manager",
-                "company": "Infosys Limited"
+                "company": "Infosys Limited",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/0f53bc4535204d8a8ab3c55e84f3b5da.jpg?f=webp"
             }
+        ],
+        "tags": [
+            "Architect",
+            "Executive / Strategy"
         ]
     },
     {
@@ -729,26 +1120,318 @@
         "time": "4:30 PM-5:15 PM",
         "level": "Intermediate",
         "location": "Washington Square Park Stage",
-        "description": "Join us for an engaging, hands-on session where you’ll discover how to simplify and accelerate your application development using the latest features and innovations in MongoDB. We’ll walk you through an end-to-end demo showcasing how to build a real-world application using some of MongoDB’s newest capabilities — from flexible schema design and robust querying to cutting-edge integrations and performance enhancements. Whether you're building from scratch or modernizing an existing stack, you'll gain practical insights into how MongoDB can streamline your development process.",
-        "speakers": []
+        "description": "Join us for an engaging, hands-on session where you\u2019ll discover how to simplify and accelerate your application development using the latest features and innovations in MongoDB. We\u2019ll walk you through an end-to-end demo showcasing how to build a real-world application using some of MongoDB\u2019s newest capabilities \u2014 from flexible schema design and robust querying to cutting-edge integrations and performance enhancements. Whether you're building from scratch or modernizing an existing stack, you'll gain practical insights into how MongoDB can streamline your development process.",
+        "speakers": [],
+        "tags": [
+            "Architect",
+            "Hands-On / Workshop",
+            "Product Features",
+            "Time Series / Streaming"
+        ]
     },
     {
         "title": "Solving the Mystery of Index Use ending with a Customer Spotlight with Conde Nast",
         "time": "4:30 PM-5:15 PM",
         "level": "Intermediate",
         "location": "Prospect Park Stage",
-        "description": "If your application is slow there is a good chance that you should look at your indexes but what are indexes? How do they work? When should you use them? In this practical talk filled with real life examples we'll take a look at different types of indexes MongoDB supports and when and how to use them.You'll learn about regular, compound, wildcard, and partial indexes, how they work, and when they should be used. You'll learn about rules of thumb for indexes and when not to apply such rules. Customer Spotlight: Within this 45-minute session, Chris Chen the Global VP of Architecture & Governance with Conde Nast will join Jeff Needham for a 15-minute fireside chat. Together, they’ll share real solutions, success stories, and the power of our partnership—highlighting how MongoDB provided the right solutions to drive impact.Please note: while this fireside chat is part of the session, the discussion may also reference additional MongoDB features, products, or solutions beyond the session’s primary topic.",
+        "description": "If your application is slow there is a good chance that you should look at your indexes but what are indexes? How do they work? When should you use them? In this practical talk filled with real life examples we'll take a look at different types of indexes MongoDB supports and when and how to use them.You'll learn about regular, compound, wildcard, and partial indexes, how they work, and when they should be used. You'll learn about rules of thumb for indexes and when not to apply such rules. Customer Spotlight: Within this 45-minute session, Chris Chen the Global VP of Architecture & Governance with Conde Nast will join Jeff Needham for a 15-minute fireside chat. Together, they\u2019ll share real solutions, success stories, and the power of our partnership\u2014highlighting how MongoDB provided the right solutions to drive impact.Please note: while this fireside chat is part of the session, the discussion may also reference additional MongoDB features, products, or solutions beyond the session\u2019s primary topic.",
         "speakers": [
             {
                 "name": "Jeff Needham",
                 "title": "Principal, Industry Solutions",
-                "company": "MongoDB"
+                "company": "MongoDB",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/fc595463e3e44565bd5c850e67bbccab.png?f=webp"
             },
             {
                 "name": "Chris Chen",
                 "title": "Global VP of Architecture & Governance",
                 "company": "Conde Nast"
             }
+        ],
+        "tags": [
+            "Architect",
+            "Customer Spotlight",
+            "Indexing",
+            "Product Features"
         ]
+    },
+    {
+        "title": "Birds of a Feather Welcome Reception",
+        "time": "8:15 AM-8:45 AM",
+        "level": "",
+        "location": "I.D.E.A. Lounge",
+        "description": "Calling all MongoDB ERG members and first-time .local NYC attendees! Kick-start your .local New York City experience by joining us in the I.D.E.A. Lounge for a casual coffee and networking session. This is a perfect opportunity to meet fellow community members, connect with ERG leaders, and energize for the day ahead. We can't wait to welcome you!",
+        "speakers": [
+            {
+                "name": "Aeris Joseph",
+                "title": "Early Career Talent Recruiter",
+                "company": "MongoDB",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/a9323ec0cb3a43d8a90b0b1e523d22ad.jpg?f=webp"
+            }
+        ],
+        "tags": [
+            "Product Features"
+        ],
+        "takeaway": "Apply AI patterns and tools you can use right away from 'Birds of a Feather Welcome Reception'."
+    },
+    {
+        "title": "Early Talent Programs at MongoDB",
+        "time": "10:45 AM-11:10 AM",
+        "level": "",
+        "location": "I.D.E.A Spotlight Theater",
+        "description": "MongoDB\u2019s Early Talent Programs offer students the opportunity to gain real-world experience, build technical and professional skills, and take their first step in a career in tech. This session will cover all our early talent programs, with a specific focus on our internship experience. We\u2019ll break down the application and interview process, highlight the exciting projects interns work on, and show how mentorship and a strong community help interns grow and succeed. By the end of the session, we hope you\u2019ll have a clear understanding of what our Early Talent programs offer, how to get involved, and how to prepare to make the most of these opportunities.",
+        "speakers": [
+            {
+                "name": "Aeris Joseph",
+                "title": "Early Career Talent Recruiter",
+                "company": "MongoDB",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/a9323ec0cb3a43d8a90b0b1e523d22ad.jpg?f=webp"
+            }
+        ],
+        "tags": [
+            "Developer"
+        ],
+        "takeaway": "Apply AI patterns and tools you can use right away from 'Early Talent Programs at MongoDB'."
+    },
+    {
+        "title": "Three MongoDB Features You\u2019re Probably Not Using (But Should Be)",
+        "time": "10:45 AM-11:05 AM",
+        "level": "All Levels",
+        "location": "Lightning Zone #A",
+        "description": "Some of MongoDB\u2019s most impactful capabilities stay under the radar, but once you discover them, you wonder how you ever worked without them. This talk will spotlight three features that can instantly level up your MongoDB game: VNet Peering, for secure, private connectivity that keeps your Atlas cluster off the public internet; Hidden Secondaries, to safely run heavy analytics without affecting production performance; and Multi-Region and Multi-Cloud Deployments, for the kind of high availability and global reach your users expect. As a bonus takeaway, we\u2019ll also touch on Change Streams, which let your applications respond to data changes in real time without messy polling. Expect a practical, fast-paced session with simple examples and actionable insights you can put into practice right away.",
+        "speakers": [
+            {
+                "name": "Ruthvik Reddy Anumasu",
+                "title": "Principal Software Engineer",
+                "company": "MongoDB Champion",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/04484690ce3c41f09f4b59ff7c0b4194.jpg?f=webp"
+            }
+        ],
+        "tags": [
+            "Atlas",
+            "Developer",
+            "Encryption/Security",
+            "Multi-Cloud / High Availability",
+            "Product Features",
+            "Time Series / Streaming"
+        ],
+        "takeaway": "Apply AI patterns and tools you can use right away from 'Three MongoDB Features You\u2019re Probably Not Using (But Should Be)'."
+    },
+    {
+        "title": "Unlocking true Application Modernization with MongoDB",
+        "time": "10:45 AM-11:30 AM",
+        "level": "",
+        "location": "Central Park Stage",
+        "description": "The AI era is driving innovation at lightning speed, opening massive opportunities for enterprises to modernize legacy applications. But complex, tangled legacy tech stacks hold them back\u2014fueling compliance risks, soaring costs, and sluggish innovation. Traditional \"lift and shift\" approaches merely move problems to new systems without cutting technical debt or boosting developer productivity. MongoDB is the game-changing database built for the AI era. Backed by trusted technology, experts, and processes, discover how MongoDB becomes your powerhouse partner in accelerating true application modernization",
+        "speakers": [
+            {
+                "name": "Revathy Narahsimhan",
+                "title": "Senior Director, Product Management",
+                "company": "MongoDB",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/89ca7bbe1a8048f3ba7c69fc6eec22a7.png?f=webp"
+            }
+        ],
+        "tags": [
+            "AI",
+            "Product Features"
+        ],
+        "takeaway": "Apply AI patterns and tools you can use right away from 'Unlocking true Application Modernization with MongoDB'."
+    },
+    {
+        "title": "The Converged Datastore: Agentic for Insurance and Other Industries ending with a Customer Spotlight with Tokio Marine",
+        "time": "11:45 AM-12:30 PM",
+        "level": "Intermediate",
+        "location": "Washington Square Park Stage",
+        "description": "Agentic AI is changing how we interact with business applications, how we architect for them, and altering technology portfolio investment strategies. This session will break down the changing data architecture landscape with the goal of empowering the next generation of IT decision makers and architects, as they steer their own technology portfolios and agendas. This session will include insurance examples, but is broadly applicable to other industries. Customer Spotlight: Within this 45-minute session, Aaron Lamp, CTO of Tokio Marine will join Jeff Needham for a 15-minute fireside chat. Together, they\u2019ll share real solutions, success stories, and the power of our partnership\u2014highlighting how MongoDB provided the right solutions to drive impact. Please note, this fireside chat may also touch on additional MongoDB features, products, or solutions beyond the session\u2019s primary topic.Please note: while this fireside chat is part of the session, the discussion may also reference additional MongoDB features, products, or solutions beyond the session\u2019s primary topic.",
+        "speakers": [
+            {
+                "name": "Jeff Needham",
+                "title": "Principal, Industry Solutions",
+                "company": "MongoDB",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/fc595463e3e44565bd5c850e67bbccab.png?f=webp"
+            }
+        ],
+        "tags": [
+            "AI",
+            "Architect",
+            "Customer Spotlight",
+            "Executive / Strategy",
+            "Product Features"
+        ],
+        "takeaway": "Hear real-world patterns and success stories in 'The Converged Datastore: Agentic for Insurance and Other Industries ending with a Customer Spotlight with Tokio Marine'."
+    },
+    {
+        "title": "The State of AI-Powered Search and Retrieval",
+        "time": "11:55 AM-12:15 PM",
+        "level": "",
+        "location": "Product Booth",
+        "description": "In this talk, we examine the state-of-the-art in AI-powered search and retrieval. We detail techniques for enhancing performance beyond base embedding models, including hybrid search, reranking strategies, query decomposition and document enrichment, the use of domain-specific and fine-tuned embeddings, custom data processing pipelines (ETL), and contextualized chunking methods.",
+        "speakers": [
+            {
+                "name": "Frank Liu",
+                "title": "Staff Product Manager",
+                "company": "MongoDB",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/eeca4953bcfc4263a5f41daa879abcc6.jpg?f=webp"
+            }
+        ],
+        "tags": [
+            "Search"
+        ],
+        "takeaway": "Apply AI patterns and tools you can use right away from 'The State of AI-Powered Search and Retrieval'."
+    },
+    {
+        "title": "Build, Secure, and Scale Your Financial AI with Confidence",
+        "time": "12:00 PM-12:20 PM",
+        "level": "Beginner",
+        "location": "Lightning Zone #B",
+        "description": "AI is no longer just a buzzword in financial services; it's the engine driving everything from fraud detection to real-time trading. Developers building these critical applications need a tech stack that is secure, scalable, and reliable. This talk provides a practical blueprint for achieving that by combining the strengths of Google Cloud's robust infrastructure, MongoDB's flexible data layer, and Datadog's essential observability and security features. We'll show you how to build a production-ready foundation that lets you develop and manage modern financial AI applications with confidence.",
+        "speakers": [
+            {
+                "name": "Alisha Stull",
+                "title": "Partner Engineer",
+                "company": "Google Cloud",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/70e7faa9bac34ba6b23d56b2d03ca3f9_d259ced69e.jpg?f=webp"
+            }
+        ],
+        "tags": [
+            "AI",
+            "Developer",
+            "Encryption/Security",
+            "Financial Services",
+            "Product Features"
+        ],
+        "takeaway": "Apply AI patterns and tools you can use right away from 'Build, Secure, and Scale Your Financial AI with Confidence'."
+    },
+    {
+        "title": "\ud83d\udcbb From SQL to the MongoDB Query API",
+        "time": "1:30 PM-3:15 PM",
+        "level": "",
+        "location": "Workshop Room A - 405",
+        "description": "Skill badge opportunity: CRUD Operations \ud83d\udcbb You'll need your laptop to fully participate in this hands-on session.Are you ready to get hands-on and write queries using the MongoDB Query API? Join us for an engaging workshop that will take you on a transformative journey, allowing you to translate your existing RDBMS querying knowledge into new MongoDB Query API skills. Through interactive exercises, you will skillfully transition your RDBMS expertise into the MongoDB Query API. You\u2019ll delve into the fundamentals of CRUD operations, create new queries adapted to the document-model patterns used in MongoDB, and build complex aggregation pipelines to fully utilize MongoDB\u2019s powerful server-side data analytic capabilities. We can't wait to see you there!",
+        "speakers": [
+            {
+                "name": "Skill Badge",
+                "title": "Earn a badge to add to",
+                "company": "your LinkedIn profile",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/d110bbae26ca4e2d9808a843e1338057.png?f=webp"
+            }
+        ],
+        "tags": [
+            "Hands-On / Workshop",
+            "Product Features"
+        ],
+        "takeaway": "Hands-on  workshop: walk away with practical skills from '\ud83d\udcbb From SQL to the MongoDB Query API'."
+    },
+    {
+        "title": "Integrating MongoDB Atlas With Your Internal Developer Platform (IDP)",
+        "time": "1:40 PM-2:00 PM",
+        "level": "",
+        "location": "Product Booth",
+        "description": "Operations and platform engineering teams are critical in enabling developers to innovate and build with MongoDB Atlas at scale. This session will demonstrate how to create a starter Atlas landing zone with Backstage.io, Terraform, and GitHub. By implementing an Atlas landing zone, you can provide a frictionless, self-service developer experience for MongoDB Atlas while enforcing key security and operational guardrails required by your business.",
+        "speakers": [
+            {
+                "name": "Charlie Xu",
+                "title": "Senior Product Manager",
+                "company": "MongoDB",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/a93bb59d3acb4f75b813c64a5aca45c1.jpeg?f=webp"
+            }
+        ],
+        "tags": [
+            "Atlas",
+            "DevOps",
+            "Encryption/Security"
+        ],
+        "takeaway": "Apply AI patterns and tools you can use right away from 'Integrating MongoDB Atlas With Your Internal Developer Platform (IDP)'."
+    },
+    {
+        "title": "Faster, Safer MongoDB Workflows That Scale",
+        "time": "3:00 PM-3:20 PM",
+        "level": "All Levels",
+        "location": "",
+        "description": "3T wants to transform the way you manage your MongoDB workflows. In this session, we\u2019ll explore how enterprise teams can accelerate MongoDB-based and data operations by combining intelligent, visual tooling with context-aware agentic AI, and extensible ETLs. We\u2019ll highlight the key challenges holding data teams back - from fragmented toolchains to painful aggregation workflows - and show how new Studio 3T solutions address them with a unified experience that\u2019s fast, scalable, and server-based.Through a live demo, we\u2019ll demonstrate how Studio 3T Web can help your team deliver faster and with fewer errors - from smarter query building and collaborative aggregations to reusable pipelines.",
+        "speakers": [
+            {
+                "name": "Peter Caron",
+                "title": "CEO",
+                "company": "3T Software Labs",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/93201c803ddb489e9217500ef7330936_760b36dc4d.png?f=webp"
+            }
+        ],
+        "tags": [
+            "AI",
+            "Developer",
+            "Product Features"
+        ],
+        "takeaway": "Apply AI patterns and tools you can use right away from 'Faster, Safer MongoDB Workflows That Scale'."
+    },
+    {
+        "title": "watsonx and MongoDB: Scale the Impact of Generative AI with Trusted Data and Governance",
+        "time": "3:30 PM-3:50 PM",
+        "level": "All Levels",
+        "location": "Lightning Zone #A",
+        "description": "Generative AI is no longer just an experiment: it\u2019s driving real business value. But scaling AI responsibly requires more than models; it demands trusted data and strong governance. In this lightning session, discover how watsonx and MongoDB empower enterprises to train, validate, tune, and deploy foundation models with their own trusted data. See how you can monitor model health, accuracy, drift, bias, and GenAI quality \u2014 all while applying governance, risk, and compliance guardrails. Join us to learn how watsonx and MongoDB work together to help you build, scale, and govern generative AI applications responsibly and unlock new opportunities for enterprise growth.Key learnings:Turn AI into business valueEnsure responsible AI at scaleUnlock new business opportunities",
+        "speakers": [
+            {
+                "name": "Jerry Green",
+                "title": "WW OEM Sales Leader, IBM Technology Sales",
+                "company": "IBM",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/85cc1bbde19945038e32edb99b542e71.jpg?f=webp"
+            }
+        ],
+        "tags": [
+            "AI",
+            "Developer",
+            "Executive / Strategy",
+            "Healthcare",
+            "Product Features"
+        ],
+        "takeaway": "Apply AI patterns and tools you can use right away from 'watsonx and MongoDB: Scale the Impact of Generative AI with Trusted Data and Governance'."
+    },
+    {
+        "title": "Demopalooza",
+        "time": "6:00 PM-8:30 PM",
+        "level": "All Levels",
+        "location": "After Hours",
+        "description": "Join us after the event for Demopalooza - a collaborative demo night between AI Tinkerers NYC and MongoDB.If you\u2019ve got something cool to show \u2014 a tool, an agent, a workflow, a new way to combine data and AI \u2014 submit a demo on the AI Tinkers event page: https://nyc.aitinkerers.org/p/demopalooza-the-javits-center-with-mongodb. The focus of demos are projects that utilize memory, multimodal AI, and MongoDB.Not interested in sharing a demo? Join us to learn from other builders and vote to crown the crowd's favorite.",
+        "speakers": [
+            {
+                "name": "Apoorva Joshi",
+                "title": "Senior AI Developer Advocate",
+                "company": "MongoDB",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/4f057bdd783043428c57e0441018cf65.png?f=webp"
+            },
+            {
+                "name": "Chuck Freedman",
+                "title": "Senior Director, Developer Relations",
+                "company": "MongoDB",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/44717eb04c3b4ec8a7685e78a4e24fda.jpg?f=webp"
+            },
+            {
+                "name": "Michael Lynn",
+                "title": "Principal Developer Advocate",
+                "company": "MongoDB",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/fb9a8f29a91b4dc3aabca08ee53808b0.jpg?f=webp"
+            },
+            {
+                "name": "Mikiko Bazeley",
+                "title": "Staff Developer Advocate",
+                "company": "MongoDB",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/ee89643f512249e0833fcf17fe2eee1c.jpg?f=webp"
+            },
+            {
+                "name": "Jonathan Murray",
+                "title": "Lead of AI Tinkerers NYC",
+                "company": "AI Tinkerers NYC",
+                "photoUrl": "https://custom.cvent.com/3299bbc8ad19486aa86c483996be7794/files/event/77c2af12ab2d4869a1181e394201892d/17777946c227401ea5f16bd72a4ed5e7.png?f=webp"
+            }
+        ],
+        "tags": [
+            "AI",
+            "Community Event",
+            "Demos",
+            "Developer",
+            "Networking"
+        ],
+        "takeaway": "See live demos from builders, learn AI patterns, and network with the community."
     }
 ]
