@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', () =>
     let categoriesData=null;
     const selectedTags=new Set();
     let myScheduleIds=new Set();
+    // Global persistence helper for bullet export field preferences
+    function persistBulletPrefs() { try { if (window.__bulletFieldsSelected) localStorage.setItem('bulletFieldPrefs', JSON.stringify(window.__bulletFieldsSelected)); } catch { } }
     // --- Analytics helper (safe no-op if GA not present) ---
     const track=(name, params={}) => { if (typeof window!=='undefined'&&typeof window.gtag==='function') { try { window.gtag('event', name, params); } catch { } } };
 
@@ -59,6 +61,8 @@ document.addEventListener('DOMContentLoaded', () =>
     function renderSessionCard(s)
     {
         const card=el('div', 'sched-session session-card');
+        // Tag card with session id for quick lookup from My Schedule list
+        card.dataset.sid=s.id;
         const cleanTitle=(s.title||'').replace(/\s+/g, ' ').trim();
         const title=el('h3', 'session-title', cleanTitle);
         title.title=cleanTitle;
@@ -110,94 +114,57 @@ document.addEventListener('DOMContentLoaded', () =>
         document.addEventListener('keydown', onEsc, { once: true });
         shell.addEventListener('click', e => { if (e.target===shell) closeModal(); }, { once: true });
     }
-    function buildSpeaker(sp) { const r=el('div', 'speaker'); const av=el('div', 'speaker-avatar'); if (sp&&sp.photoUrl) { const img=new Image(); img.loading='lazy'; img.src=sp.photoUrl; img.alt=sp.name||''; av.appendChild(img); } else { const ini=(sp?.name||'?').split(/\s+/).map(p => p[ 0 ]).slice(0, 2).join('').toUpperCase(); av.textContent=ini; } const info=el('div', 'speaker-info'); info.appendChild(el('div', 'name', sp?.name||'')); if (sp?.title) info.appendChild(el('div', 'title', sp.title)); if (sp?.company) info.appendChild(el('div', 'company', sp.company)); r.appendChild(av); r.appendChild(info); return r; }
-
-    // ---------- Rendering main schedule ----------
+    function buildSpeaker(sp)
+    {
+        const r=el('div', 'speaker');
+        const av=el('div', 'speaker-avatar');
+        if (sp&&sp.photoUrl) { const img=new Image(); img.loading='lazy'; img.src=sp.photoUrl; img.alt=sp.name||''; av.appendChild(img); }
+        else { const ini=(sp?.name||'?').split(/\s+/).map(p => p[ 0 ]).slice(0, 2).join('').toUpperCase(); av.textContent=ini; }
+        const info=el('div', 'speaker-info');
+        info.appendChild(el('div', 'name', sp?.name||''));
+        if (sp?.title) info.appendChild(el('div', 'title', sp.title));
+        if (sp?.company) info.appendChild(el('div', 'company', sp.company));
+        r.appendChild(av); r.appendChild(info); return r;
+    }
+    // ---------- Main agenda render ----------
     function render(list)
     {
         root.innerHTML=''; if (!list.length) { root.textContent='No sessions match the current filters.'; return; }
         const locations=[ ...new Set(list.map(s => normLoc(s.location))) ]; if (locations.includes(MISSING_LOC)) { locations.splice(locations.indexOf(MISSING_LOC), 1); locations.push(MISSING_LOC); }
         const perLoc=new Map(); locations.forEach(l => perLoc.set(l, list.filter(s => normLoc(s.location)===l)));
         const locMeta=locations.map(loc => { const sessions=perLoc.get(loc)||[]; const laneCount=assignLanes(sessions); return { loc, laneCount }; });
-        // Build timeline then insert a uniform gap row before every slot after the first (Option A)
-        const timeline=buildTimeline(list); // reuse existing slot calc
+        // Include scheduled sessions (even if filtered out) so occupancy column & background bands remain stable
+        const scheduledAll=[ ...myScheduleIds ].map(id => allSessions.find(s => s.id===id)).filter(Boolean);
+        const timelineBaseMap=new Map();
+        const timelineList=[];
+        [ ...list, ...scheduledAll ].forEach(s => { if (!timelineBaseMap.has(s.id)) { timelineBaseMap.set(s.id, 1); timelineList.push(s); } });
+        const timeline=buildTimeline(timelineList);
         const slots=timeline.slots;
         const map=new Map();
-        const rowDescriptors=[]; // after header row
-        // Height of the synthetic uniform gap row inserted before each time slot (except the first)
-        const GAP_ROW_H=14; // px
-        let nextRow=2; // row 1 = headers
-        slots.forEach((t, idx) =>
-        {
-            if (idx>0) { // uniform gap before every subsequent slot
-                rowDescriptors.push({ type: 'gap' });
-                nextRow++;
-            }
-            rowDescriptors.push({ type: 'slot', time: t });
-            map.set(t, nextRow);
-            nextRow++;
-        });
+        const rowDescriptors=[]; let nextRow=2; const GAP_ROW_H=14;
+        slots.forEach((t, idx) => { if (idx>0) { rowDescriptors.push({ type: 'gap' }); nextRow++; } rowDescriptors.push({ type: 'slot', time: t }); map.set(t, nextRow); nextRow++; });
         const totalRows=nextRow-1;
         const wrap=el('div', 'schedule-wrap');
         const timeRail=el('div', 'time-rail'); const head=el('div', 'time-rail-head sched-head'); timeRail.appendChild(head); const railInner=el('div', 'time-rail-inner'); timeRail.appendChild(railInner);
         const scroller=el('div', 'schedule-scroll');
-        // Cover element sits above sessions (prevents peeking during upward scroll) but below sticky location headers
-        const cover=el('div', 'schedule-cover');
-        scroller.appendChild(cover);
-        const grid=el('div', 'schedule-grid');
-        grid.style.gridTemplateColumns=locMeta.map(m => `repeat(${m.laneCount}, minmax(280px,1fr))`).join(' ');
-        let col=1; const locStart=new Map(); locMeta.forEach(m => { locStart.set(m.loc, col); grid.appendChild(place(el('div', 'sched-head loc-head', m.loc), col, 1, m.laneCount)); col+=m.laneCount; });
-        // Build time rail rows aligned with grid (gap rows render as empty shrink rows)
-        const railFrag=document.createDocumentFragment();
-        const firstSlot=slots[ 0 ];
-        rowDescriptors.forEach(desc =>
-        {
-            if (desc.type==='gap') {
-                railFrag.appendChild(el('div', 'time-gap-cell', ''));
-            } else {
-                if (desc.time===firstSlot) {
-                    // Skip top-most label (leave empty cell so alignment stays correct)
-                    railFrag.appendChild(el('div', 'sched-time minor', ''));
-                } else {
-                    const lbl=fmtTimeLabel(desc.time);
-                    railFrag.appendChild(el('div', lbl? 'sched-time':'sched-time minor', lbl));
-                }
-            }
-        });
+        const railFrag=document.createDocumentFragment(); const firstSlot=slots[ 0 ];
+        rowDescriptors.forEach(desc => { if (desc.type==='gap') railFrag.appendChild(el('div', 'time-gap-cell', '')); else { if (desc.time===firstSlot) railFrag.appendChild(el('div', 'sched-time minor', '')); else { const lbl=fmtTimeLabel(desc.time); railFrag.appendChild(el('div', lbl? 'sched-time':'sched-time minor', lbl)); } } });
         railInner.appendChild(railFrag);
-        for (let c=1; c<col; c++) { grid.appendChild(place(el('div', 'col-sep'), c, 2, 1, totalRows-1)); }
-        // Place sessions; gap rows already inserted before their start row if needed
-        list.forEach(s =>
-        {
-            const base=locStart.get(normLoc(s.location));
-            const laneIdx=s.__lane||0;
-            const startRow=map.get(Math.floor(s.start/STEP)*STEP);
-            // Number of STEP-sized slots this session covers
-            const slotCount=Math.max(1, Math.ceil((s.end-s.start)/STEP));
-            // With uniform gap rows inserted before every slot after the first,
-            // a session spanning N slots must also span the (N-1) gap rows between them.
-            // Row span formula: 1 slot => 1 row; N>1 => 2N-1 rows.
-            const rowSpan=slotCount===1? 1:slotCount*2-1;
-            if (!startRow) return;
-            const card=renderSessionCard(s);
-            if (slotCount===1) card.classList.add('span-one');
-            grid.appendChild(place(card, base+laneIdx, startRow, 1, rowSpan));
-        });
+        const grid=el('div', 'schedule-grid');
+        const locStart=new Map(); grid.appendChild(place(el('div', 'occ-head', ''), 1, 1, 1, 1));
+        let curCol=2; locMeta.forEach(meta => { locStart.set(meta.loc, curCol); const headCell=el('div', 'loc-head', meta.loc); grid.appendChild(place(headCell, curCol, 1, meta.laneCount, 1)); curCol+=meta.laneCount; });
+        const totalCols=curCol-1; grid.style.gridTemplateColumns=`var(--occ-col-w,12px) repeat(${totalCols-1}, minmax(var(--lane-w, 300px), 1fr))`;
+        for (let c=3; c<=totalCols; c++) grid.appendChild(place(el('div', 'col-sep'), c, 2, 1, totalRows-1));
+        // Background bands for scheduled sessions
+        (function addScheduledBackgrounds() { const ranges=[]; scheduledAll.forEach(s => { const startRow=map.get(Math.floor(s.start/STEP)*STEP); if (!startRow) return; const slotCount=Math.max(1, Math.ceil((s.end-s.start)/STEP)); const rowSpan=slotCount===1? 1:slotCount*2-1; ranges.push({ start: startRow, end: startRow+rowSpan }); }); ranges.sort((a, b) => a.start-b.start); const merged=[]; for (const r of ranges) { const last=merged[ merged.length-1 ]; if (!last||r.start>last.end) merged.push({ ...r }); else if (r.end>last.end) last.end=r.end; } merged.forEach(r => { const bg=el('div', 'saved-bg'); place(bg, 1, r.start, totalCols, r.end-r.start); grid.appendChild(bg); }); })();
+        // Place visible sessions
+        list.forEach(s => { const base=locStart.get(normLoc(s.location)); const laneIdx=s.__lane||0; const startRow=map.get(Math.floor(s.start/STEP)*STEP); if (!startRow) return; const slotCount=Math.max(1, Math.ceil((s.end-s.start)/STEP)); const rowSpan=slotCount===1? 1:slotCount*2-1; const card=renderSessionCard(s); if (slotCount===1) card.classList.add('span-one'); grid.appendChild(place(card, base+laneIdx, startRow, 1, rowSpan)); });
         scroller.appendChild(grid); wrap.appendChild(timeRail); wrap.appendChild(scroller); root.appendChild(wrap); syncRail(scroller, railInner); adjustHead(head, grid, scroller);
-        // Enable mouse wheel scrolling when pointer is over the (non-scrollable) time rail
-        timeRail.addEventListener('wheel', e =>
-        {
-            if (!e.deltaY) return; // vertical intent only
-            scroller.scrollTop+=e.deltaY;
-            e.preventDefault();
-        }, { passive: false });
-        // Apply explicit row sizing: header auto + dynamic gaps + slots
-        const rowSizes=[ 'auto' ];
-        rowDescriptors.forEach(desc => { rowSizes.push(desc.type==='gap'? GAP_ROW_H+'px':'var(--slot-h)'); });
-        grid.style.gridTemplateRows=rowSizes.join(' ');
-        railInner.style.gridTemplateRows=rowSizes.slice(1).join(' '); // rail has only post-header rows
+        timeRail.addEventListener('wheel', e => { if (!e.deltaY) return; scroller.scrollTop+=e.deltaY; e.preventDefault(); }, { passive: false });
+        const rowSizes=[ 'auto' ]; rowDescriptors.forEach(desc => rowSizes.push(desc.type==='gap'? GAP_ROW_H+'px':'var(--slot-h)')); grid.style.gridTemplateRows=rowSizes.join(' '); railInner.style.gridTemplateRows=rowSizes.slice(1).join(' ');
+        scheduledAll.forEach(s => { const startRow=map.get(Math.floor(s.start/STEP)*STEP); if (!startRow) return; const slotCount=Math.max(1, Math.ceil((s.end-s.start)/STEP)); const rowSpan=slotCount===1? 1:slotCount*2-1; const block=el('div', 'occ-block'); block.title=(s.title||'')+' '+fmtRange(s.start, s.end); grid.appendChild(place(block, 1, startRow, 1, rowSpan)); });
     }
-    const place=(node, col, row, colSpan=1, rowSpan=1) => { node.style.gridColumn=`${col} / ${col+colSpan}`; node.style.gridRow=`${row} / ${row+rowSpan}`; return node; };
+    function place(node, col, row, colSpan=1, rowSpan=1) { node.style.gridColumn=`${col} / ${col+colSpan}`; node.style.gridRow=`${row} / ${row+rowSpan}`; return node; }
     function syncRail(scroller, rail) { const f=() => rail.style.transform=`translateY(-${scroller.scrollTop}px)`; scroller.addEventListener('scroll', f, { passive: true }); f(); }
     function adjustHead(head, grid, scroller) { requestAnimationFrame(() => { const h=grid.querySelector('.loc-head')?.getBoundingClientRect().height||40; head.style.height=`${h}px`; if (scroller) scroller.style.setProperty('--loc-head-h', h+'px'); }); }
 
@@ -235,27 +202,64 @@ document.addEventListener('DOMContentLoaded', () =>
     // Faster in-place toggle avoiding full scroll jump; still re-renders list quietly
     function fastToggleSchedule(id, card, btn)
     {
-        // Preserve scroll via applyFilters(true) instead of manually restoring old node
+        // Preserve scroll via applyFilters(true)
         const adding=!myScheduleIds.has(id);
         if (adding) myScheduleIds.add(id); else myScheduleIds.delete(id);
         saveSchedule();
-        // Update visual state inline
+        track(adding? 'schedule_add':'schedule_remove', { session_id: id });
         const selected=myScheduleIds.has(id);
         card.classList.toggle('selected', selected);
         btn.classList.toggle('saved', selected);
-        // Maintain hover remove state if active
-        if (btn.classList.contains('hover-remove')) {
-            btn.dataset.prevIcon=selected? '✓':'+';
-            btn.textContent='×';
-        } else {
-            btn.textContent=selected? '✓':'+';
-        }
+        btn.textContent=selected? '✓':'+';
         btn.setAttribute('aria-label', (selected? 'Remove from':'Add to')+` My Schedule: ${(card.querySelector('.session-title')||{}).textContent||''}`);
-        renderMySchedule(); track(adding? 'schedule_add':'schedule_remove', { session_id: id });
+        // Update side list & re-render filtered schedule (for occupancy rail) with scroll preservation
+        renderMySchedule();
         applyFilters(true);
     }
-    function renderMySchedule() { const list=document.getElementById('schedule-list'); if (!list) return; list.innerHTML=''; const items=[ ...myScheduleIds ].map(id => allSessions.find(s => s.id===id)).filter(Boolean).sort((a, b) => a.start-b.start); let prev=null; items.forEach(s => { if (prev!=null&&s.start-prev>=30) { const gap=el('div', 'schedule-item free-slot'); gap.appendChild(el('span', 'label', 'Open time:')); gap.appendChild(document.createTextNode(` ${fmtRange(prev, s.start)}`)); list.appendChild(gap); } const row=el('div', 'schedule-item'); const remove=el('button', 'remove', '×'); remove.addEventListener('click', () => { myScheduleIds.delete(s.id); saveSchedule(); renderMySchedule(); applyFilters(true); }); row.appendChild(remove); row.appendChild(el('div', 'title', s.title||'')); row.appendChild(el('div', 'time', fmtRange(s.start, s.end))); row.appendChild(el('div', 'loc', normLoc(s.location))); if (s.takeaway) { const tw=el('div', 'takeaway', s.takeaway); row.appendChild(tw); } list.appendChild(row); prev=s.end; }); }
 
+    // Render the "My Schedule" side list
+    function renderMySchedule()
+    {
+        const listEl=document.getElementById('schedule-list');
+        const freeEl=document.getElementById('free-slots');
+        if (!listEl) return;
+        const items=scheduleItemsSorted();
+        listEl.innerHTML='';
+        if (!items.length) {
+            listEl.textContent='No sessions saved yet.';
+            if (freeEl) freeEl.innerHTML='';
+            return;
+        }
+        // Build gaps inline and merge with sessions chronologically
+        const DAY_START=8*60, DAY_END=18*60;
+        const occ=items.map(s => ({ start: s.start, end: s.end, s })).sort((a, b) => a.start-b.start);
+        // Merge overlapping (shouldn't usually overlap but safeguard)
+        const merged=[]; for (const o of occ) { const last=merged[ merged.length-1 ]; if (!last||o.start>last.end) merged.push({ start: o.start, end: o.end }); else if (o.end>last.end) last.end=o.end; }
+        const gaps=[]; let cur=DAY_START; merged.forEach(m => { if (m.start>cur) gaps.push({ start: cur, end: m.start }); cur=Math.max(cur, m.end); }); if (cur<DAY_END) gaps.push({ start: cur, end: DAY_END });
+        const combined=[ ...items.map(s => ({ type: 'session', start: s.start, end: s.end, s })), ...gaps.map(g => ({ type: 'gap', start: g.start, end: g.end })) ].sort((a, b) => a.start-b.start);
+        combined.forEach(entry =>
+        {
+            if (entry.type==='session') {
+                const s=entry.s;
+                const row=el('div', 'schedule-item');
+                row.setAttribute('data-sid', s.id);
+                row.appendChild(el('div', 'time', fmtRange(s.start, s.end)));
+                row.appendChild(el('div', 'loc', normLoc(s.location)));
+                row.appendChild(el('div', 'title', (s.title||'').replace(/\s+/g, ' ').trim()));
+                if (s.takeaway) row.appendChild(el('div', 'takeaway', 'Takeaway: '+s.takeaway));
+                row.tabIndex=0;
+                row.addEventListener('click', () =>
+                {
+                    const target=document.querySelector(`.sched-session[data-sid="${s.id}"]`);
+                    if (target) { target.scrollIntoView({ behavior: 'smooth', block: 'center' }); target.classList.add('pulse'); setTimeout(() => target.classList.remove('pulse'), 1200); }
+                });
+                listEl.appendChild(row);
+            } else {
+                const g=entry; const fs=el('div', 'free-slot'); fs.innerHTML=`<span class="label">Open</span> ${fmtRange(g.start, g.end)} (${g.end-g.start}m)`; listEl.appendChild(fs);
+            }
+        });
+        if (freeEl) freeEl.innerHTML=''; // legacy container cleared
+    }
     document.addEventListener('click', async e =>
     {
         const t=e.target; if (!(t instanceof HTMLElement)) return;
@@ -277,8 +281,8 @@ document.addEventListener('DOMContentLoaded', () =>
                 setTimeout(() => { t.textContent=prev||'Copy'; }, 1200);
             } catch (err) { console.error('copy failed', err); }
         }
-        if (t.id==='export-close') closeExportModal();
-        if (t.classList.contains('modal-backdrop')&&t.id==='export-modal') closeExportModal();
+        if (t.id==='export-close') closeExportModal('button');
+        if (t.classList.contains('modal-backdrop')&&t.id==='export-modal') closeExportModal('backdrop');
     });
 
     function scheduleItemsSorted()
@@ -290,6 +294,27 @@ document.addEventListener('DOMContentLoaded', () =>
         const items=scheduleItemsSorted();
         const nowStr=new Date().toLocaleString();
         if (!items.length) return { text: 'No sessions selected.', count: 0 };
+        // Dynamically derive available keys from first session for bullet export field selection
+        function scanKeys(obj, prefix='', acc=new Set(), depth=0)
+        {
+            if (!obj||typeof obj!=='object'||Array.isArray(obj)) return acc; if (depth>3) return acc; // limit depth
+            Object.keys(obj).forEach(k =>
+            {
+                if (k.startsWith('__')) return; // internal
+                const val=obj[ k ];
+                const full=prefix? prefix+'.'+k:k;
+                if (val&&typeof val==='object'&&!Array.isArray(val)) {
+                    scanKeys(val, full, acc, depth+1);
+                } else {
+                    acc.add(full);
+                }
+            });
+            return acc;
+        }
+        if (!window.__dynamicBulletKeyList) {
+            const first=items[ 0 ];
+            window.__dynamicBulletKeyList=[ ...scanKeys(first) ].sort();
+        }
         const rows=items.map(s => ({
             start: s.start,
             end: s.end,
@@ -299,6 +324,15 @@ document.addEventListener('DOMContentLoaded', () =>
             title: (s.title||'').replace(/\s+/g, ' ').trim(),
             takeaway: s.takeaway||''
         }));
+        // Bullet field selection persistence (localStorage)
+        if (!window.__bulletFieldsSelected) {
+            try { const stored=JSON.parse(localStorage.getItem('bulletFieldPrefs')||'null'); if (stored&&typeof stored==='object') window.__bulletFieldsSelected=stored; } catch { }
+        }
+        if (!window.__bulletFieldsSelected) {
+            window.__bulletFieldsSelected={ time: true, duration: true, room: true, takeaway: true, description: false, level: false, speakers: false, tags: false };
+            persistBulletPrefs();
+        }
+        const bulletFields=window.__bulletFieldsSelected;
         if (type==='table') {
             const w={
                 range: Math.max('Time'.length, ...rows.map(r => r.range.length)),
@@ -306,7 +340,8 @@ document.addEventListener('DOMContentLoaded', () =>
                 room: Math.max('Room'.length, ...rows.map(r => r.room.length))
             };
             const pad=(s, l) => s+' '.repeat(Math.max(0, l-s.length));
-            const out=[ `My MongoDB.local NYC Schedule — generated ${nowStr}`, '', pad('Time', w.range)+'  '+pad('Dur', w.dur)+'  '+pad('Room', w.room)+'  Title', '-'.repeat(w.range)+'  '+'-'.repeat(w.dur)+'  '+'-'.repeat(w.room)+'  '+'-----' ];
+            const headerTitle=`Personalized MongoDB.local NYC Schedule - September 17,  2025`;
+            const out=[ headerTitle, '', pad('Time', w.range)+'  '+pad('Dur', w.dur)+'  '+pad('Room', w.room)+'  Title', '-'.repeat(w.range)+'  '+'-'.repeat(w.dur)+'  '+'-'.repeat(w.room)+'  '+'-----' ];
             rows.forEach(r =>
             {
                 out.push(pad(r.range, w.range)+'  '+pad(r.dur, w.dur)+'  '+pad(r.room, w.room)+'  '+r.title);
@@ -315,15 +350,49 @@ document.addEventListener('DOMContentLoaded', () =>
             return { text: out.join('\n'), count: rows.length };
         }
         if (type==='bullets') {
-            const out=[ `My MongoDB.local NYC Schedule — generated ${nowStr}`, '' ];
-            rows.forEach(r =>
+            const headerTitle=`Personalized MongoDB.local NYC Schedule - September 17,  2025`;
+            const out=[ headerTitle, '' ];
+            const titleCase=k => k.split(/[^A-Za-z0-9]+/).filter(Boolean).map(p => p.charAt(0).toUpperCase()+p.slice(1)).join(' ');
+            items.forEach(s =>
             {
-                out.push(`• ${r.title} [${r.range}]`);
-                out.push(`  • Time: ${r.range} (${r.dur})`);
-                out.push(`  • Room: ${r.room}`);
-                if (r.takeaway) out.push(`  • Takeaway: ${r.takeaway}`);
+                const cleanTitle=(s.title||'').replace(/\s+/g, ' ').trim();
+                const range=fmtRange(s.start, s.end);
+                const dur=(s.end-s.start)+"m";
+                const room=normLoc(s.location);
+                out.push(`• ${cleanTitle}`);
+                if (bulletFields.time) out.push(`  • Time: ${range}`);
+                if (bulletFields.duration) out.push(`  • Duration: ${dur}`);
+                if (bulletFields.room) out.push(`  • Room: ${room}`);
+                if (bulletFields.level&&s.level) out.push(`  • Level: ${s.level}`);
+                if (bulletFields.takeaway&&s.takeaway) out.push(`  • Takeaway: ${s.takeaway}`);
+                if (bulletFields.description&&s.description) {
+                    const desc=(s.description||'').replace(/\s+/g, ' ').trim(); if (desc) out.push(`  • Description: ${desc}`);
+                }
+                // dynamic primitive fields
+                Object.keys(s||{}).forEach(k =>
+                {
+                    if ([ 'id', 'start', 'end', 'title', 'time', 'location', 'tags', 'takeaway', 'speakers', 'description', 'level' ].includes(k)) return;
+                    if ([ 'id', 'start', 'end', 'title', 'time', 'location', 'tags', 'takeaway', 'speakers' ].includes(k)) return;
+                    if (!bulletFields[ k ]) return;
+                    const v=s[ k ];
+                    if ([ 'string', 'number', 'boolean' ].includes(typeof v)) out.push(`  • ${titleCase(k)}: ${v}`);
+                });
+                // Tags single bullet alphabetical (conditional)
+                if (bulletFields.tags&&Array.isArray(s.tags)&&s.tags.length) {
+                    const tags=[ ...s.tags ].map(t => t.trim()).filter(Boolean).sort((a, b) => a.localeCompare(b));
+                    if (tags.length) out.push(`  • Tags: ${tags.join(', ')}`);
+                }
+                // Speakers sub bullets (conditional)
+                if (bulletFields.speakers&&Array.isArray(s.speakers)&&s.speakers.length) {
+                    out.push('  • Speakers:');
+                    s.speakers.forEach(sp =>
+                    {
+                        if (!sp) return; const name=sp.name||''; const roleParts=[]; if (sp.title) roleParts.push(sp.title); if (sp.company) roleParts.push(sp.company); const role=roleParts.join(', ');
+                        out.push(`    • ${name}${role? ' – '+role:''}`);
+                    });
+                }
             });
-            return { text: out.join('\n'), count: rows.length };
+            return { text: out.join('\n'), count: items.length };
         }
         if (type==='opens') {
             // Determine open slots between 8:00 (480) and 18:00 (1080)
@@ -353,14 +422,52 @@ document.addEventListener('DOMContentLoaded', () =>
             const pre=el('pre', 'export-pre'); pre.textContent=text; pre.setAttribute('data-export-type', f.key);
             const h=el('h4', 'export-format-title', f.label+(f.key==='opens'? '':'')+(f.key!=='opens'? ` (${count} items)`:''));
             sec.appendChild(h); sec.appendChild(pre);
-            const btn=el('button', 'export-copy-btn', 'Copy'); btn.type='button'; btn.setAttribute('data-copy-export', f.key); sec.appendChild(btn);
+            if (f.key==='bullets') {
+                const actions=el('div', 'export-actions');
+                const toggle=el('button', 'export-fields-btn', 'Select Fields'); toggle.type='button'; actions.appendChild(toggle);
+                const btn=el('button', 'export-copy-btn', 'Copy'); btn.type='button'; btn.setAttribute('data-copy-export', f.key); actions.appendChild(btn);
+                sec.appendChild(actions);
+                const panel=el('div', 'export-field-options');
+                // Fixed list of selectable fields requested
+                const fieldDefs=[
+                    { k: 'time', label: 'Time' },
+                    { k: 'duration', label: 'Duration' },
+                    { k: 'room', label: 'Room' },
+                    { k: 'takeaway', label: 'Takeaway' },
+                    { k: 'description', label: 'Description' },
+                    { k: 'level', label: 'Level' },
+                    { k: 'speakers', label: 'Speakers' },
+                    { k: 'tags', label: 'Tags' }
+                ];
+                const bf=window.__bulletFieldsSelected;
+                fieldDefs.forEach(fd =>
+                {
+                    const lab=el('label');
+                    lab.innerHTML=`<input type="checkbox" data-bullet-field="${fd.k}" ${bf[ fd.k ]? 'checked':''}> <span>${fd.label}</span>`;
+                    panel.appendChild(lab);
+                });
+                toggle.addEventListener('click', () => { panel.classList.toggle('open'); });
+                panel.addEventListener('change', e =>
+                {
+                    const inp=e.target; if (!(inp instanceof HTMLInputElement)) return; const key=inp.getAttribute('data-bullet-field'); if (!key) return; window.__bulletFieldsSelected[ key ]=inp.checked; persistBulletPrefs();
+                    try { const rebuilt=buildExport('bullets'); pre.textContent=rebuilt.text; } catch (err) { console.warn('preview rebuild failed', err); }
+                    track('schedule_export_fields_change', { field: key, enabled: inp.checked? 1:0 });
+                });
+                sec.appendChild(panel);
+            } else {
+                const actions=el('div', 'export-actions');
+                const btn=el('button', 'export-copy-btn', 'Copy'); btn.type='button'; btn.setAttribute('data-copy-export', f.key); actions.appendChild(btn);
+                sec.appendChild(actions);
+            }
             wrap.appendChild(sec);
         });
         modal.appendChild(wrap);
         document.addEventListener('keydown', escCloseExport, { once: true });
+        // Analytics: export modal opened
+        try { track('schedule_export_open', { items: scheduleItemsSorted().length }); } catch { }
     }
     function escCloseExport(e) { if (e.key==='Escape') closeExportModal(); }
-    function closeExportModal() { const m=ensureExportModal(); if (!m) return; m.classList.remove('open'); m.setAttribute('aria-hidden', 'true'); m.innerHTML=''; }
+    function closeExportModal(method='unknown') { const m=ensureExportModal(); if (!m) return; m.classList.remove('open'); m.setAttribute('aria-hidden', 'true'); m.innerHTML=''; try { track('schedule_export_close', { method }); } catch { } }
 
     // Speaker image preload (lazy)
     function preloadImages() { try { const set=new Set(); allSessions.forEach(s => (s.speakers||[]).forEach(sp => sp?.photoUrl&&set.add(sp.photoUrl))); set.forEach(src => { const img=new Image(); img.decoding='async'; img.loading='eager'; img.src=src; }); } catch { } }
