@@ -254,7 +254,7 @@ document.addEventListener('DOMContentLoaded', () =>
         renderMySchedule(); track(adding? 'schedule_add':'schedule_remove', { session_id: id });
         applyFilters(true);
     }
-    function renderMySchedule() { const list=document.getElementById('schedule-list'); if (!list) return; list.innerHTML=''; const items=[ ...myScheduleIds ].map(id => allSessions.find(s => s.id===id)).filter(Boolean).sort((a, b) => a.start-b.start); let prev=null; items.forEach(s => { if (prev!=null&&s.start-prev>=30) { const gap=el('div', 'schedule-item free-slot'); gap.appendChild(el('span', 'label', 'Open time:')); gap.appendChild(document.createTextNode(` ${fmtRange(prev, s.start)}`)); list.appendChild(gap); } const row=el('div', 'schedule-item'); const remove=el('button', 'remove', '×'); remove.addEventListener('click', () => { myScheduleIds.delete(s.id); saveSchedule(); renderMySchedule(); applyFilters(); }); row.appendChild(remove); row.appendChild(el('div', 'title', s.title||'')); row.appendChild(el('div', 'time', fmtRange(s.start, s.end))); row.appendChild(el('div', 'loc', normLoc(s.location))); if (s.takeaway) { const tw=el('div', 'takeaway', s.takeaway); row.appendChild(tw); } list.appendChild(row); prev=s.end; }); }
+    function renderMySchedule() { const list=document.getElementById('schedule-list'); if (!list) return; list.innerHTML=''; const items=[ ...myScheduleIds ].map(id => allSessions.find(s => s.id===id)).filter(Boolean).sort((a, b) => a.start-b.start); let prev=null; items.forEach(s => { if (prev!=null&&s.start-prev>=30) { const gap=el('div', 'schedule-item free-slot'); gap.appendChild(el('span', 'label', 'Open time:')); gap.appendChild(document.createTextNode(` ${fmtRange(prev, s.start)}`)); list.appendChild(gap); } const row=el('div', 'schedule-item'); const remove=el('button', 'remove', '×'); remove.addEventListener('click', () => { myScheduleIds.delete(s.id); saveSchedule(); renderMySchedule(); applyFilters(true); }); row.appendChild(remove); row.appendChild(el('div', 'title', s.title||'')); row.appendChild(el('div', 'time', fmtRange(s.start, s.end))); row.appendChild(el('div', 'loc', normLoc(s.location))); if (s.takeaway) { const tw=el('div', 'takeaway', s.takeaway); row.appendChild(tw); } list.appendChild(row); prev=s.end; }); }
 
     document.addEventListener('click', async e =>
     {
@@ -300,7 +300,7 @@ document.addEventListener('DOMContentLoaded', () =>
         if (t.id==='btn-clear-schedule') {
             if (!myScheduleIds.size) return;
             if (!confirm(`Clear your schedule (${myScheduleIds.size} items)?`)) return;
-            const prevCount=myScheduleIds.size; myScheduleIds=new Set(); saveSchedule(); renderMySchedule(); applyFilters(); track('schedule_clear', { previous_count: prevCount });
+            const prevCount=myScheduleIds.size; myScheduleIds=new Set(); saveSchedule(); renderMySchedule(); applyFilters(true); track('schedule_clear', { previous_count: prevCount });
         }
     });
 
