@@ -1,7 +1,26 @@
 :root {
   --header-h: 96px;
+  --footer-h: 56px; /* fixed footer approx height */
   --slot-h: 30px; /* restore taller slot for readability */
 }
+html, body { height:100%; }
+body { overflow:hidden; }
+
+/* Full-viewport app frame: header (sticky) + page-grid (flexed) + fixed footer */
+.page-grid {
+  height: calc(100vh - var(--header-h) - var(--footer-h));
+  overflow: hidden;
+}
+.content { display:flex; flex-direction:column; min-height:0; }
+.sessions-root { flex:1 1 auto; overflow:hidden; margin:16px 0 0 0; }
+
+/* Schedule wrap + scroller take full available height; independent vertical scroll */
+.schedule-wrap { height:100%; }
+.schedule-scroll { height:100%; max-height:none; }
+.time-rail { height:100%; }
+
+/* Override earlier bottom margin for sessions-root when using locked layout */
+.sessions-root { margin-bottom:0 !important; }
 /* Even more subtle author pulse (nearly imperceptible brightness + faint underline fade) */
 /* Author flicker shine: each letter briefly brightens in a cascading wave */
 @keyframes authorLetterFlash {
@@ -54,11 +73,11 @@ body {
 /* Location-based schedule grid */
 .schedule-grid { display: grid; column-gap: 12px; row-gap: 0; --col-gap: 12px; grid-auto-rows: var(--slot-h); position: relative; }
 .schedule-scroll {
-  max-height: calc(100vh - var(--header-h) - 100px);
-  overflow: auto;
-  padding: 24px 0 24px; /* top + bottom breathing room for first/last labels */
-  position: relative;
-  box-sizing: border-box;
+  /* Overridden by earlier full-height layout; keep overflow + padding if desired */
+  overflow:auto;
+  padding:24px 0 24px;
+  position:relative;
+  box-sizing:border-box;
 }
 .schedule-grid { min-width: 900px; }
 /* Left time cells inside the grid are no longer used; time rail is rendered separately */
@@ -578,3 +597,27 @@ body {
   50% { box-shadow: 0 0 12px rgba(0,255,87,0.45); }
   100% { box-shadow: 0 0 0 rgba(0,255,87,0); }
 }
+
+/* --- Persistent schedule actions bar --- */
+/* Restructure schedule panel so list scrolls independently and buttons stay visible */
+.my-schedule {
+  display:flex;
+  flex-direction:column;
+  overflow:hidden; /* hide inner scrollbar edges */
+  padding: 16px 12px 0; /* reduce top space; bottom handled by actions bar */
+}
+#schedule-capture { flex:1 1 auto; min-height:0; overflow:auto; padding-right:4px; }
+.schedule-actions {
+  flex-shrink:0;
+  position:sticky; /* within sticky aside */
+  bottom:0;
+  background:linear-gradient(to top, #000 0%, rgba(0,0,0,0.9) 50%, rgba(0,0,0,0));
+  padding:12px 4px 16px;
+  margin-top:4px;
+  display:flex;
+  gap:10px;
+  backdrop-filter:blur(2px);
+  z-index:5;
+}
+.schedule-actions .btn { flex:1 1 0; }
+.schedule-actions .btn.secondary { order:1; }
