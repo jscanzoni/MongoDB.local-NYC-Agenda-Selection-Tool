@@ -624,3 +624,15 @@ body {
 .icon-btn.danger:hover { background:rgba(255,60,60,0.25); }
 .icon-btn.danger:active { background:rgba(255,60,60,0.3); }
 .icon-btn svg { pointer-events:none; }
+
+/* Export / Share Modal */
+.export-modal.open { display:flex; }
+.export-dialog { width:min(860px,100%); max-height:90vh; overflow:auto; background:rgb(2,52,48); border-radius:28px; box-shadow:0 10px 28px rgba(0,0,0,0.45); padding:20px 24px 28px; display:flex; flex-direction:column; gap:26px; }
+.export-header { display:flex; align-items:center; justify-content:space-between; gap:12px; position:sticky; top:0; background:rgb(2,52,48); padding:4px 0 8px; z-index:5; }
+#export-close { background:transparent; border:0; color:#fff; font-size:30px; line-height:1; cursor:pointer; }
+.export-section { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.18); border-radius:18px; padding:16px 18px 20px; display:flex; flex-direction:column; gap:14px; }
+.export-format-title { margin:0; font-size:1rem; color:#9ff0c5; letter-spacing:.4px; }
+.export-pre { margin:0; font-family:SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; font-size:.78rem; line-height:1.35; white-space:pre; overflow:auto; background:rgba(0,0,0,0.35); padding:12px 14px; border-radius:12px; color:#e6ffe6; }
+.export-copy-btn { align-self:flex-start; background:#e9ff99; color:#063d30; border:0; border-radius:10px; padding:6px 14px; font-weight:600; font-size:.75rem; cursor:pointer; box-shadow:0 2px 4px rgba(0,0,0,0.35); }
+.export-copy-btn:hover { background:#fffdbd; }
+.export-copy-btn:active { transform:translateY(1px); }

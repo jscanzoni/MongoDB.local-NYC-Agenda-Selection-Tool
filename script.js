@@ -260,49 +260,107 @@ document.addEventListener('DOMContentLoaded', () =>
     {
         const t=e.target; if (!(t instanceof HTMLElement)) return;
         if (t.id==='btn-copy-clipboard') {
-            try {
-                const items=[ ...myScheduleIds ].map(id => allSessions.find(s => s.id===id)).filter(Boolean).sort((a, b) => a.start-b.start);
-                if (!items.length) return;
-                // Build structured rows with computed durations for alignment
-                const rows=items.map(s => ({
-                    start: s.start,
-                    end: s.end,
-                    range: fmtRange(s.start, s.end),
-                    dur: ((s.end-s.start))+'m',
-                    room: normLoc(s.location),
-                    title: (s.title||'').replace(/\s+/g, ' ').trim(),
-                    takeaway: s.takeaway||''
-                }));
-                const w={
-                    range: Math.max('Time'.length, ...rows.map(r => r.range.length)),
-                    dur: Math.max('Dur'.length, ...rows.map(r => r.dur.length)),
-                    room: Math.max('Room'.length, ...rows.map(r => r.room.length))
-                };
-                const pad=(str, len) => str+' '.repeat(Math.max(0, len-str.length));
-                const out=[];
-                out.push(`My MongoDB.local NYC Schedule — generated ${new Date().toLocaleString()}`);
-                out.push('');
-                out.push(pad('Time', w.range)+'  '+pad('Dur', w.dur)+'  '+pad('Room', w.room)+'  Title');
-                out.push('-'.repeat(w.range)+'  '+'-'.repeat(w.dur)+'  '+'-'.repeat(w.room)+'  '+'-----');
-                rows.forEach(r =>
-                {
-                    out.push(pad(r.range, w.range)+'  '+pad(r.dur, w.dur)+'  '+pad(r.room, w.room)+'  '+r.title);
-                    if (r.takeaway) out.push(' '.repeat(w.range+w.dur+w.room+6)+'Takeaway: '+r.takeaway);
-                });
-                const text=out.join('\n');
-                await navigator.clipboard.writeText(text);
-                const original=t.innerHTML;
-                t.innerHTML='<span class="copied-check">✓</span>';
-                track('schedule_copy', { count: items.length });
-                setTimeout(() => { t.innerHTML=original; }, 1100);
-            } catch (err) { console.error('copy failed', err); }
+            openExportModal();
         }
         if (t.id==='btn-clear-schedule') {
             if (!myScheduleIds.size) return;
             if (!confirm(`Clear your schedule (${myScheduleIds.size} items)?`)) return;
             const prevCount=myScheduleIds.size; myScheduleIds=new Set(); saveSchedule(); renderMySchedule(); applyFilters(true); track('schedule_clear', { previous_count: prevCount });
         }
+        if (t.matches('[data-copy-export]')) {
+            const type=t.getAttribute('data-copy-export');
+            try {
+                const { text, count }=buildExport(type);
+                await navigator.clipboard.writeText(text);
+                const prev=t.textContent; t.textContent='Copied!';
+                track('schedule_copy', { variant: type, count });
+                setTimeout(() => { t.textContent=prev||'Copy'; }, 1200);
+            } catch (err) { console.error('copy failed', err); }
+        }
+        if (t.id==='export-close') closeExportModal();
+        if (t.classList.contains('modal-backdrop')&&t.id==='export-modal') closeExportModal();
     });
+
+    function scheduleItemsSorted()
+    {
+        return [ ...myScheduleIds ].map(id => allSessions.find(s => s.id===id)).filter(Boolean).sort((a, b) => a.start-b.start);
+    }
+    function buildExport(type)
+    {
+        const items=scheduleItemsSorted();
+        const nowStr=new Date().toLocaleString();
+        if (!items.length) return { text: 'No sessions selected.', count: 0 };
+        const rows=items.map(s => ({
+            start: s.start,
+            end: s.end,
+            range: fmtRange(s.start, s.end),
+            dur: (s.end-s.start)+'m',
+            room: normLoc(s.location),
+            title: (s.title||'').replace(/\s+/g, ' ').trim(),
+            takeaway: s.takeaway||''
+        }));
+        if (type==='table') {
+            const w={
+                range: Math.max('Time'.length, ...rows.map(r => r.range.length)),
+                dur: Math.max('Dur'.length, ...rows.map(r => r.dur.length)),
+                room: Math.max('Room'.length, ...rows.map(r => r.room.length))
+            };
+            const pad=(s, l) => s+' '.repeat(Math.max(0, l-s.length));
+            const out=[ `My MongoDB.local NYC Schedule — generated ${nowStr}`, '', pad('Time', w.range)+'  '+pad('Dur', w.dur)+'  '+pad('Room', w.room)+'  Title', '-'.repeat(w.range)+'  '+'-'.repeat(w.dur)+'  '+'-'.repeat(w.room)+'  '+'-----' ];
+            rows.forEach(r =>
+            {
+                out.push(pad(r.range, w.range)+'  '+pad(r.dur, w.dur)+'  '+pad(r.room, w.room)+'  '+r.title);
+                if (r.takeaway) out.push(' '.repeat(w.range+w.dur+w.room+6)+'Takeaway: '+r.takeaway);
+            });
+            return { text: out.join('\n'), count: rows.length };
+        }
+        if (type==='bullets') {
+            const out=[ `My MongoDB.local NYC Schedule — generated ${nowStr}`, '' ];
+            rows.forEach(r =>
+            {
+                out.push(`• ${r.title} [${r.range}]`);
+                out.push(`  • Time: ${r.range} (${r.dur})`);
+                out.push(`  • Room: ${r.room}`);
+                if (r.takeaway) out.push(`  • Takeaway: ${r.takeaway}`);
+            });
+            return { text: out.join('\n'), count: rows.length };
+        }
+        if (type==='opens') {
+            // Determine open slots between 8:00 (480) and 18:00 (1080)
+            const DAY_START=8*60, DAY_END=18*60;
+            const occupied=rows.map(r => ({ start: r.start, end: r.end }));
+            // Merge just in case
+            occupied.sort((a, b) => a.start-b.start);
+            const merged=[]; for (const o of occupied) { const last=merged[ merged.length-1 ]; if (!last||o.start>last.end) merged.push({ ...o }); else if (o.end>last.end) last.end=o.end; }
+            const gaps=[]; let cur=DAY_START; merged.forEach(m => { if (m.start>cur) gaps.push({ start: cur, end: m.start }); cur=Math.max(cur, m.end); }); if (cur<DAY_END) gaps.push({ start: cur, end: DAY_END });
+            const out=[ `Open times to meet (between 8:00 AM and 6:00 PM) — generated ${nowStr}`, '' ];
+            if (!gaps.length) out.push('No free time blocks.'); else gaps.forEach(g => out.push(`• ${fmtRange(g.start, g.end)} (${g.end-g.start}m)`));
+            return { text: out.join('\n'), count: gaps.length };
+        }
+        return { text: 'Unknown export type', count: 0 };
+    }
+    function ensureExportModal() { return document.getElementById('export-modal'); }
+    function openExportModal()
+    {
+        const modal=ensureExportModal(); if (!modal) return; modal.innerHTML=''; modal.classList.add('open'); modal.setAttribute('aria-hidden', 'false');
+        const wrap=el('div', 'export-dialog');
+        wrap.innerHTML=`<div class="export-header"><h3 id="export-modal-title">Share / Export Schedule</h3><button id="export-close" aria-label="Close export" class="close-btn">×</button></div>`;
+        const formats=[ { key: 'table', label: 'Tabular agenda (Time / Dur / Room / Title + Takeaway)' }, { key: 'bullets', label: 'Bullet list (email friendly)' }, { key: 'opens', label: 'Open times to meet' } ];
+        formats.forEach(f =>
+        {
+            const sec=el('section', 'export-section');
+            const { text, count }=buildExport(f.key);
+            const pre=el('pre', 'export-pre'); pre.textContent=text; pre.setAttribute('data-export-type', f.key);
+            const h=el('h4', 'export-format-title', f.label+(f.key==='opens'? '':'')+(f.key!=='opens'? ` (${count} items)`:''));
+            sec.appendChild(h); sec.appendChild(pre);
+            const btn=el('button', 'export-copy-btn', 'Copy'); btn.type='button'; btn.setAttribute('data-copy-export', f.key); sec.appendChild(btn);
+            wrap.appendChild(sec);
+        });
+        modal.appendChild(wrap);
+        document.addEventListener('keydown', escCloseExport, { once: true });
+    }
+    function escCloseExport(e) { if (e.key==='Escape') closeExportModal(); }
+    function closeExportModal() { const m=ensureExportModal(); if (!m) return; m.classList.remove('open'); m.setAttribute('aria-hidden', 'true'); m.innerHTML=''; }
 
     // Speaker image preload (lazy)
     function preloadImages() { try { const set=new Set(); allSessions.forEach(s => (s.speakers||[]).forEach(sp => sp?.photoUrl&&set.add(sp.photoUrl))); set.forEach(src => { const img=new Image(); img.decoding='async'; img.loading='eager'; img.src=src; }); } catch { } }
