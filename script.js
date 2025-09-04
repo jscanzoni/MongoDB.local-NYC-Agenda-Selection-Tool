@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', () =>
     let categoriesData=null;
     const selectedTags=new Set();
     let myScheduleIds=new Set();
+    // --- Analytics helper (safe no-op if GA not present) ---
+    const track=(name, params={}) => { if (typeof window!=='undefined'&&typeof window.gtag==='function') { try { window.gtag('event', name, params); } catch { } } };
 
     // ---------- Utility ----------
     const el=(t, c, txt) => { const n=document.createElement(t); if (c) n.className=c; if (txt!=null) n.textContent=txt; return n; };
@@ -76,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () =>
         btn.addEventListener('click', e => { e.stopPropagation(); fastToggleSchedule(s.id, card, btn); });
         card.appendChild(btn);
         card.tabIndex=0; card.role='button';
-        card.addEventListener('click', () => openModal(s));
+        card.addEventListener('click', () => { track('session_view', { session_id: s.id, title: cleanTitle, start: s.start, end: s.end, location: normLoc(s.location) }); openModal(s); });
         card.addEventListener('keydown', ev => { if (ev.key==='Enter'||ev.key===' ') { ev.preventDefault(); openModal(s); } });
         return card;
     }
@@ -197,20 +199,21 @@ document.addEventListener('DOMContentLoaded', () =>
 
     // ---------- Filters ----------
     function buildFilters() { if (!categoriesData||!filtersContainer) return; filtersContainer.innerHTML=''; const title=el('h3', 'filters-title', 'Filters'); filtersContainer.appendChild(title); const wrap=el('div', 'filters-content'); filtersContainer.appendChild(wrap); const known=new Set(); Object.values(categoriesData).forEach(arr => arr.forEach(t => known.add(t))); const used=new Set(); allSessions.forEach(s => (s.tags||[]).forEach(t => used.add(t))); const misc=[ ...used ].filter(t => !known.has(t)); const cats=[ ...Object.entries(categoriesData).map(([ n, t ]) => ({ name: n, tags: t })), ...(misc.length? [ { name: 'Misc', tags: misc } ]:[]) ]; cats.forEach(cat => { const sec=el('section', 'filter-category'); sec.appendChild(el('h4', 'filter-cat-title', cat.name)); const list=el('div', 'filter-tags'); cat.tags.forEach(tag => { const row=el('label', 'filter-tag'); const cb=document.createElement('input'); cb.type='checkbox'; cb.value=tag; cb.checked=selectedTags.has(tag); cb.addEventListener('change', () => { if (cb.checked) selectedTags.add(tag); else selectedTags.delete(tag); applyFilters(); }); row.appendChild(cb); row.appendChild(el('span', 'tag-label', tag)); list.appendChild(row); }); sec.appendChild(list); wrap.appendChild(sec); }); updateFiltersTitle(); }
-    function updateFiltersTitle() { const t=filtersContainer?.querySelector('.filters-title'); if (t) { const c=selectedTags.size; t.textContent=c? `Filters (${c})`:'Filters'; } }
+    function updateFiltersTitle() { const t=filtersContainer?.querySelector('.filters-title'); if (t) { const c=selectedTags.size; t.textContent=c? `Filters (${c})`:'Filters'; track('filters_change', { selected_count: c, filters: [ ...selectedTags ].join('|') }); } }
     function applyFilters() { const q=(searchInput?.value||'').toLowerCase().trim(); let list=allSessions; if (selectedTags.size) list=list.filter(s => (s.tags||[]).some(t => selectedTags.has(t))); if (q) { list=list.filter(s => (s.title||'').toLowerCase().includes(q)||(s.description||'').toLowerCase().includes(q)||(s.location||'').toLowerCase().includes(q)||(s.speakers||[]).some(sp => (sp.name||'').toLowerCase().includes(q))); } render(list); updateFiltersTitle(); }
 
     // ---------- Personal schedule ----------
     function loadSchedule() { try { myScheduleIds=new Set(JSON.parse(localStorage.getItem('myScheduleIds')||'[]')); } catch { } renderMySchedule(); }
     function saveSchedule() { localStorage.setItem('myScheduleIds', JSON.stringify([ ...myScheduleIds ])); }
-    function toggleSchedule(id) { if (myScheduleIds.has(id)) myScheduleIds.delete(id); else myScheduleIds.add(id); saveSchedule(); renderMySchedule(); applyFilters(); }
+    function toggleSchedule(id) { const adding=!myScheduleIds.has(id); if (adding) myScheduleIds.add(id); else myScheduleIds.delete(id); track(adding? 'schedule_add':'schedule_remove', { session_id: id }); saveSchedule(); renderMySchedule(); applyFilters(); }
     // Faster in-place toggle avoiding full scroll jump; still re-renders list quietly
     function fastToggleSchedule(id, card, btn)
     {
         const scroller=document.querySelector('.schedule-scroll');
         const scrollLeft=scroller? scroller.scrollLeft:0;
         const scrollTop=scroller? scroller.scrollTop:0;
-        if (myScheduleIds.has(id)) myScheduleIds.delete(id); else myScheduleIds.add(id);
+        const adding=!myScheduleIds.has(id);
+        if (adding) myScheduleIds.add(id); else myScheduleIds.delete(id);
         saveSchedule();
         // Update visual state inline
         const selected=myScheduleIds.has(id);
@@ -224,7 +227,7 @@ document.addEventListener('DOMContentLoaded', () =>
             btn.textContent=selected? '✓':'+';
         }
         btn.setAttribute('aria-label', (selected? 'Remove from':'Add to')+` My Schedule: ${(card.querySelector('.session-title')||{}).textContent||''}`);
-        renderMySchedule();
+        renderMySchedule(); track(adding? 'schedule_add':'schedule_remove', { session_id: id });
         // Re-filter without rebuilding scroll container (skip full render)
         applyFilters();
         // Restore scroll
@@ -232,7 +235,7 @@ document.addEventListener('DOMContentLoaded', () =>
     }
     function renderMySchedule() { const list=document.getElementById('schedule-list'); if (!list) return; list.innerHTML=''; const items=[ ...myScheduleIds ].map(id => allSessions.find(s => s.id===id)).filter(Boolean).sort((a, b) => a.start-b.start); let prev=null; items.forEach(s => { if (prev!=null&&s.start-prev>=30) { const gap=el('div', 'schedule-item free-slot'); gap.appendChild(el('span', 'label', 'Open time:')); gap.appendChild(document.createTextNode(` ${fmtRange(prev, s.start)}`)); list.appendChild(gap); } const row=el('div', 'schedule-item'); const remove=el('button', 'remove', '×'); remove.addEventListener('click', () => { myScheduleIds.delete(s.id); saveSchedule(); renderMySchedule(); applyFilters(); }); row.appendChild(remove); row.appendChild(el('div', 'title', s.title||'')); row.appendChild(el('div', 'time', fmtRange(s.start, s.end))); row.appendChild(el('div', 'loc', normLoc(s.location))); list.appendChild(row); prev=s.end; }); }
 
-    document.addEventListener('click', async e => { const t=e.target; if (!(t instanceof HTMLElement)) return; if (t.id==='btn-copy-clipboard') { try { const items=[ ...myScheduleIds ].map(id => allSessions.find(s => s.id===id)).filter(Boolean).sort((a, b) => a.start-b.start); const text=items.map(s => `${fmtRange(s.start, s.end)} | ${normLoc(s.location)}\n${s.title}`).join('\n\n'); await navigator.clipboard.writeText(text); t.textContent='Copied!'; setTimeout(() => t.textContent='Copy to Clipboard', 1200); } catch (err) { console.error('copy failed', err); } } if (t.id==='btn-clear-schedule') { if (!myScheduleIds.size) return; if (!confirm(`Clear your schedule (${myScheduleIds.size} items)?`)) return; myScheduleIds=new Set(); saveSchedule(); renderMySchedule(); applyFilters(); } });
+    document.addEventListener('click', async e => { const t=e.target; if (!(t instanceof HTMLElement)) return; if (t.id==='btn-copy-clipboard') { try { const items=[ ...myScheduleIds ].map(id => allSessions.find(s => s.id===id)).filter(Boolean).sort((a, b) => a.start-b.start); const text=items.map(s => `${fmtRange(s.start, s.end)} | ${normLoc(s.location)}\n${s.title}`).join('\n\n'); await navigator.clipboard.writeText(text); t.textContent='Copied!'; track('schedule_copy', { count: items.length }); setTimeout(() => t.textContent='Copy to Clipboard', 1200); } catch (err) { console.error('copy failed', err); } } if (t.id==='btn-clear-schedule') { if (!myScheduleIds.size) return; if (!confirm(`Clear your schedule (${myScheduleIds.size} items)?`)) return; const prevCount=myScheduleIds.size; myScheduleIds=new Set(); saveSchedule(); renderMySchedule(); applyFilters(); track('schedule_clear', { previous_count: prevCount }); } });
 
     // Speaker image preload (lazy)
     function preloadImages() { try { const set=new Set(); allSessions.forEach(s => (s.speakers||[]).forEach(sp => sp?.photoUrl&&set.add(sp.photoUrl))); set.forEach(src => { const img=new Image(); img.decoding='async'; img.loading='eager'; img.src=src; }); } catch { } }
@@ -251,7 +254,7 @@ document.addEventListener('DOMContentLoaded', () =>
         if ('requestIdleCallback' in window) requestIdleCallback(preloadImages); else setTimeout(preloadImages, 0);
     }).catch(err => { console.error('Load failed', err); if (root) root.textContent='Failed to load schedule.'; });
 
-    if (searchInput) searchInput.addEventListener('input', () => applyFilters());
+    if (searchInput) searchInput.addEventListener('input', () => { applyFilters(); track('search', { query: (searchInput.value||'').trim() }); });
     // ---------- Author idle attention ----------
     (function setupAuthorAttention()
     {
@@ -330,6 +333,13 @@ document.addEventListener('DOMContentLoaded', () =>
             window.addEventListener(evt, resetInactivity, { passive: true });
         });
         resetInactivity(); // initialize
+        // Observe class changes to infer flicker start/end for analytics
+        const mo=new MutationObserver(muts => { for (const m of muts) { if (m.attributeName==='class') { const cls=author.className; if (cls.includes('author-attn')) { track('author_flicker', { phase: cls.includes('cycle2')? 'second_pass_start':'start' }); } else { track('author_flicker', { phase: 'end' }); } } } });
+        mo.observe(author, { attributes: true });
     })();
+    // Scroll depth tracking (25/50/75/100%)
+    (function trackScrollDepth() { const el=() => document.querySelector('.schedule-scroll'); const marks=new Set(); function handler() { const c=el(); if (!c) return; const ratio=c.scrollTop/(c.scrollHeight-c.clientHeight||1); const pct=Math.round(ratio*100);[ 25, 50, 75, 100 ].forEach(m => { if (pct>=m&&!marks.has(m)) { marks.add(m); track('scroll_depth', { percent: m }); } }); } const sc=el(); if (sc) { sc.addEventListener('scroll', handler, { passive: true }); handler(); } })();
+    // Fire a page_ready event after content likely loaded
+    setTimeout(() => { track('page_ready', { sessions: allSessions.length }); }, 3000);
 });
 
