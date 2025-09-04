@@ -2,6 +2,26 @@
   --header-h: 96px;
   --slot-h: 30px; /* restore taller slot for readability */
 }
+/* Even more subtle author pulse (nearly imperceptible brightness + faint underline fade) */
+/* Author flicker shine: each letter briefly brightens in a cascading wave */
+@keyframes authorLetterFlash {
+  0% { filter:none; text-shadow:none; opacity:0.95; }
+  40% { filter:brightness(1.0); }
+  55% { filter:brightness(1.35) contrast(1.05); text-shadow:0 0 6px rgba(233,255,153,0.35); opacity:1; }
+  80% { filter:brightness(1.0); text-shadow:0 0 2px rgba(233,255,153,0.12); opacity:.96; }
+  100% { filter:none; text-shadow:none; opacity:0.95; }
+}
+#author-name { position:relative; display:inline-block; }
+#author-name .letter { display:inline-block; }
+#author-name.author-attn .letter { animation: authorLetterFlash 420ms linear forwards; animation-delay: var(--d); }
+/* second pass shimmer (fainter) */
+@keyframes authorLetterFlash2 {
+  0% { filter:none; }
+  45% { filter:brightness(1.0); }
+  60% { filter:brightness(1.18); text-shadow:0 0 4px rgba(233,255,153,0.18); }
+  100% { filter:none; text-shadow:none; }
+}
+#author-name.author-attn.cycle2 .letter { animation: authorLetterFlash2 360ms linear forwards; animation-delay: calc(var(--d) + 40ms); }
 /* Theme */
 body {
   margin: 0;

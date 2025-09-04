@@ -252,5 +252,84 @@ document.addEventListener('DOMContentLoaded', () =>
     }).catch(err => { console.error('Load failed', err); if (root) root.textContent='Failed to load schedule.'; });
 
     if (searchInput) searchInput.addEventListener('input', () => applyFilters());
+    // ---------- Author idle attention ----------
+    (function setupAuthorAttention()
+    {
+        const author=document.getElementById('author-name');
+        if (!author) return;
+        // One-time split into per-letter spans for flicker wave effect
+        if (!author.dataset.split) {
+            const text=author.textContent||'';
+            author.textContent='';
+            // NOTE: Wrapping literal spaces in inline-block spans causes browsers to collapse them visually.
+            // To preserve normal word spacing, we leave spaces as raw text nodes and only wrap non-space
+            // characters (which participate in the flicker animation). Delays are computed over animated
+            // letters only so the wave ignores spaces naturally.
+            let letterIdx=0;
+            for (const ch of text) {
+                if (ch===' ') { // preserve real space
+                    author.appendChild(document.createTextNode(' '));
+                    continue;
+                }
+                const span=document.createElement('span');
+                span.className='letter';
+                span.textContent=ch;
+                const delay=letterIdx*40+Math.random()*25; // ms
+                span.style.setProperty('--d', delay+'ms');
+                author.appendChild(span);
+                letterIdx++;
+            }
+            author.dataset.split='1';
+        }
+        let inactivityTimer=null; // fires after 30s
+        let cycleTimeout=null; // manages rest between two flicker waves
+        let playing=false;
+        let cyclesRun=0; // run at most 2 flicker waves per inactivity period
+
+        function clearCycle() { if (cycleTimeout) { clearTimeout(cycleTimeout); cycleTimeout=null; } }
+        function stopEffect() { author.classList.remove('author-attn', 'cycle2'); playing=false; }
+        function runFlicker(pass)
+        {
+            playing=true;
+            const cls=pass===2? 'cycle2':'';
+            if (pass===1) { author.classList.add('author-attn'); }
+            else { author.classList.add('cycle2'); }
+            // Each letter animation is < ~500ms; remove classes shortly after all finish
+            const maxDelay=[ ...author.querySelectorAll('.letter') ].reduce((m, el) =>
+            {
+                const d=parseFloat(el.style.getPropertyValue('--d'))||0; return Math.max(m, d);
+            }, 0);
+            const duration=pass===1? 420:360;
+            setTimeout(() =>
+            {
+                if (pass===1) { author.classList.remove('author-attn'); }
+                else { author.classList.remove('cycle2'); playing=false; }
+            }, maxDelay+duration+60); // buffer
+        }
+        function startEffectWindow() { runFlicker(1); }
+        function scheduleNextCycle()
+        {
+            if (cyclesRun>=2) return; // only two cycles
+            startEffectWindow();
+            cyclesRun++;
+            if (cyclesRun<2) {
+                // queue second flicker after short rest (e.g., 6s) so it feels random
+                cycleTimeout=setTimeout(() => { runFlicker(2); }, 6000);
+            }
+        }
+        function onInactivity() { cyclesRun=0; scheduleNextCycle(); }
+
+        function resetInactivity()
+        {
+            stopEffect(); clearCycle(); if (inactivityTimer) clearTimeout(inactivityTimer);
+            inactivityTimer=setTimeout(onInactivity, 30000); // 30s idle
+        }
+
+        [ 'mousemove', 'keydown', 'scroll', 'click', 'touchstart', 'wheel' ].forEach(evt =>
+        {
+            window.addEventListener(evt, resetInactivity, { passive: true });
+        });
+        resetInactivity(); // initialize
+    })();
 });
 
