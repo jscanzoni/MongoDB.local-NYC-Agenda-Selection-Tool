@@ -14,28 +14,54 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Agenda - MongoDB.local NYC</title>
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180"
+            href="./images/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32"
+            href="./images/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16"
+            href="./images/favicon-16x16.png" />
+        <link rel="manifest" href="./images/site.webmanifest" />
         <link rel="stylesheet" href="./style.css" />
     </head>
     <body>
         <header class="site-header" role="banner">
             <div class="header-inner">
                 <div class="brand">
-                    <img
-                        class="brand-logo"
-                        alt="MongoDB.local NYC"
-                        src="https://images.cvent.com/3299bbc8ad19486aa86c483996be7794/pix/27ebcecbd4e84e3eb2c78392a50e2718!_!4f07a02e491b472f93d39ccd819f0ab2.png?f=webp"
-                        decoding="async"
+                    <img class="brand-logo" alt="MongoDB.local NYC"
+                        src="./images/logo.png" decoding="async"
                         loading="eager" />
+                    <span class="brand-divider" aria-hidden="true"></span>
+                    <a class="legacy-logo-link"
+                        href="https://www.mongodb.com/events/mongodb-local/nyc"
+                        target="_blank" rel="noopener noreferrer"
+                        aria-label="View official event agenda (opens in new tab)">
+                        <img class="brand-logo legacy"
+                            alt="MongoDB.local NYC official mark"
+                            src="https://images.cvent.com/3299bbc8ad19486aa86c483996be7794/pix/27ebcecbd4e84e3eb2c78392a50e2718!_!4f07a02e491b472f93d39ccd819f0ab2.png?f=webp"
+                            decoding="async" loading="eager" />
+                    </a>
                 </div>
+                <h1 class="schedule-title-inline">
+                    <span class="title-core">Personalized <span
+                            class="dotlocal">.local NYC</span> <span
+                            class="title-year">2025</span> Schedule
+                        Creator</span>
+                </h1>
                 <div class="toolbar" role="toolbar" aria-label="Agenda tools">
-                    <label class="search" aria-label="Search">
-                        <svg class="search-icon" width="16" height="16"
-                            viewBox="0 0 24 24" aria-hidden="true"
-                            fill="currentColor"><path
-                                d="M21.7,20.3c.4.4.4 1 0 1.4-.2.2-.5.3-.7.3-.2 0-.5-.1-.7-.3l-3.7-3.7c-1.5 1.3-3.5 2-5.6 2-5 0-9-4-9-9s4-9 9-9 9 4 9 9c0 2.1-.8 4.1-2 5.6l3.7 3.7M4 11c0 3.9 3.1 7 7 7 1.8 0 3.5-.7 4.7-1.8.1-.1.1-.2.2-.3.1-.1.2-.2.3-.2 1.1-1.2 1.8-2.9 1.8-4.7 0-3.9-3.1-7-7-7s-7 3.1-7 7" /></svg>
-                        <input type="search" placeholder="Search"
-                            aria-label="Search" />
-                    </label>
+                    <form class="search-form" role="search" action="#"
+                        onsubmit="return false;">
+                        <label class="search" aria-label="Search"
+                            for="site-search">
+                            <svg class="search-icon" width="16" height="16"
+                                viewBox="0 0 24 24" aria-hidden="true"
+                                fill="currentColor"><path
+                                    d="M21.7,20.3c.4.4.4 1 0 1.4-.2.2-.5.3-.7.3-.2 0-.5-.1-.7-.3l-3.7-3.7c-1.5 1.3-3.5 2-5.6 2-5 0-9-4-9-9s4-9 9-9 9 4 9 9c0 2.1-.8 4.1-2 5.6l3.7 3.7M4 11c0 3.9 3.1 7 7 7 1.8 0 3.5-.7 4.7-1.8.1-.1.1-.2.2-.3.1-.1.2-.2.3-.2 1.1-1.2 1.8-2.9 1.8-4.7 0-3.9-3.1-7-7-7s-7 3.1-7 7" /></svg>
+                            <input id="site-search" name="agenda_search"
+                                type="search" placeholder="Search"
+                                aria-label="Search" autocomplete="on" />
+                        </label>
+                    </form>
                 </div>
             </div>
         </header>

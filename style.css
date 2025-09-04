@@ -294,20 +294,41 @@ body {
 }
 /* Header / hero bar */
 .site-header { background: #0c2f2b; position: sticky; top: 0; z-index: 1000; }
-.header-inner {
-  width: 100%;
-  padding: 16px 16px 14px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  box-sizing: border-box;
-}
+.header-inner { width:100%; padding:12px 16px 4px; display:flex; align-items:center; gap:40px; box-sizing:border-box; }
+.agenda-title-bar { display:none; }
+.timeline-title { margin:8px 0 4px; font-size:1.35rem; font-weight:700; letter-spacing:.5px; color:#ffffff; padding-left:140px; /* align with time rail width */ line-height:1.2; }
+@media (max-width:1400px){ .timeline-title { font-size:1.25rem; } }
+@media (max-width:1100px){ .timeline-title { font-size:1.15rem; padding-left:130px; } }
+@media (max-width:900px){ .timeline-title { font-size:1.05rem; padding-left:120px; } }
+/* New floating schedule title */
+/* Inline schedule title (replaces floating version) */
+.schedule-title-inline { margin:0; font-size:1.55rem; font-weight:600; letter-spacing:.4px; color:#f5ffe0; font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height:1.1; display:flex; align-items:center; }
+.schedule-title-inline .dotlocal { color:#00ed64; font-weight:700; }
+.schedule-title-inline .title-year { color:#9ff0c5; font-weight:700; text-shadow:0 0 4px rgba(0,237,100,0.35); }
+/* Allow title to shrink gracefully and wrap if needed */
+.schedule-title-inline { flex: 1 1 auto; min-width:280px; }
+@media (max-width:1400px){ .schedule-title-inline { font-size:1.4rem; } }
+@media (max-width:1100px){ .schedule-title-inline { font-size:1.25rem; } }
+@media (max-width:900px){ .schedule-title-inline { font-size:1.05rem; } }
+.share-tooltip { position:absolute; background:#063d30; color:#e9ff99; padding:12px 14px 14px; border:1px solid #9ff0c5; border-radius:14px; font-size:.8rem; width:260px; box-shadow:0 6px 18px rgba(0,0,0,0.4); z-index:12000; display:flex; flex-direction:column; gap:8px; animation:popIn 180ms ease; }
+.share-tooltip .share-tip-title { font-size:.85rem; letter-spacing:.5px; }
+.share-tooltip .share-tip-body { line-height:1.35; }
+.share-tooltip .share-tip-actions { display:flex; justify-content:flex-end; }
+.share-tooltip button.close { background:#e9ff99; border:0; color:#063d30; font-weight:600; padding:4px 12px; border-radius:8px; cursor:pointer; font-size:.7rem; }
+.share-tooltip::after { content:""; position:absolute; top:-10px; left:var(--arrow-left, 50%); transform:translateX(-50%) rotate(45deg); width:18px; height:18px; background:#063d30; border-left:1px solid #9ff0c5; border-top:1px solid #9ff0c5; }
+@keyframes popIn { 0% { transform:translateY(-6px); opacity:0; } 100% { transform:translateY(0); opacity:1; } }
 .brand-logo {
   height: 56px;
   width: auto;
   display: block;
 }
+.brand { display:flex; align-items:center; gap:18px; }
+.brand-divider { width:1px; height:46px; background:rgba(255,255,255,0.25); display:inline-block; }
+.brand-logo.legacy { height:48px; opacity:.9; }
+/* Focus ring for clickable legacy logo */
+.legacy-logo-link { display:inline-flex; align-items:center; }
+.legacy-logo-link:focus-visible { outline:3px solid #00ed64; outline-offset:4px; border-radius:6px; }
+@media (max-width:900px){ .brand { gap:12px; } .brand-logo { height:48px; } .brand-logo.legacy { height:42px; } .brand-divider { height:40px; } }
 .toolbar {
   display: flex;
   align-items: center;

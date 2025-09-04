@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', () =>
     let categoriesData=null;
     const selectedTags=new Set();
     let myScheduleIds=new Set();
+    // Track consecutive schedule clears to allow tooltip reset after 3 clears
+    let consecutiveClears=0;
     // Global persistence helper for bullet export field preferences
     function persistBulletPrefs() { try { if (window.__bulletFieldsSelected) localStorage.setItem('bulletFieldPrefs', JSON.stringify(window.__bulletFieldsSelected)); } catch { } }
     // --- Analytics helper (safe no-op if GA not present) ---
@@ -104,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () =>
         const loc=el('div', 'AgendaV2Styles__sessionModalLocationAndCodeContainer___72ac', normLoc(s.location));
         const actions=el('div', 'session-modal-actions'); const btn=el('button', 'sched-add-btn modal'+(myScheduleIds.has(s.id)? ' saved':''), myScheduleIds.has(s.id)? 'Saved':'Add to My Schedule'); btn.addEventListener('click', () => toggleSchedule(s.id)); actions.appendChild(btn);
         const desc=el('div', 'AgendaV2Styles__sessionModalDescription___72ac', s.description||'');
-        const tagWrap=el('div', 'tags-wrap'); (s.tags||[]).forEach(t => tagWrap.appendChild(el('span', 'tag-chip', t)));
+        const tagWrap=el('div', 'tags-wrap');[ ...(s.tags||[]) ].sort((a, b) => a.localeCompare(b)).forEach(t => tagWrap.appendChild(el('span', 'tag-chip', t)));
         if ((s.tags||[]).length) focus.appendChild(tagWrap);
         if (s.takeaway) { const tw=el('div', 'takeaway-callout'); tw.appendChild(el('span', 'label', 'AI-generated takeaway:')); tw.appendChild(document.createTextNode(' '+s.takeaway)); focus.appendChild(tw); }
         const speakers=el('div', 'AgendaV2Styles__sessionModalSpeakersWrapper___72ac speakers-grid'); (s.speakers||[]).forEach(sp => speakers.appendChild(buildSpeaker(sp)));
@@ -169,7 +171,39 @@ document.addEventListener('DOMContentLoaded', () =>
     function adjustHead(head, grid, scroller) { requestAnimationFrame(() => { const h=grid.querySelector('.loc-head')?.getBoundingClientRect().height||40; head.style.height=`${h}px`; if (scroller) scroller.style.setProperty('--loc-head-h', h+'px'); }); }
 
     // ---------- Filters ----------
-    function buildFilters() { if (!categoriesData||!filtersContainer) return; filtersContainer.innerHTML=''; const title=el('h3', 'filters-title', 'Filters'); filtersContainer.appendChild(title); const wrap=el('div', 'filters-content'); filtersContainer.appendChild(wrap); const known=new Set(); Object.values(categoriesData).forEach(arr => arr.forEach(t => known.add(t))); const used=new Set(); allSessions.forEach(s => (s.tags||[]).forEach(t => used.add(t))); const misc=[ ...used ].filter(t => !known.has(t)); const cats=[ ...Object.entries(categoriesData).map(([ n, t ]) => ({ name: n, tags: t })), ...(misc.length? [ { name: 'Misc', tags: misc } ]:[]) ]; cats.forEach(cat => { const sec=el('section', 'filter-category'); sec.appendChild(el('h4', 'filter-cat-title', cat.name)); const list=el('div', 'filter-tags'); cat.tags.forEach(tag => { const row=el('label', 'filter-tag'); const cb=document.createElement('input'); cb.type='checkbox'; cb.value=tag; cb.checked=selectedTags.has(tag); cb.addEventListener('change', () => { if (cb.checked) selectedTags.add(tag); else selectedTags.delete(tag); applyFilters(); }); row.appendChild(cb); row.appendChild(el('span', 'tag-label', tag)); list.appendChild(row); }); sec.appendChild(list); wrap.appendChild(sec); }); updateFiltersTitle(); }
+    function buildFilters()
+    {
+        if (!categoriesData||!filtersContainer) return;
+        filtersContainer.innerHTML='';
+        const title=el('h3', 'filters-title', 'Filters');
+        filtersContainer.appendChild(title);
+        const wrap=el('div', 'filters-content'); filtersContainer.appendChild(wrap);
+        const known=new Set(); Object.values(categoriesData).forEach(arr => arr.forEach(t => known.add(t)));
+        const used=new Set(); allSessions.forEach(s => (s.tags||[]).forEach(t => used.add(t)));
+        const misc=[ ...used ].filter(t => !known.has(t)).sort((a, b) => a.localeCompare(b));
+        const cats=[
+            ...Object.entries(categoriesData).map(([ n, t ]) => ({ name: n, tags: [ ...t ].sort((a, b) => a.localeCompare(b)) })),
+            ...(misc.length? [ { name: 'Misc', tags: misc } ]:[])
+        ];
+        let autoIdCounter=0;
+        cats.forEach(cat =>
+        {
+            const sec=el('section', 'filter-category');
+            sec.appendChild(el('h4', 'filter-cat-title', cat.name));
+            const list=el('div', 'filter-tags');
+            cat.tags.forEach(tag =>
+            {
+                const id=`filter-tag-${(++autoIdCounter)}`;
+                const row=document.createElement('div'); row.className='filter-tag';
+                const cb=document.createElement('input'); cb.type='checkbox'; cb.id=id; cb.name='filter_tag'; cb.value=tag; cb.checked=selectedTags.has(tag);
+                cb.addEventListener('change', () => { if (cb.checked) selectedTags.add(tag); else selectedTags.delete(tag); applyFilters(); });
+                const lbl=document.createElement('label'); lbl.setAttribute('for', id); lbl.className='tag-label'; lbl.textContent=tag;
+                row.appendChild(cb); row.appendChild(lbl); list.appendChild(row);
+            });
+            sec.appendChild(list); wrap.appendChild(sec);
+        });
+        updateFiltersTitle();
+    }
     function updateFiltersTitle() { const t=filtersContainer?.querySelector('.filters-title'); if (t) { const c=selectedTags.size; t.textContent=c? `Filters (${c})`:'Filters'; track('filters_change', { selected_count: c, filters: [ ...selectedTags ].join('|') }); } }
     function applyFilters(preserveScroll=false)
     {
@@ -269,7 +303,16 @@ document.addEventListener('DOMContentLoaded', () =>
         if (t.id==='btn-clear-schedule') {
             if (!myScheduleIds.size) return;
             if (!confirm(`Clear your schedule (${myScheduleIds.size} items)?`)) return;
-            const prevCount=myScheduleIds.size; myScheduleIds=new Set(); saveSchedule(); renderMySchedule(); applyFilters(true); track('schedule_clear', { previous_count: prevCount });
+            const prevCount=myScheduleIds.size; myScheduleIds=new Set();
+            // Re-add keynote by default after clear
+            try { const keynote=findKeynote(); if (keynote) myScheduleIds.add(keynote.id); } catch { }
+            saveSchedule(); renderMySchedule(); applyFilters(true); track('schedule_clear', { previous_count: prevCount });
+            consecutiveClears++;
+            if (consecutiveClears>=3) {
+                try { localStorage.removeItem('shareTooltipShown'); } catch { }
+                track('share_tooltip_reset', { method: 'triple_clear' });
+                consecutiveClears=0;
+            }
         }
         if (t.matches('[data-copy-export]')) {
             const type=t.getAttribute('data-copy-export');
@@ -480,6 +523,15 @@ document.addEventListener('DOMContentLoaded', () =>
     {
         allSessions=normalizeSessions(sessions);
         categoriesData=cats;
+        // On first load, if no stored schedule, preselect keynote
+        try {
+            if (!localStorage.getItem('myScheduleIds')) {
+                const keynote=findKeynote(); if (keynote) { myScheduleIds=new Set([ keynote.id ]); saveSchedule(); }
+            } else {
+                const ids=JSON.parse(localStorage.getItem('myScheduleIds')||'[]');
+                if (Array.isArray(ids)&&ids.length===0) { const keynote=findKeynote(); if (keynote) { myScheduleIds=new Set([ keynote.id ]); saveSchedule(); } }
+            }
+        } catch { }
         buildFilters();
         loadSchedule();
         applyFilters();
@@ -573,5 +625,68 @@ document.addEventListener('DOMContentLoaded', () =>
     (function trackScrollDepth() { const el=() => document.querySelector('.schedule-scroll'); const marks=new Set(); function handler() { const c=el(); if (!c) return; const ratio=c.scrollTop/(c.scrollHeight-c.clientHeight||1); const pct=Math.round(ratio*100);[ 25, 50, 75, 100 ].forEach(m => { if (pct>=m&&!marks.has(m)) { marks.add(m); track('scroll_depth', { percent: m }); } }); } const sc=el(); if (sc) { sc.addEventListener('scroll', handler, { passive: true }); handler(); } })();
     // Fire a page_ready event after content likely loaded
     setTimeout(() => { track('page_ready', { sessions: allSessions.length }); }, 3000);
+
+    // ---------- Keynote finder & share tooltip ----------
+    function findKeynote()
+    {
+        return allSessions.find(s => /keynote/i.test(s.title||''));
+    }
+    // Observe adds to show one-time share tooltip
+    const origToggle=toggleSchedule;
+    // Wrap existing toggle to detect first add (excluding the auto keynote pre-add)
+    // Already added via fastToggleSchedule path too; intercept both paths by centralizing show logic
+    function showShareTooltipOnce()
+    {
+        if (localStorage.getItem('shareTooltipShown')) return;
+        const btn=document.getElementById('btn-copy-clipboard'); if (!btn) return;
+        // Create tip
+        const tip=document.createElement('div'); tip.className='share-tooltip persistent';
+        tip.innerHTML='<div class="share-tip-title"><strong>Share / Export</strong></div><div class="share-tip-body">Copy a clean agenda, bullet list, or open meeting times. Perfect for outreach emails.</div><div class="share-tip-actions"><button type="button" class="close">Got it</button></div>';
+        document.body.appendChild(tip);
+        // Position relative to export button (anchor above & pointing down)
+        function position()
+        {
+            const r=btn.getBoundingClientRect();
+            const tipRect=tip.getBoundingClientRect();
+            const top=window.scrollY+r.bottom+12; // tooltip below button
+            // Ideal centered left
+            let left=window.scrollX+r.left+(r.width/2)-(tipRect.width/2);
+            const viewportLeft=window.scrollX+8;
+            const viewportRight=window.scrollX+window.innerWidth-8;
+            // Compute arrow offset BEFORE clamping reference center
+            let centerX=window.scrollX+r.left+r.width/2; // absolute center
+            if (left<viewportLeft) {
+                left=viewportLeft;
+            }
+            if (left+tipRect.width>viewportRight) {
+                left=viewportRight-tipRect.width;
+            }
+            // Arrow position relative to tooltip left
+            const arrowOffset=centerX-left;
+            // Clamp arrow within tooltip bounds (with small padding)
+            const pad=18; // ~half arrow width + breathing room
+            const clampedOffset=Math.min(Math.max(arrowOffset, pad), tipRect.width-pad);
+            tip.style.top=top+"px"; tip.style.left=left+"px";
+            tip.style.setProperty('--arrow-left', clampedOffset+'px');
+        }
+        position();
+        window.addEventListener('resize', position);
+        window.addEventListener('scroll', position, { passive: true });
+        const close=() => { if (!tip.isConnected) return; tip.remove(); localStorage.setItem('shareTooltipShown', '1'); window.removeEventListener('resize', position); window.removeEventListener('scroll', position); };
+        tip.querySelector('button.close')?.addEventListener('click', close);
+        // Close when export modal opens (user clicked button)
+        btn.addEventListener('click', () => close(), { once: true });
+    }
+    // Patch fastToggleSchedule to trigger tooltip when schedule count transitions from 0->1
+    const _fast=fastToggleSchedule;
+    fastToggleSchedule=function (id, card, btn)
+    {
+        const adding=!myScheduleIds.has(id); // state BEFORE toggle
+        _fast(id, card, btn);
+        if (adding) {
+            consecutiveClears=0; // reset clear streak after any add
+            showShareTooltipOnce(); // show on first add click only
+        }
+    };
 });
 

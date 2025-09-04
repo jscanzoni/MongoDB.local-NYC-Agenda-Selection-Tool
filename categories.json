@@ -16,13 +16,15 @@
     "Microservices",
     "Multi-Cloud / High Availability",
     "Scalability",
-    "Serverless"
+    "Serverless",
+    "Data Modeling"
   ],
   "Industry / Use Case": [
     "Financial Services",
     "Healthcare",
     "Oil & Gas / Energy",
-    "Retail / E-commerce"
+    "Retail / E-commerce",
+    "Insurance"
   ],
   "Audience & Role": [
     "Architect",

@@ -27,7 +27,7 @@
             "Search",
             "Vector Search"
         ],
-        "takeaway": "Learn what's new in MongoDB, how our customers are using it, and what's coming next in 'Keynote'."
+        "takeaway": "Discover what\u2019s new in MongoDB, how customers are leveraging the platform, and what\u2019s next on the roadmap."
     },
     {
         "title": "Integrating MongoDB Atlas Into Your Internal Developer Platform ending with a Customer Spotlight with Avalara",
@@ -58,7 +58,7 @@
             "Executive / Strategy",
             "Product Features"
         ],
-        "takeaway": "Hear real-world patterns and success stories in 'Integrating MongoDB Atlas Into Your Internal Developer Platform ending with a Customer Spotlight with Avalara'."
+        "takeaway": "Learn how to build a frictionless, self-service developer experience with MongoDB Atlas and hear from a customer about their success."
     },
     {
         "title": "From Local to Cloud: An Integrated Developer Tool Suite for Every Stage of Development",
@@ -81,9 +81,10 @@
             "Executive / Strategy",
             "Search",
             "Time Series / Streaming",
-            "Vector Search"
+            "Vector Search",
+            "AI"
         ],
-        "takeaway": "Apply AI patterns and tools you can use right away from 'From Local to Cloud: An Integrated Developer Tool Suite for Every Stage of Development'."
+        "takeaway": "Learn how to streamline your development process and build AI-powered applications quickly using MongoDB's integrated tools."
     },
     {
         "title": "\ud83d\udcbb Data Modeling for MongoDB: From Relational to Document Model",
@@ -107,9 +108,10 @@
         ],
         "tags": [
             "Architect",
-            "Hands-On / Workshop"
+            "Hands-On / Workshop",
+            "Data Modeling"
         ],
-        "takeaway": "Hands-on intermediate workshop: walk away with practical skills from '\ud83d\udcbb Data Modeling for MongoDB: From Relational to Document Model'."
+        "takeaway": "Get hands-on experience and earn a skill badge while learning how to design and build schemas for MongoDB applications."
     },
     {
         "title": "\ud83d\udcbb Building Agentic AI Apps with MongoDB Atlas and Amazon Bedrock",
@@ -130,9 +132,10 @@
             "Atlas",
             "Executive / Strategy",
             "Hands-On / Workshop",
-            "Search"
+            "Search",
+            "Vector Search"
         ],
-        "takeaway": "Hands-on intermediate workshop: walk away with practical skills from '\ud83d\udcbb Building Agentic AI Apps with MongoDB Atlas and Amazon Bedrock'."
+        "takeaway": "Gain hands-on experience building production-ready AI applications using MongoDB Atlas and Amazon Bedrock."
     },
     {
         "title": "Avoid the AI Monolith: Deploy Multi-Agent Systems with Confluent and MongoDB",
@@ -159,9 +162,10 @@
             "Developer",
             "Event-Driven",
             "Microservices",
-            "Time Series / Streaming"
+            "Time Series / Streaming",
+            "Scalability"
         ],
-        "takeaway": "Apply AI patterns and tools you can use right away from 'Avoid the AI Monolith: Deploy Multi-Agent Systems with Confluent and MongoDB'."
+        "takeaway": "Learn how to build scalable, multi-agent AI systems and avoid the monolith trap using an event-driven architecture."
     },
     {
         "title": "From Data to Intelligence: Accelerate AI Transformation Using MongoDB Atlas on Azure",
@@ -192,7 +196,7 @@
             "Healthcare",
             "Retail / E-commerce"
         ],
-        "takeaway": "Apply AI patterns and tools you can use right away from 'From Data to Intelligence: Accelerate AI Transformation Using MongoDB Atlas on Azure'."
+        "takeaway": "Discover how the partnership between Microsoft and MongoDB enables you to build secure, intelligent, AI-driven applications."
     },
     {
         "title": "MongoDB AI Arena",
@@ -217,9 +221,10 @@
         "tags": [
             "AI",
             "Architect",
-            "Atlas"
+            "Atlas",
+            "Demos"
         ],
-        "takeaway": "Apply AI patterns and tools you can use right away from 'MongoDB AI Arena'."
+        "takeaway": "Test your coding skills and compete with peers by building innovative AI-powered applications."
     },
     {
         "title": "AI-driven Monolith to Microservices using Infosys Live Enterprise Application Development Platform and MongoDB",
@@ -237,9 +242,10 @@
         ],
         "tags": [
             "Developer",
-            "Microservices"
+            "Microservices",
+            "AI"
         ],
-        "takeaway": "Apply AI patterns and tools you can use right away from 'AI-driven Monolith to Microservices using Infosys Live Enterprise Application Development Platform and MongoDB'."
+        "takeaway": "Learn how an AI-driven approach can simplify the complex process of migrating legacy systems to modern microservices architecture."
     },
     {
         "title": "Accelerating Predictive Maintenance in Oil & Gas with Gen AI: A Unified Solution Approach by Capgemini, AWS, and MongoDB",
@@ -260,7 +266,7 @@
             "Architect",
             "Oil & Gas / Energy"
         ],
-        "takeaway": "Apply AI patterns and tools you can use right away from 'Accelerating Predictive Maintenance in Oil & Gas with Gen AI: A Unified Solution Approach by Capgemini, AWS, and MongoDB'."
+        "takeaway": "Explore how generative AI is transforming the oil and gas industry and learn about a unified solution for predictive maintenance."
     },
     {
         "title": "Slash Your Cloud Bill with DigitalOcean's MCP Server",
@@ -271,9 +277,10 @@
         "speakers": [],
         "tags": [
             "AI",
-            "Developer"
+            "Developer",
+            "Demos"
         ],
-        "takeaway": "Apply AI patterns and tools you can use right away from 'Slash Your Cloud Bill with DigitalOcean's MCP Server'."
+        "takeaway": "See a live demo of how to use an AI-powered tool to understand and cut your cloud costs with simple prompts."
     },
     {
         "title": "Fostering an Inclusive Pack: Everyday Allyship in Tech",
@@ -304,7 +311,7 @@
             "Developer",
             "Inclusion / DEI"
         ],
-        "takeaway": "Gain clear, actionable takeaways from 'Fostering an Inclusive Pack: Everyday Allyship in Tech'."
+        "takeaway": "Learn simple, practical, and high-impact behaviors to foster a more inclusive and collaborative work environment."
     },
     {
         "title": "How to Architect an Agentic AI-Powered Predictive Maintenance Solution",
@@ -332,7 +339,7 @@
             "Atlas",
             "Product Features"
         ],
-        "takeaway": "Apply AI patterns and tools you can use right away from 'How to Architect an Agentic AI-Powered Predictive Maintenance Solution'."
+        "takeaway": "Discover how to architect a robust, agentic AI-powered predictive maintenance solution using MongoDB Atlas."
     },
     {
         "title": "Under the hood: Accelerating AI transformation with Atlas and Microsoft Azure",
@@ -361,7 +368,7 @@
             "Encryption/Security",
             "Financial Services"
         ],
-        "takeaway": "Apply AI patterns and tools you can use right away from 'Under the hood: Accelerating AI transformation with Atlas and Microsoft Azure'."
+        "takeaway": "Get a deep dive into the technical steps for building an AI-driven fraud detection solution with MongoDB Atlas and Microsoft Azure."
     },
     {
         "title": "Beyond Context Windows: Building Agent Memory Systems for Intelligent AI",
@@ -382,9 +389,10 @@
             "Architect",
             "Executive / Strategy",
             "Product Features",
-            "Search"
+            "Search",
+            "Vector Search"
         ],
-        "takeaway": "Apply AI patterns and tools you can use right away from 'Beyond Context Windows: Building Agent Memory Systems for Intelligent AI'."
+        "takeaway": "Learn how to build genuinely intelligent AI agents by designing and implementing sophisticated memory systems."
     },
     {
         "title": "MongoDB Search & Vector Search for use with Enterprise Server ending with a Customer Spotlight with The Washington Post",
@@ -415,7 +423,7 @@
             "Search",
             "Vector Search"
         ],
-        "takeaway": "Hear real-world patterns and success stories in 'MongoDB Search & Vector Search for use with Enterprise Server ending with a Customer Spotlight with The Washington Post'."
+        "takeaway": "Discover how to build powerful on-prem search applications with MongoDB Search and hear directly from The Washington Post about their experience."
     },
     {
         "title": "Building Agentic Document Workflows with LlamaIndex",
@@ -436,7 +444,7 @@
             "Architect",
             "Indexing"
         ],
-        "takeaway": "Apply AI patterns and tools you can use right away from 'Building Agentic Document Workflows with LlamaIndex'."
+        "takeaway": "Learn how to build multi-agent systems and automate complex document workflows with LlamaIndex and MongoDB."
     },
     {
         "title": "MongoDB Atlas and Google Cloud for Modern Finserv",
@@ -461,7 +469,8 @@
             "Product Features",
             "Search",
             "Vector Search"
-        ]
+        ],
+        "takeaway": "Explore how to build modern, AI-powered financial applications by combining MongoDB Atlas with Google Cloud's AI services."
     },
     {
         "title": "How MongoDB Empowers a Future-Proof Enterprise Architecture for Banking Modernization",
@@ -482,7 +491,7 @@
             "Executive / Strategy",
             "Financial Services"
         ],
-        "takeaway": "Apply AI patterns and tools you can use right away from 'How MongoDB Empowers a Future-Proof Enterprise Architecture for Banking Modernization'."
+        "takeaway": "Understand how MongoDB can help you create a future-proof data architecture to modernize banking and financial services."
     },
     {
         "title": "Building Highly Available Data Infrastructure: Beyond Redundancy ending with a Customer Spotlight with EY",
@@ -509,9 +518,10 @@
             "Customer Spotlight",
             "Executive / Strategy",
             "Multi-Cloud / High Availability",
-            "Product Features"
+            "Product Features",
+            "Scalability"
         ],
-        "takeaway": "Hear real-world patterns and success stories in 'Building Highly Available Data Infrastructure: Beyond Redundancy ending with a Customer Spotlight with EY'."
+        "takeaway": "Learn how to build a highly available and resilient data infrastructure and hear about real-world success from EY."
     },
     {
         "title": "Building Secure Applications: Practical Coding Examples with Queryable Encryption ending with a Customer Spotlight with Coinbase",
@@ -539,7 +549,7 @@
             "Product Features",
             "Search"
         ],
-        "takeaway": "Hear real-world patterns and success stories in 'Building Secure Applications: Practical Coding Examples with Queryable Encryption ending with a Customer Spotlight with Coinbase'."
+        "takeaway": "Learn how to build secure applications with practical coding examples of Queryable Encryption and hear a customer success story from Coinbase."
     },
     {
         "title": "Accelerate Enterprise Search: How Hybrid Vector and Text Search Unlocks Insights Across Enterprises ending with a Customer Spotlight with Anywhere Real Estate",
@@ -567,9 +577,11 @@
             "Product Features",
             "Retail / E-commerce",
             "Search",
-            "Time Series / Streaming"
+            "Time Series / Streaming",
+            "AI",
+            "Vector Search"
         ],
-        "takeaway": "Hear real-world patterns and success stories in 'Accelerate Enterprise Search: How Hybrid Vector and Text Search Unlocks Insights Across Enterprises ending with a Customer Spotlight with Anywhere Real Estate'."
+        "takeaway": "Discover how to implement hybrid search for powerful, next-generation enterprise search experiences and hear from Anywhere Real Estate."
     },
     {
         "title": "\ud83d\udcbb The A to Z of Building AI Agents",
@@ -596,7 +608,7 @@
             "Architect",
             "Hands-On / Workshop"
         ],
-        "takeaway": "Hands-on intermediate workshop: walk away with practical skills from '\ud83d\udcbb The A to Z of Building AI Agents'."
+        "takeaway": "Earn a skill badge and learn the fundamentals of building AI agents with MongoDB as the data and memory store."
     },
     {
         "title": "Building a Future-Ready Telematics Platform with MongoDB & Accenture",
@@ -619,9 +631,10 @@
         ],
         "tags": [
             "Developer",
-            "Time Series / Streaming"
+            "Time Series / Streaming",
+            "Architect"
         ],
-        "takeaway": "Gain clear, actionable takeaways from 'Building a Future-Ready Telematics Platform with MongoDB & Accenture'."
+        "takeaway": "Learn how to simplify your data architecture and accelerate development for time-centric applications using MongoDB Time Series collections."
     },
     {
         "title": "The New AI Reliability Playbook",
@@ -642,7 +655,7 @@
             "Developer",
             "Product Features"
         ],
-        "takeaway": "Apply AI patterns and tools you can use right away from 'The New AI Reliability Playbook'."
+        "takeaway": "Learn a new, modern framework for ensuring the reliability of your GenAI applications in production."
     },
     {
         "title": "Triage Without Tears: Building an AI-Powered Support Inbox with MongoDB",
@@ -659,9 +672,11 @@
             }
         ],
         "tags": [
-            "Developer"
+            "Developer",
+            "AI",
+            "Demos"
         ],
-        "takeaway": "Apply AI patterns and tools you can use right away from 'Triage Without Tears: Building an AI-Powered Support Inbox with MongoDB'."
+        "takeaway": "See a live prototype and learn a reusable pattern for building an AI-powered tool to triage inbound requests and support tickets."
     },
     {
         "title": "From Zero to Kiro, vibe coding Data API alternative leveraging the AWS agentic IDE",
@@ -689,9 +704,10 @@
             "Hands-On / Workshop",
             "Product Features",
             "Serverless",
-            "Time Series / Streaming"
+            "Time Series / Streaming",
+            "Demos"
         ],
-        "takeaway": "Hands-on beginner workshop: walk away with practical skills from 'From Zero to Kiro, vibe coding Data API alternative leveraging the AWS agentic IDE'."
+        "takeaway": "Get hands-on with a live demonstration of building a production-ready REST API using AWS Lambda, MongoDB Atlas, and Amazon's new AI-assisted IDE Kiro."
     },
     {
         "title": "Methodology and Foundations of Data Modeling for MongoDB",
@@ -708,9 +724,10 @@
             }
         ],
         "tags": [
-            "Architect"
+            "Architect",
+            "Data Modeling"
         ],
-        "takeaway": "Apply AI patterns and tools you can use right away from 'Methodology and Foundations of Data Modeling for MongoDB'."
+        "takeaway": "Learn a simple, proven methodology and get expert tips for designing your MongoDB application schema."
     },
     {
         "title": "Voices of Impact Panel: Women Shaping Tech Today and Tomorrow",
@@ -730,7 +747,7 @@
             "Developer",
             "Inclusion / DEI"
         ],
-        "takeaway": "Gain clear, actionable takeaways from 'Voices of Impact Panel: Women Shaping Tech Today and Tomorrow'."
+        "takeaway": "Gain inspiration and real-world career advice from women who are leading and shaping the tech industry."
     },
     {
         "title": "Accelerate Your Development with the Latest MongoDB Innovations",
@@ -756,9 +773,11 @@
             "Architect",
             "Hands-On / Workshop",
             "Product Features",
-            "Time Series / Streaming"
+            "Time Series / Streaming",
+            "Developer",
+            "Demos"
         ],
-        "takeaway": "Hands-on intermediate workshop: walk away with practical skills from 'Accelerate Your Development with the Latest MongoDB Innovations'."
+        "takeaway": "Get hands-on with a live demo to learn how MongoDB's newest features can accelerate your application development."
     },
     {
         "title": "TinyFish + MongoDB: The Internet as Your Dataset",
@@ -780,7 +799,7 @@
             "Executive / Strategy",
             "Product Features"
         ],
-        "takeaway": "Apply AI patterns and tools you can use right away from 'TinyFish + MongoDB: The Internet as Your Dataset'."
+        "takeaway": "Learn how to transform the entire internet into a structured, query-ready dataset for your MongoDB collections using autonomous agents."
     },
     {
         "title": "Building Agentic Generative AI Apps with MongoDB Atlas on AWS",
@@ -802,7 +821,7 @@
             "Atlas",
             "Serverless"
         ],
-        "takeaway": "Apply AI patterns and tools you can use right away from 'Building Agentic Generative AI Apps with MongoDB Atlas on AWS'."
+        "takeaway": "Learn how to build sophisticated, context-aware generative AI applications using MongoDB Atlas and AWS."
     },
     {
         "title": "Unleash Enterprise-Ready Governed GenAI with Watsonx.ai and your Mongo Data",
@@ -830,9 +849,10 @@
             "Atlas",
             "Encryption/Security",
             "Executive / Strategy",
-            "Hands-On / Workshop"
+            "Hands-On / Workshop",
+            "Vector Search"
         ],
-        "takeaway": "Hands-on intermediate workshop: walk away with practical skills from 'Unleash Enterprise-Ready Governed GenAI with Watsonx.ai and your Mongo Data'."
+        "takeaway": "Discover how to build secure, scalable, and governed GenAI applications by integrating IBM watsonx.ai and MongoDB Atlas."
     },
     {
         "title": "MongoDB AI Arena",
@@ -857,9 +877,10 @@
         "tags": [
             "AI",
             "Atlas",
-            "Developer"
+            "Developer",
+            "Demos"
         ],
-        "takeaway": "Apply AI patterns and tools you can use right away from 'MongoDB AI Arena'."
+        "takeaway": "Test your coding skills and compete with peers by building innovative AI-powered applications."
     },
     {
         "title": "Powering Event-Driven Applications with Kafka, MongoDB, and Atlas Stream Processing ending with a Customer Spotlight with Resmed",
@@ -891,7 +912,7 @@
             "Product Features",
             "Time Series / Streaming"
         ],
-        "takeaway": "Hands-on intermediate workshop: walk away with practical skills from 'Powering Event-Driven Applications with Kafka, MongoDB, and Atlas Stream Processing ending with a Customer Spotlight with Resmed'."
+        "takeaway": "Gain hands-on expertise to build real-time streaming solutions with MongoDB Atlas Stream Processing and Kafka."
     },
     {
         "title": "Embedding the Future: How Modern Databases Are Eating Search with Microsoft",
@@ -920,9 +941,10 @@
             "Executive / Strategy",
             "Product Features",
             "Search",
-            "Vector Search"
+            "Vector Search",
+            "Demos"
         ],
-        "takeaway": "Apply AI patterns and tools you can use right away from 'Embedding the Future: How Modern Databases Are Eating Search with Microsoft'."
+        "takeaway": "Discover how MongoDB Atlas and Microsoft Azure work together to solve real-world AI challenges with a live, end-to-end demo."
     },
     {
         "title": "Transforming Wealth Management with Agentic AI and MongoDB",
@@ -951,9 +973,11 @@
             "Product Features",
             "Search",
             "Time Series / Streaming",
-            "Vector Search"
+            "Vector Search",
+            "Financial Services",
+            "Demos"
         ],
-        "takeaway": "Apply AI patterns and tools you can use right away from 'Transforming Wealth Management with Agentic AI and MongoDB'."
+        "takeaway": "Explore a reference architecture and see a live demo of how Agentic AI and MongoDB are transforming wealth management with intelligent investment solutions."
     },
     {
         "title": "\ud83d\udcbb Atlas Search Fundamentals: Learn How to Configure, Query, and Tune for Relevant Search Results",
@@ -982,7 +1006,7 @@
             "Indexing",
             "Search"
         ],
-        "takeaway": "Hands-on all levels workshop: walk away with practical skills from '\ud83d\udcbb Atlas Search Fundamentals: Learn How to Configure, Query, and Tune for Relevant Search Results'."
+        "takeaway": "Earn a skill badge and gain hands-on experience with the fundamentals of building and tuning search capabilities in your applications with Atlas Search."
     },
     {
         "title": "\ud83d\udcbb MongoDB Security Basics",
@@ -1008,9 +1032,10 @@
             "Architect",
             "Atlas",
             "Encryption/Security",
-            "Hands-On / Workshop"
+            "Hands-On / Workshop",
+            "DBA"
         ],
-        "takeaway": "Hands-on intermediate workshop: walk away with practical skills from '\ud83d\udcbb MongoDB Security Basics'."
+        "takeaway": "Earn a skill badge and learn the practical steps to secure your MongoDB Atlas deployments with authentication, authorization, and encryption."
     },
     {
         "title": "Building Next-Generation Applications with MongoDB Atlas and Google Cloud AI",
@@ -1028,9 +1053,10 @@
         ],
         "tags": [
             "Atlas",
-            "Developer"
+            "Developer",
+            "AI"
         ],
-        "takeaway": "Apply AI patterns and tools you can use right away from 'Building Next-Generation Applications with MongoDB Atlas and Google Cloud AI'."
+        "takeaway": "Learn how to build intelligent, next-generation applications by integrating MongoDB Atlas with the Google Cloud AI ecosystem."
     },
     {
         "title": "Events at the Movies with Atlas Stream Processing",
@@ -1049,8 +1075,10 @@
         "tags": [
             "Atlas",
             "Developer",
-            "Time Series / Streaming"
-        ]
+            "Time Series / Streaming",
+            "Event-Driven"
+        ],
+        "takeaway": "Gain a clear, practical mental model for working with real-time data and event processing using Atlas Stream Processing."
     },
     {
         "title": "Scaling Context Intelligence: The Architecture Behind Factory\u2019s Retrieval Engine",
@@ -1068,8 +1096,11 @@
         "tags": [
             "Architect",
             "Executive / Strategy",
-            "Search"
-        ]
+            "Search",
+            "AI",
+            "Vector Search"
+        ],
+        "takeaway": "Get a technical deep dive into the architecture and design patterns used for building a scalable and resilient retrieval engine."
     },
     {
         "title": "Building for Scale: How MongoDB Atlas Grows with You",
@@ -1088,8 +1119,10 @@
             "Architect",
             "Atlas",
             "DevOps",
-            "Multi-Cloud / High Availability"
-        ]
+            "Multi-Cloud / High Availability",
+            "Scalability"
+        ],
+        "takeaway": "Learn how to effortlessly manage and scale your database from an MVP to a global application using MongoDB Atlas."
     },
     {
         "title": "Scale Smart: Choosing Between Vertical Scaling and Horizontal Scaling",
@@ -1112,8 +1145,11 @@
         ],
         "tags": [
             "Architect",
-            "Executive / Strategy"
-        ]
+            "Executive / Strategy",
+            "Scalability",
+            "DBA"
+        ],
+        "takeaway": "Learn how to choose the right scaling strategy for your MongoDB deployment to optimize performance and cost."
     },
     {
         "title": "Accelerate Your Development with the Latest MongoDB Innovations with Google",
@@ -1126,8 +1162,11 @@
             "Architect",
             "Hands-On / Workshop",
             "Product Features",
-            "Time Series / Streaming"
-        ]
+            "Time Series / Streaming",
+            "Developer",
+            "Demos"
+        ],
+        "takeaway": "Get hands-on with a live demo to learn how MongoDB's newest features can accelerate your application development."
     },
     {
         "title": "Solving the Mystery of Index Use ending with a Customer Spotlight with Conde Nast",
@@ -1152,13 +1191,15 @@
             "Architect",
             "Customer Spotlight",
             "Indexing",
-            "Product Features"
-        ]
+            "Product Features",
+            "DBA"
+        ],
+        "takeaway": "Unravel the mystery of MongoDB indexes with practical examples and learn best practices for performance tuning, including a customer story from Conde Nast."
     },
     {
         "title": "Birds of a Feather Welcome Reception",
         "time": "8:15 AM-8:45 AM",
-        "level": "",
+        "level": "All Levels",
         "location": "I.D.E.A. Lounge",
         "description": "Calling all MongoDB ERG members and first-time .local NYC attendees! Kick-start your .local New York City experience by joining us in the I.D.E.A. Lounge for a casual coffee and networking session. This is a perfect opportunity to meet fellow community members, connect with ERG leaders, and energize for the day ahead. We can't wait to welcome you!",
         "speakers": [
@@ -1170,14 +1211,15 @@
             }
         ],
         "tags": [
-            "Product Features"
+            "Networking",
+            "Community Event"
         ],
-        "takeaway": "Apply AI patterns and tools you can use right away from 'Birds of a Feather Welcome Reception'."
+        "takeaway": "Connect with fellow community members and get ready for a great day at .local NYC."
     },
     {
         "title": "Early Talent Programs at MongoDB",
         "time": "10:45 AM-11:10 AM",
-        "level": "",
+        "level": "All Levels",
         "location": "I.D.E.A Spotlight Theater",
         "description": "MongoDB\u2019s Early Talent Programs offer students the opportunity to gain real-world experience, build technical and professional skills, and take their first step in a career in tech. This session will cover all our early talent programs, with a specific focus on our internship experience. We\u2019ll break down the application and interview process, highlight the exciting projects interns work on, and show how mentorship and a strong community help interns grow and succeed. By the end of the session, we hope you\u2019ll have a clear understanding of what our Early Talent programs offer, how to get involved, and how to prepare to make the most of these opportunities.",
         "speakers": [
@@ -1189,9 +1231,10 @@
             }
         ],
         "tags": [
-            "Developer"
+            "Developer",
+            "Networking"
         ],
-        "takeaway": "Apply AI patterns and tools you can use right away from 'Early Talent Programs at MongoDB'."
+        "takeaway": "Learn about MongoDB's early talent programs and gain insights into the application and interview process."
     },
     {
         "title": "Three MongoDB Features You\u2019re Probably Not Using (But Should Be)",
@@ -1213,14 +1256,15 @@
             "Encryption/Security",
             "Multi-Cloud / High Availability",
             "Product Features",
-            "Time Series / Streaming"
+            "Time Series / Streaming",
+            "DBA"
         ],
-        "takeaway": "Apply AI patterns and tools you can use right away from 'Three MongoDB Features You\u2019re Probably Not Using (But Should Be)'."
+        "takeaway": "Unlock powerful, under-the-radar MongoDB features to boost your application's security, performance, and availability."
     },
     {
         "title": "Unlocking true Application Modernization with MongoDB",
         "time": "10:45 AM-11:30 AM",
-        "level": "",
+        "level": "All Levels",
         "location": "Central Park Stage",
         "description": "The AI era is driving innovation at lightning speed, opening massive opportunities for enterprises to modernize legacy applications. But complex, tangled legacy tech stacks hold them back\u2014fueling compliance risks, soaring costs, and sluggish innovation. Traditional \"lift and shift\" approaches merely move problems to new systems without cutting technical debt or boosting developer productivity. MongoDB is the game-changing database built for the AI era. Backed by trusted technology, experts, and processes, discover how MongoDB becomes your powerhouse partner in accelerating true application modernization",
         "speakers": [
@@ -1233,9 +1277,10 @@
         ],
         "tags": [
             "AI",
-            "Product Features"
+            "Product Features",
+            "Executive / Strategy"
         ],
-        "takeaway": "Apply AI patterns and tools you can use right away from 'Unlocking true Application Modernization with MongoDB'."
+        "takeaway": "Learn how MongoDB can help your enterprise overcome legacy challenges and accelerate application modernization for the AI era."
     },
     {
         "title": "The Converged Datastore: Agentic for Insurance and Other Industries ending with a Customer Spotlight with Tokio Marine",
@@ -1256,14 +1301,15 @@
             "Architect",
             "Customer Spotlight",
             "Executive / Strategy",
-            "Product Features"
+            "Product Features",
+            "Insurance"
         ],
-        "takeaway": "Hear real-world patterns and success stories in 'The Converged Datastore: Agentic for Insurance and Other Industries ending with a Customer Spotlight with Tokio Marine'."
+        "takeaway": "Understand how Agentic AI is changing data architecture and hear real-world insights from Tokio Marine on their technology portfolio strategy."
     },
     {
         "title": "The State of AI-Powered Search and Retrieval",
         "time": "11:55 AM-12:15 PM",
-        "level": "",
+        "level": "Intermediate",
         "location": "Product Booth",
         "description": "In this talk, we examine the state-of-the-art in AI-powered search and retrieval. We detail techniques for enhancing performance beyond base embedding models, including hybrid search, reranking strategies, query decomposition and document enrichment, the use of domain-specific and fine-tuned embeddings, custom data processing pipelines (ETL), and contextualized chunking methods.",
         "speakers": [
@@ -1275,9 +1321,11 @@
             }
         ],
         "tags": [
-            "Search"
+            "Search",
+            "AI",
+            "Vector Search"
         ],
-        "takeaway": "Apply AI patterns and tools you can use right away from 'The State of AI-Powered Search and Retrieval'."
+        "takeaway": "Get a deep dive into advanced techniques and best practices for building state-of-the-art AI-powered search and retrieval systems."
     },
     {
         "title": "Build, Secure, and Scale Your Financial AI with Confidence",
@@ -1298,14 +1346,15 @@
             "Developer",
             "Encryption/Security",
             "Financial Services",
-            "Product Features"
+            "Product Features",
+            "Scalability"
         ],
-        "takeaway": "Apply AI patterns and tools you can use right away from 'Build, Secure, and Scale Your Financial AI with Confidence'."
+        "takeaway": "Learn a practical blueprint for building secure, scalable, and reliable financial AI applications."
     },
     {
         "title": "\ud83d\udcbb From SQL to the MongoDB Query API",
         "time": "1:30 PM-3:15 PM",
-        "level": "",
+        "level": "Intermediate",
         "location": "Workshop Room A - 405",
         "description": "Skill badge opportunity: CRUD Operations \ud83d\udcbb You'll need your laptop to fully participate in this hands-on session.Are you ready to get hands-on and write queries using the MongoDB Query API? Join us for an engaging workshop that will take you on a transformative journey, allowing you to translate your existing RDBMS querying knowledge into new MongoDB Query API skills. Through interactive exercises, you will skillfully transition your RDBMS expertise into the MongoDB Query API. You\u2019ll delve into the fundamentals of CRUD operations, create new queries adapted to the document-model patterns used in MongoDB, and build complex aggregation pipelines to fully utilize MongoDB\u2019s powerful server-side data analytic capabilities. We can't wait to see you there!",
         "speakers": [
@@ -1318,14 +1367,16 @@
         ],
         "tags": [
             "Hands-On / Workshop",
-            "Product Features"
+            "Product Features",
+            "Developer",
+            "Data Modeling"
         ],
-        "takeaway": "Hands-on  workshop: walk away with practical skills from '\ud83d\udcbb From SQL to the MongoDB Query API'."
+        "takeaway": "Gain hands-on experience and earn a skill badge while learning to translate your SQL knowledge into the MongoDB Query API."
     },
     {
         "title": "Integrating MongoDB Atlas With Your Internal Developer Platform (IDP)",
         "time": "1:40 PM-2:00 PM",
-        "level": "",
+        "level": "Intermediate",
         "location": "Product Booth",
         "description": "Operations and platform engineering teams are critical in enabling developers to innovate and build with MongoDB Atlas at scale. This session will demonstrate how to create a starter Atlas landing zone with Backstage.io, Terraform, and GitHub. By implementing an Atlas landing zone, you can provide a frictionless, self-service developer experience for MongoDB Atlas while enforcing key security and operational guardrails required by your business.",
         "speakers": [
@@ -1339,15 +1390,16 @@
         "tags": [
             "Atlas",
             "DevOps",
-            "Encryption/Security"
+            "Encryption/Security",
+            "Architect"
         ],
-        "takeaway": "Apply AI patterns and tools you can use right away from 'Integrating MongoDB Atlas With Your Internal Developer Platform (IDP)'."
+        "takeaway": "Learn how to create a self-service developer experience for MongoDB Atlas using an internal developer platform."
     },
     {
         "title": "Faster, Safer MongoDB Workflows That Scale",
         "time": "3:00 PM-3:20 PM",
         "level": "All Levels",
-        "location": "",
+        "location": "Product Booth",
         "description": "3T wants to transform the way you manage your MongoDB workflows. In this session, we\u2019ll explore how enterprise teams can accelerate MongoDB-based and data operations by combining intelligent, visual tooling with context-aware agentic AI, and extensible ETLs. We\u2019ll highlight the key challenges holding data teams back - from fragmented toolchains to painful aggregation workflows - and show how new Studio 3T solutions address them with a unified experience that\u2019s fast, scalable, and server-based.Through a live demo, we\u2019ll demonstrate how Studio 3T Web can help your team deliver faster and with fewer errors - from smarter query building and collaborative aggregations to reusable pipelines.",
         "speakers": [
             {
@@ -1360,9 +1412,10 @@
         "tags": [
             "AI",
             "Developer",
-            "Product Features"
+            "Product Features",
+            "Demos"
         ],
-        "takeaway": "Apply AI patterns and tools you can use right away from 'Faster, Safer MongoDB Workflows That Scale'."
+        "takeaway": "Learn how to accelerate MongoDB workflows and improve productivity with intelligent tooling and agentic AI through a live demo."
     },
     {
         "title": "watsonx and MongoDB: Scale the Impact of Generative AI with Trusted Data and Governance",
@@ -1385,7 +1438,7 @@
             "Healthcare",
             "Product Features"
         ],
-        "takeaway": "Apply AI patterns and tools you can use right away from 'watsonx and MongoDB: Scale the Impact of Generative AI with Trusted Data and Governance'."
+        "takeaway": "Learn how to build, scale, and govern generative AI applications responsibly with IBM watsonx and MongoDB."
     },
     {
         "title": "Demopalooza",
